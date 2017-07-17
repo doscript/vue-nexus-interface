@@ -1,6 +1,4 @@
-<h1 align="center"><strong>vue-boilerplate-template</strong></h1>
-
-A Nice Boilerplate Template for creating medium plus Vue.js projects.
+<h1 align="center"><strong>vue-nexus-interface</strong></h1>
 
 ## Goal and Philosophy
 
@@ -13,10 +11,10 @@ For how to build medium-sized (+) VUE projects, provide some reference based on 
 ## Usage
 
 ```
-git clone https://github.com/nicejade/vue-boilerplate-template (your-project-name)
+git clone https://github.com/musheng66/vue-nexus-interface.git your-project-name
 cd your-project-name
-npm install (npm i / yarn)
-npm run dev /  npm start
+npm install
+npm run dev
 ```
 
 ## Dependent plugin list
@@ -37,5 +35,3 @@ npm run dev /  npm start
 ## Writing
 
 See the example in the template.
-
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
