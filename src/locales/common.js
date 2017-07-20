@@ -1,6 +1,6 @@
 export default {
   zh: {
-    projectTitle: 'Vue样板模板',
+    projectTitle: 'E人E本',
     cancel: '取 消',
     confirm: '确 定',
 
@@ -18,7 +18,7 @@ export default {
   },
 
   en: {
-    projectTitle: 'Vue-Boilerplate-Template',
+    projectTitle: 'EBEN',
     cancel: 'Cancel',
     confirm: 'Confirm',
 

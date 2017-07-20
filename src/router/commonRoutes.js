@@ -4,16 +4,30 @@
 import NotFound from '@views/exception/NotFound'
 export default [
   {
+    path: '/',
+    meta: {
+      title: '首页',
+      ignoreAuth: true
+    },
+    component: resolve => require(['@/views/Index'], resolve)
+  },
+  {
+    path: '/index',
+    name: 'Index',
+    meta: {
+      title: '首页',
+      ignoreAuth: true
+    },
+    component: resolve => require(['@/views/Index'], resolve)
+  },
+  {
     path: '/login',
+    name: 'Login',
     meta: {
       title: '登录',
       ignoreAuth: true
     },
-    component: resolve => require(['../views/Login'], resolve)
-  },
-  {
-    path: '/',
-    redirect: '/demo/form'
+    component: resolve => require(['@/views/Login'], resolve)
   },
   {
     path: '*',

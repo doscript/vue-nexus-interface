@@ -1,6 +1,16 @@
 // color
+$char-color: #fff;
+$char-hover-color: #999;
+
+// header
 $blue: #03a9f4;           // header
 $dark-blue: #0c82df;      // header hover
+
+$header-color: #333;           // header
+$header-hover-color: #444;      // header hover
+
+// sideNav
+$side-nav-color: #{$header-color};  // default sideNav bg
 
 $grey: #e8ebf1;           // body bg
 $bg-grey: #fafcff;        // module-header bg
@@ -21,4 +31,4 @@ $font-small: 12px;
 $header-height: 60px;
 
 // width
-$sidenav-width: 200px;
+$sidenav-width: 100%;

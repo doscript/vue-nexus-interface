@@ -18,7 +18,7 @@ export default {
         next()
       } else {
         next({
-          path: '/login'
+          path: '/index'
         })
       }
     }

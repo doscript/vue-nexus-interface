@@ -8,7 +8,7 @@
       <el-menu-item v-if="!isContainMore(item)"
         :class="item.path === $route.path ? 'is-active': ''"
         :index="item.path"
-        @click="onMenuItemClick(item.path)">
+        @click="onMenuItemClick(item.path)" style="padding-left: 50px;">
         {{ item.title[$currentLang] }}
       </el-menu-item>
       <side-nav-node :model="item"></side-nav-node>

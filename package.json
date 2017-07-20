@@ -1,8 +1,8 @@
 {
   "name": "vue-boilerplate-template",
   "version": "0.0.1",
-  "description": "A Nice Boilerplate Template for creating medium plus Vue.js projects ",
-  "author": "jade.yang <yunjeff@163.com>",
+  "description": "A Vue.js project",
+  "author": "MuSheng",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -10,36 +10,25 @@
     "build": "node build/build.js",
     "cli": "cd cli && npm i -g && cd -",
     "build:dll": "webpack --config build/webpack.dll.conf.js",
-    "lint-staged": "lint-staged",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "e2e": "node test/e2e/runner.js",
-    "test": "npm run unit && npm run e2e",
-    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
+    "test": "npm run unit && npm run e2e"
   },
   "pre-commit": [
     "precommit-msg",
     "lint-staged"
   ],
-  "lint-staged": {
-    "linters": {
-      "src/**/*.{js,vue}": "eslint -f ./node_modules/eslint-friendly-formatter"
-    }
-  },
   "dependencies": {
     "babel-polyfill": "^6.20.0",
     "bootstrap": "^4.0.0-alpha.6",
-    "element-ui": "^1.2.2",
-    "js-cookie": "^2.1.3",
+    "element-ui": "^1.3.7",
     "lodash": "^4.17.4",
     "moment": "^2.16.0",
-    "q": "^1.4.1",
-    "superagent": "^3.0.0",
     "vue": "^2.2.2",
     "vue-i18n": "^5.0.3",
     "vue-router": "^2.2.0",
-    "vuex": "^2.1.2",
-    "vuex-persistedstate": "^1.4.1"
+    "vuex": "^2.1.2"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",
@@ -59,13 +48,6 @@
     "cross-env": "^3.1.4",
     "cross-spawn": "^5.0.1",
     "css-loader": "^0.26.1",
-    "eslint": "^3.14.1",
-    "eslint-config-standard": "^6.2.1",
-    "eslint-friendly-formatter": "^2.0.7",
-    "eslint-loader": "^1.6.1",
-    "eslint-plugin-html": "^2.0.0",
-    "eslint-plugin-promise": "^3.4.0",
-    "eslint-plugin-standard": "^2.0.1",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.14.1",
     "extract-text-webpack-plugin": "^2.0.0",
@@ -80,7 +62,6 @@
     "karma-coverage": "^1.1.1",
     "karma-mocha": "^1.3.0",
     "karma-phantomjs-launcher": "^1.0.2",
-    "karma-sinon-chai": "^1.2.4",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^2.0.2",

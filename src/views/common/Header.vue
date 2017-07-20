@@ -31,7 +31,6 @@
 
 <script>
 import Vue from 'vue'
-import Cookies from 'js-cookie'
 
 export default {
   name: 'header',
@@ -61,7 +60,7 @@ export default {
 
     onLogoutClick () {
       this.$apis.user.logout().then(result => {
-        Cookies.remove('isLogin')
+        window.localStorage.removeItem('isLogin');
 
         this.$store.commit('$vuexSetUserInfo', {})
         this.$router.push('/login')
@@ -73,7 +72,7 @@ export default {
 
     onSwitchClick () {
       let targetLang = this.$currentLang === 'zh' ? 'en' : 'zh'
-      Cookies.set('lang', targetLang)
+      window.localStorage.setItem('lang', targetLang)
       Vue.config.lang = targetLang
     }
   }
@@ -90,7 +89,7 @@ export default {
   height: $header-height;
   width: 100%;
   min-width: 320px;
-  background-color: $blue;
+  background-color: $header-color;
   @include clearfix();
 
   a {
@@ -128,12 +127,15 @@ export default {
     width: 60px;
     height: 60px;
   }
+  .menu:hover {
+    background: $header-color;
+  }
   .notification {
     float: right;
     padding: 20px;
 
     &:hover {
-      background-color: $dark-blue;
+      background-color: $header-hover-color;
     }
   }
   .operate {
@@ -146,7 +148,7 @@ export default {
         min-width: 150px !important;
       }
       > a {
-        background-color: $dark-blue;
+        background-color: $header-hover-color;
       }
     }
     > a {
@@ -155,7 +157,7 @@ export default {
       color: #fff;
     }
     .active {
-      background-color: $dark-blue;
+      background-color: $header-hover-color;
     }
     .avatar {
       display: inline-block;
@@ -202,6 +204,7 @@ export default {
     .menu {
       display: block;
     }
+
     .logo {
       text-align: center;
       @include absolute-center;
@@ -219,6 +222,10 @@ export default {
         white-space: nowrap;
       }
     }
+  }
+
+  .menu-expand .menu {
+    background-color: $header-color;
   }
 }
 </style>
