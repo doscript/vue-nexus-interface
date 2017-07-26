@@ -8,7 +8,8 @@ import commonRoutesMap from './commonRoutes'
 Vue.use(Router)
 
 const routerInstance = new Router({
-  mode: 'history',
+  //mode: 'history',
+  mode: 'hash',
   linkActiveClass: 'active',
   scrollBehavior: () => ({ y: 0 }),
   routes: RoutesMapConfig.concat(commonRoutesMap)

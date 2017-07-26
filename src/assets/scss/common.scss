@@ -4,13 +4,18 @@
   box-sizing: border-box;
 }
 
+figure {
+  margin: 0;
+  padding: 0;
+}
+
 *:focus {
   outline: none !important;
 }
 
 body {
   font: normal 14px/1 'Lantinghei SC', 'Open Sans', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', 'Microsoft YaHei', STHeiti, SimSun, Arial, sans-serif;
-  background-color: $grey;
+  background-color: $page-background-color;
 }
 
 h1,
@@ -51,6 +56,14 @@ table {
 
 label {
   font-weight: normal;
+}
+
+section::after {
+  clear: both;
+}
+
+div.clear {
+  clear: both;
 }
 
 .text-label {

@@ -1,16 +1,25 @@
 // color
 $char-color: #fff;
 $char-hover-color: #999;
+$main-color: #000;  // main theme color
+$main-hover-color: #444;
+$unimportant-char-color: #aaa;
+$unimportant-char-color-hover: #eee;
+
+$page-background-color: #{$main-color};
+$info-nav-hover-color: #{$char-hover-color};
 
 // header
 $blue: #03a9f4;           // header
 $dark-blue: #0c82df;      // header hover
 
-$header-color: #333;           // header
-$header-hover-color: #444;      // header hover
+$header-color: #{$main-color};           // header
+$header-hover-color: #{$main-hover-color};      // header hover
 
 // sideNav
 $side-nav-color: #{$header-color};  // default sideNav bg
+$side-nav-border-color: #666;
+$side-nav-font-weight: normal;
 
 $grey: #e8ebf1;           // body bg
 $bg-grey: #fafcff;        // module-header bg
@@ -31,4 +40,9 @@ $font-small: 12px;
 $header-height: 60px;
 
 // width
+$full-percent-width: 100%;
 $sidenav-width: 100%;
+$topnav-width: 768px;
+$common-content-width: 768px;
+
+$responsive-width-small: 768px;

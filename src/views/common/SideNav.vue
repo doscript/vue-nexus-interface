@@ -1,9 +1,11 @@
 <template>
   <div class="sidenav">
-    <el-menu router unique-opened theme="dark" :default-openeds="defaultOpeneds" >
+    <el-menu unique-opened theme="dark" :default-openeds="defaultOpeneds" >
       <template v-for="(item, index) in sideNav">
         <side-nav-node :model="item" v-if="item.children"></side-nav-node>
-        <el-menu-item v-else :index="item.path" class="single-menu-item" style="padding-left: 35px;">{{ item.title[$currentLang] }}</el-menu-item>
+        <a v-else :href="item.path" :target="item.target" class="open-target">
+          <el-menu-item index="item.id" class="single-menu-item" style="padding-left: 35px;">{{ item.title[$currentLang] }}</el-menu-item>
+        </a>
       </template>
     </el-menu>
   </div>
@@ -31,41 +33,80 @@ export default {
 
 <style lang="scss">
   @import './../../assets/scss/variables.scss';
-  @import './../../assets/scss/mixins.scss';
-  #app {
 
-    .el-menu--dark .el-menu-item, .el-menu--dark .el-submenu__title {
-      color: $char-color;
-      background-color: $side-nav-color;
-    }
-    .el-menu--dark .el-submenu__title {
-      border-bottom: 1px solid #{$char-color};
-    }
-    .el-menu--dark .el-menu-item:hover, .el-menu--dark .el-submenu__title:hover {
-      color: $char-hover-color;
-    }
-    .el-menu .el-menu-item.single-menu-item {
-      border-bottom: 1px solid #fff;
-    }
-    .el-menu .el-menu-item.single-menu-item::before {
-      padding-left: 20px;
-    }
-
-  }
-
-  .sidenav {
+  #app .sidenav {
     height: 0;
     min-height: inherit;
     background-color: $side-nav-color;
     padding: 0 20px;
     overflow: hidden;
     transition: all 0.75s ease;
-  }
 
-  @media (max-width: 768px){
-    .menu-expand .sidenav {
-      height: calc(100% - #{$header-height});
+    .el-menu--dark {
+      background: $side-nav-color;
+      padding-bottom: 20px;
+
+      .el-menu-item {
+        color: $char-color;
+        background-color: $side-nav-color;
+      }
+
+      .el-submenu__title {
+        color: $char-color;
+        background-color: $side-nav-color;
+        border-bottom: 1px solid #{$side-nav-border-color};
+        font-weight: $side-nav-font-weight;
+      }
+
+      .el-menu-item:hover {
+        color: $char-hover-color;
+      }
+
+      .el-submenu__title:hover {
+        color: $char-hover-color;
+      }
+
     }
+
+    .el-menu {
+
+      .el-menu-item.single-menu-item {
+        border-bottom: 1px solid #{$side-nav-border-color};
+        font-weight: $side-nav-font-weight;
+      }
+
+      .el-menu-item.single-menu-item::before {
+        padding-left: 20px;
+      }
+
+      .eben-nav-submenu {
+
+        .el-menu {
+
+          li.el-menu-item {
+            text-indent: 10px;
+          }
+        }
+      }
+
+    }
+
   }
 
+  @media (max-width: #{$responsive-width-small}) {
+    #app.menu-expand {
+      height: 100vh;
+      overflow: hidden;
+
+      .sidenav {
+        height: calc(100% - #{$header-height});
+        overflow-y: auto;
+
+        .open-target {
+          padding: 0;
+        }
+      }
+    }
+
+  }
 </style>

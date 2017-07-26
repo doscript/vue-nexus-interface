@@ -1,36 +1,41 @@
 <template>
   <header class="header">
-    <h1 class="logo">
-      <a href="javascript:;">
-        <img src="../../assets/images/logo.png" alt="dji">
-        <span class="title">{{ $t('projectTitle') }}</span>
-      </a>
-    </h1>
+    <div class="header-content">
+      <h1 class="logo">
+        <a href="javascript:;" class="logo-img">
+          <!--<img src="../../assets/images/logo.png" alt="dji">-->
+          <!--<span class="title">{{ $t('projectTitle') }}</span>-->
+        </a>
+      </h1>
 
-    <a href="javascript:;" class="menu" @click="onToggleMenuClick" >
-      <span></span>
-    </a>
-
-    <el-dropdown @command="handleCommand" class="operate" trigger="click">
-      <a href="javascript:;" class="account">
-        <icon name="account"></icon>
-        <span>{{ user.username }}</span>
-        <span class="caret"></span>
+      <a href="javascript:;" class="menu" @click="onToggleMenuClick" >
+        <span></span>
       </a>
-      <el-dropdown-menu slot="dropdown" class="dropmenu">
-        <el-dropdown-item  command="Switch">
-          <icon class="icons" name="switch"></icon>{{ $t('switchLang') }}
-        </el-dropdown-item>
-        <el-dropdown-item divided command="Logout">
-          <icon class="icons" name="logout"></icon>{{ $t('signOut') }}
-        </el-dropdown-item>
-      </el-dropdown-menu>
-    </el-dropdown>
+
+      <top-nav></top-nav>
+
+      <!--<el-dropdown @command="handleCommand" class="operate" trigger="click">-->
+        <!--<a href="javascript:;" class="account">-->
+          <!--<icon name="account"></icon>-->
+          <!--<span>{{ user.username }}</span>-->
+          <!--<span class="caret"></span>-->
+        <!--</a>-->
+        <!--<el-dropdown-menu slot="dropdown" class="dropmenu">-->
+          <!--<el-dropdown-item  command="Switch">-->
+            <!--<icon class="icons" name="switch"></icon>{{ $t('switchLang') }}-->
+          <!--</el-dropdown-item>-->
+          <!--<el-dropdown-item divided command="Logout">-->
+            <!--<icon class="icons" name="logout"></icon>{{ $t('signOut') }}-->
+          <!--</el-dropdown-item>-->
+        <!--</el-dropdown-menu>-->
+      <!--</el-dropdown>-->
+    </div>
   </header>
 </template>
 
 <script>
 import Vue from 'vue'
+import TopNav from './TopNav'
 
 export default {
   name: 'header',
@@ -42,6 +47,7 @@ export default {
   },
 
   components: {
+    TopNav
   },
 
   computed: {
@@ -84,13 +90,23 @@ export default {
 @import './../../assets/scss/mixins.scss';
 
 #app .header {
-  position: fixed;
+  /*position: fixed;*/
+  position: relative;
   z-index: 9;
   height: $header-height;
   width: 100%;
   min-width: 320px;
   background-color: $header-color;
   @include clearfix();
+
+  .header-content {
+    width: $topnav-width;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+  }
 
   a {
     &:hover, &:focus {
@@ -102,7 +118,8 @@ export default {
   }
   .logo {
     float: left;
-    padding: 10px 0 8px 35px;
+    /*padding: 10px 0 8px 35px;*/
+    padding: 6px 15px 14px;
 
     img {
       display: inline-block;
@@ -110,6 +127,17 @@ export default {
       width: 36px;
       height: auto;
       margin-right: 10px;
+    }
+
+    .logo-img {
+      background: url("../../assets/images/logo.png");
+      display: inline-block;
+      height: 21px;
+      width: 140px;
+      transition: all 0.75s ease;
+    }
+    .logo-img:hover{
+      opacity: 0.8;
     }
   }
   .title {
@@ -199,7 +227,7 @@ export default {
   transform: rotate(-45deg) translate(4px, -5px);
 }
 
-@media (max-width:768px) {
+@media (max-width: #{$responsive-width-small}) {
   #app .header {
     .menu {
       display: block;
@@ -209,7 +237,6 @@ export default {
       text-align: center;
       @include absolute-center;
       float: none;
-      padding: 0;
       img {
         margin-right: 5px;
       }
@@ -221,6 +248,9 @@ export default {
         overflow: hidden;
         white-space: nowrap;
       }
+    }
+    .header-content {
+      width: 100%;
     }
   }
 

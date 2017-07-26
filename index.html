@@ -7,11 +7,24 @@
     <meta name="keywords" content="">
     <meta name="viewport" content="user-scalable=no, width=device-width,initial-scale=1,minimum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+      .website-icon {
+        min-height: 40px;
+        max-width: 768px;
+        margin: 15px auto;
+        display: none;
+      }
+    </style>
   </head>
 
   <body>
     <!-- built files will be auto injected -->
     <div id="app"></div>
     <script src="<%= webpackConfig.output.publicPath %>static/js/vendor.dll.js"></script>
+    <div class="website-icon">
+      <!--可信网站图片LOGO安装开始-->
+      <script src="http://kxlogo.knet.cn/seallogo.dll?sn=2010112900100003034&size=4"></script>
+      <!--可信网站图片LOGO安装结束-->
+    </div>
   </body>
 </html>
