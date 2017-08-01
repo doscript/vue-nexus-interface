@@ -5,11 +5,14 @@
       {{ model.title[$currentLang] }}
     </template>
     <template v-for="(item, index) in model.children">
-      <a v-if="!isContainMore(item)" :href="item.path" :target="item.target" class="open-target">
-        <el-menu-item :class="item.path === $route.path ? 'is-active': ''" @click="" index="item.id">
+      <a v-if="!isContainMore(item) && item.type == 'open'" :href="item.path" :target="item.target" class="open-target">
+        <el-menu-item :class="item.path === $route.path ? 'is-active': ''" index="item.id">
           {{ item.title[$currentLang] }}
         </el-menu-item>
       </a>
+      <el-menu-item :class="item.path === $route.path ? 'is-active': ''" @click="onMenuItemClick(item)" index="item.id">
+        {{ item.title[$currentLang] }}
+      </el-menu-item>
       <side-nav-node :model="item"></side-nav-node>
     </template>
   </el-submenu>
@@ -33,11 +36,8 @@ export default {
     },
 
     onMenuItemClick (item) {
-      if(item.type == 'open'){
-        window.open(item.path, '_blank');
-      } else {
-        this.$router.push(item.path)
-      }
+      console.log(item);
+      this.$router.push(item.path)
     }
   }
 }

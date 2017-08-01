@@ -111,7 +111,7 @@ export default {
         transition: all 0.25s ease-in-out;
 
         .eben-icon {
-          /*background: url("http://img1.ereneben.com/new_images/icon.png") 0 -40px no-repeat;*/
+          background: url("#{$eben-resource-domain}/new_images/icon.png") 0 -40px no-repeat;
           margin: 0 auto 12px;
           width: 51px;
           height: 51px;

@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header-content">
       <h1 class="logo">
-        <a href="javascript:;" class="logo-img">
+        <a href="/" class="logo-img">
           <!--<img src="../../assets/images/logo.png" alt="dji">-->
           <!--<span class="title">{{ $t('projectTitle') }}</span>-->
         </a>
@@ -119,7 +119,7 @@ export default {
   .logo {
     float: left;
     /*padding: 10px 0 8px 35px;*/
-    padding: 6px 15px 14px;
+    padding: 6px 30px 14px;
 
     img {
       display: inline-block;

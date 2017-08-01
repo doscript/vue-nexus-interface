@@ -7,11 +7,13 @@
         <router-view></router-view>
       </main>
     </div>
+    <footer-component></footer-component>
   </div>
 </template>
 <script>
 import SideNav from './common/SideNav'
 import HeaderComponent from './common/Header'
+import FooterComponent from './common/Footer'
 
 export default{
   name: 'Frame',
@@ -29,7 +31,8 @@ export default{
 
   components: {
     SideNav,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   },
 
   methods: {
@@ -41,17 +44,23 @@ export default{
 </script>
 
 <style lang="scss">
-.page-frame {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  .frame-content {
-    flex: 1;
+  @import '../assets/scss/variables.scss';
+
+  .page-frame {
+    height: 100%;
+    width: 100%;
     display: flex;
+    flex-direction: column;
+
+    .frame-content {
+      flex: 1;
+      display: flex;
+    }
+
+    main {
+      flex: 1;
+      min-height: calc(100vh - #{$header-height} - #{$footer-height});
+    }
+
   }
-  main {
-    flex: 1;
-  }
-}
 </style>

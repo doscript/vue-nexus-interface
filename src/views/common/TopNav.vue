@@ -3,9 +3,10 @@
     <el-menu unique-opened theme="dark" mode="horizontal" :default-openeds="defaultOpeneds" >
       <template v-for="(item, index) in sideNav">
         <side-nav-node :model="item" v-if="item.children"></side-nav-node>
-        <a v-else :href="item.path" :target="item.target" class="open-target">
-          <el-menu-item index="item.id" @click="" class="single-menu-item" style="padding-left: 15px;">{{ item.title[$currentLang] }}</el-menu-item>
+        <a v-else-if="item.type == 'open'" :href="item.path" :target="item.target" class="open-target">
+          <el-menu-item index="item.id" class="single-menu-item" style="padding-left: 15px;">{{ item.title[$currentLang] }}</el-menu-item>
         </a>
+        <el-menu-item v-else index="item.id" @click="onMenuItemClick(item)" class="single-menu-item" style="padding-left: 15px;">{{ item.title[$currentLang] }}</el-menu-item>
       </template>
     </el-menu>
   </div>
@@ -27,11 +28,7 @@ export default {
   methods: {
     onMenuItemClick (item) {
       console.log(item);
-      if(item.type == 'open'){
-        window.open(item.path, '_blank');
-      } else {
-        this.$router.push(item.path)
-      }
+      this.$router.push(item.path)
     }
   },
   components: {
@@ -79,6 +76,11 @@ export default {
           display: block;
           opacity: 0.9;
         }
+
+        .el-submenu__icon-arrow {
+          display: none;
+        }
+
       }
     }
 

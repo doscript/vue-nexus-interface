@@ -1,6 +1,7 @@
 <template>
   <footer class="footer">
     <div class="footer-content">
+      <hr class="eben-divider">
       <div class="copyright">
         <p>版权所有：2009-2015© 北京壹人壹本信息科技有限公司</p>
         <p>京ICP证120259号</p>
@@ -10,11 +11,6 @@
     </div>
   </footer>
 </template>
-<script type='text/javascript'>(function(){document.getElementById('___szfw_logo___').oncontextmenu = function(){return false;}})();</script>
-
-<script language="javascript">
-  var pspdomain	=	'<{$passportdomain}>';
-</script>
 <script>
 import Vue from 'vue'
 
@@ -45,16 +41,21 @@ export default {
 @import './../../assets/scss/mixins.scss';
 
 #app .footer {
-
-  padding: 15px;
-  max-width: $common-content-width;
-  margin: 0 auto;
+  min-height: $footer-height;
 
   .footer-content {
-    border-top: 1px solid #aaa;
-    padding-top: 15px;
+    padding: 15px;
+    max-width: $common-content-width;
+    margin: 0 auto;
+
+    .eben-divider {
+      border-top: 1px solid $unimportant-char-color;
+      margin: 0;
+
+    }
 
     .copyright {
+      padding-top: 15px;
 
       p {
         color: $unimportant-char-color;
