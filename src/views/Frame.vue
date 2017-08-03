@@ -54,7 +54,7 @@ export default{
 
     .frame-content {
       flex: 1;
-      display: flex;
+      display: block;
     }
 
     main {

@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import Vue from 'vue'
+import { EbenResourceDomain } from '../../constants/index'
 
 export default {
   name: 'info-nav',
@@ -45,22 +45,22 @@ export default {
     return {
       styles: {
         ebenIconService: {
-          background: 'url("http://img1.ereneben.com/new_images/icon.png") no-repeat',
+          background: 'url("' + EbenResourceDomain + '/new_images/icon.png") no-repeat',
           backgroundPosition: '0 -100px'
         },
         ebenIconContact: {
-          background: 'url("http://img1.ereneben.com/new_images/icon.png") no-repeat',
+          background: 'url("' + EbenResourceDomain + '/new_images/icon.png") no-repeat',
           backgroundPosition: '0 -220px'
         },
         ebenIconBusiness: {
-          background: 'url("http://img1.ereneben.com/new_images/icon-business.png") no-repeat',
+          background: 'url("' + EbenResourceDomain + '/new_images/icon-business.png") no-repeat',
         },
         ebenIconJoin: {
-          background: 'url("http://img1.ereneben.com/new_images/icon.png") no-repeat',
+          background: 'url("' + EbenResourceDomain + '/new_images/icon.png") no-repeat',
           backgroundPosition: '0 -280px'
         },
         ebenIconStatement: {
-          background: 'url("http://img1.ereneben.com/new_images/icon.png") no-repeat',
+          background: 'url("' + EbenResourceDomain + '/new_images/icon.png") no-repeat',
           backgroundPosition: '0 -340px'
         },
       }

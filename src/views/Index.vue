@@ -36,6 +36,7 @@ import SideNav from './common/SideNav'
 import InfoNav from './common/InfoNav'
 import HeaderComponent from './common/Header'
 import FooterComponent from './common/Footer'
+import { EbenResourceDomain } from '../constants/index'
 
 export default{
   name: 'Index',
@@ -50,21 +51,21 @@ export default{
           titleSmall: '这是小标题一',
           titleLarge: '这是大标题一',
           figureStyle: {
-            backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_1.jpg")'
+            backgroundImage: 'url("' + EbenResourceDomain + '/new_images/focus_1.jpg")'
           }
         },
         {
           titleSmall: '这是小标题二',
           titleLarge: '这是大标题二',
           figureStyle: {
-            backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_2.jpg")'
+            backgroundImage: 'url("' + EbenResourceDomain + '/new_images/focus_2.jpg")'
           }
         },
         {
           titleSmall: '这是小标题三',
           titleLarge: '这是大标题三',
           figureStyle: {
-            backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_3.jpg")'
+            backgroundImage: 'url("' + EbenResourceDomain + '/new_images/focus_3.jpg")'
           }
         },
       ],
@@ -72,19 +73,19 @@ export default{
         {
           path: '',
           figureStyle: {
-            backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_1.jpg")'
+            backgroundImage: 'url("' + EbenResourceDomain + '/new_images/focus_1.jpg")'
           }
         },
         {
           path: '',
           figureStyle: {
-            backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_2.jpg")'
+            backgroundImage: 'url("' + EbenResourceDomain + '/new_images/focus_2.jpg")'
           }
         },
         {
           path: '',
           figureStyle: {
-            backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_3.jpg")'
+            backgroundImage: 'url("' + EbenResourceDomain + '/new_images/focus_3.jpg")'
           }
         },
       ],

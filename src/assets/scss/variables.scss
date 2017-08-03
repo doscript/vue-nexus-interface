@@ -6,6 +6,10 @@ $main-hover-color: #444;
 $unimportant-char-color: #aaa;
 $unimportant-char-color-hover: #eee;
 
+$char-color-dark: #000;
+
+$opacity-white-bg-color: rgba(255, 255, 255, 0.7);
+
 $page-background-color: #{$main-color};
 $info-nav-hover-color: #{$char-hover-color};
 
@@ -36,17 +40,23 @@ $font-large: 18px;
 $font-medium: 16px;
 $font-small: 12px;
 
+$common-padding: 15px;
+
 // height
 $header-height: 60px;
 $footer-height: 160px;
+$common-section-height: 600px;
 
 // width
 $full-percent-width: 100%;
 $sidenav-width: 100%;
-$topnav-width: 768px;
-$common-content-width: 768px;
 
-$responsive-width-small: 768px;
+$responsive-width-small: 768px;   // css responsive width defined
+$responsive-width-xs: 320px;
+$responsive-width-middle: 1200px;
+
+$topnav-width: #{$responsive-width-small};
+$common-content-width: #{$responsive-width-small};
 
 // domain
 $eben-resource-domain: 'http://img1.ereneben.com';

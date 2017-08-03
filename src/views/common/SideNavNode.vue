@@ -37,6 +37,7 @@ export default {
 
     onMenuItemClick (item) {
       console.log(item);
+      document.getElementById('app').className = '';
       this.$router.push(item.path)
     }
   }
