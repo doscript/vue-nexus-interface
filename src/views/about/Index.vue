@@ -52,25 +52,97 @@
 
     <section class="page">
       <div class="page-body">
-
+        <div class="title">三大产品线</div>
+        <ul class="product-lines">
+          <li>
+            <div class="pic">
+              <figure></figure>
+            </div>
+            <div class="name">商务平板</div>
+            <p>公司自2010年1月发布第一代支持手写办公的商务平板电脑至今，已陆续推出十余款商务平板电脑系列产品，是中国商务平板电脑领域的领军品牌。</p>
+            <a href="javascript:void(0);" class="more" >了解更多 >></a>
+          </li>
+          <li>
+            <div class="pic"><img src="http://img1<{$imgdomain}>/new_images/about/about_p2.jpg" /></div>
+            <div class="name">安全手机</div>
+            <p>2014年6月，公司首次推出“安全手机”产品线，率先提出了硬件+系统+软件“三位一体”的移动终端信息安全理念，为高安全级别的用户提供自主可控的手机信息安全解决方案。</p>
+            <!--<a href="javascript:void(0);" target="_blank" class="more" target="_blank">了解更多 >></a>-->
+          </li>
+          <li class="last-child">
+            <div class="pic"><img src="http://img1<{$imgdomain}>/new_images/about/about_p3.jpg" /></div>
+            <div class="name">行业应用</div>
+            <p>E人E本提供高度可定制化服务，为集团客户提供安全、高效的移动办公解决方案。覆盖安全政务、移动办公、移动执法、智慧教学、智慧医疗共六大领域。</p>
+            <a href="javascript:void(0);" class="more" >了解更多 >></a>
+          </li>
+        </ul>
       </div>
     </section>
 
     <section class="page">
       <div class="page-body">
-
+        <div class="title">三大核心技术</div>
+        <ul class="clearfix">
+          <li>
+            <div class="pic"><img src="http://img1<{$imgdomain}>/new_images/about/about_p4.jpg" /></div>
+            <div class="name">原笔迹数字书写</div>
+            <p>“原笔迹数字书写技术”（MindMark）是由壹人壹本公司自主研发并具有独立知识产权。 融合了全球领先的电磁压感技术和智能识别技术……</p>
+            <a href="javascript:void(0);" class="more" >了解更多 >></a>
+          </li>
+          <li>
+            <div class="pic"><img src="http://img1<{$imgdomain}>/new_images/about/about_p5.jpg" /></div>
+            <div class="name">手写办公系统</div>
+            <p>公司自主设计开发的“手写办公系统”核心应用，使得E人E本的原笔迹手写不仅仅停留在“电子记事本”上，而是完整融入办公生态。横向打通各种办公设备，如……</p>
+            <a href="javascript:void(0);" class="more" >了解更多 >></a>
+          </li>
+          <li class="last-child">
+            <div class="pic"><img src="http://img1<{$imgdomain}>/new_images/about/about_p6.jpg" /></div>
+            <div class="name">SEA安全增强架构</div>
+            <p>E人E本SEA安全增强架构（Security Enhanced Architecture）是基于Android操作系统的安全操作系统解决方案，采用国密算法安全模块，为用户提供以安全启动……</p>
+            <a href="javascript:void(0);" class="more" >了解更多 >></a>
+          </li>
+        </ul>
       </div>
     </section>
 
     <section class="page">
       <div class="page-body">
-
+        <div class="e"><img src="http://img1<{$imgdomain}>/new_images/page6_e.png" /></div>
+        <div class="content">
+          <div class="title">E术家</div>
+          <p>一直以来，E人E本无与伦比的原笔迹手写体验深受众多书画爱好者的青睐。利用E人E本，他们在漫画创作、服装设计、建筑规划、3D画创作、舞台剧布景等等艺术领域中实现了数字艺术创作与移动办公的完美结合。</p>
+          <p>通过这些作品，您可以品读出E人E本用户通过这支独一无二的手写笔，对爱好、生活、工作进行的深入思考及诠释。而“E术家”也因此成为E人E本与众多新老用户互动交流的品牌活动。</p>
+        </div>
+        <ul class="clearfix">
+          <li><img src="http://img1<{$imgdomain}>/new_images/page6_p1.jpg" /></li>
+          <li><img src="http://img1<{$imgdomain}>/new_images/page6_p2.jpg" /></li>
+          <li class="last-child"><img src="http://img1<{$imgdomain}>/new_images/page6_p3.jpg" /></li>
+        </ul>
+        <a href="javascript:void(0);" class="more" >了解更多 >></a>
       </div>
     </section>
 
     <section class="page">
       <div class="page-body">
-
+        <div class="t1">需求为纲、体验为本、品牌为魂</div>
+        <div class="t2">E人E本致力于做一家卓越的产品公司</div>
+        <ul class="clearfix">
+          <li>
+            <div class="title"><span>热爱</span>是态度</div>
+            <p>只有热爱才能拥有追求<br />卓越的无尽动力。</p>
+          </li>
+          <li>
+            <div class="title"><span>专注</span>是精神</div>
+            <p>只做一件事<br />把一件事做到极致。</p>
+          </li>
+          <li>
+            <div class="title"><span>细节</span>是方法，是习惯</div>
+            <p>有关注细节的习惯<br />也有把握细节的方法。</p>
+          </li>
+          <li class="last-child">
+            <div class="title"><span>简单</span>是能力</div>
+            <p>在庞杂无序的信息洪流中，<br />实践大道至简的朴素本质。</p>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -191,27 +263,31 @@
       overflow: hidden;
 
       .page-body {
-        max-width: $common-content-width;
+        max-width: $common-content-width-xxs;
         margin: 0 auto;
       }
     }
 
     section.page:nth-of-type(2n) {
       background: #fff;
+      color: #000;
     }
 
     section.page:nth-of-type(2n+1) {
       background: #000;
+      color: #fff;
     }
 
     section.page:nth-of-type(1) {
       background: url("#{$eben-resource-domain}/new_images/about/about_bg_1.jpg") no-repeat center;
       background-size: cover;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
 
       .page-body {
         display: flex;
         justify-content: flex-end;
-        padding: 150px 15px;
 
         .content {
           background: $opacity-white-bg-color;
@@ -250,12 +326,12 @@
           padding: $common-padding;
 
           .top-pic {
-            min-width: $responsive-width-xs;
-            min-height: $responsive-width-xs;
-            padding: $common-padding;
+            min-height: $responsive-width-xxs;
+            min-width: $common-content-width-xxs;
 
             figure {
-              background-size: cover;
+              background-size: contain;
+              background-repeat: no-repeat;
             }
           }
 
@@ -310,16 +386,22 @@
       background-size: cover;
 
       .page-body {
+        height: $common-section-height;
+        max-width: 100vw;
 
         .content {
+          margin: 0;
+          width: 100%;
+          height: 100%;
+          max-width: none;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 25px 10%;
           background: $opacity-white-bg-color;
-          max-width: 520px;
-          padding: 25px;
           color: $char-color-dark;
-          margin: 100px auto 0;
 
           .title {
-            margin-bottom: 30px;
             font-size: 28px;
             line-height: 1.5em;
             text-align: center;
@@ -346,6 +428,19 @@
 
     section.page:nth-of-type(4) {
 
+      .page-body {
+
+        .title {
+          margin-top: 60px;
+          font-size: 28px;
+          line-height: 1.5em;
+          text-align: center;
+        }
+
+        .product-lines {
+
+        }
+      }
     }
 
     section.page:nth-of-type(5) {
@@ -363,7 +458,7 @@
     }
   }
 
-  @media (max-width: #{$responsive-width-small}) {
+  @media (min-width: #{$responsive-width-small}) {
     #app .about-index {
 
       section.page:nth-of-type(3) {
@@ -372,14 +467,9 @@
           height: $common-section-height;
 
           .content {
-            margin: 0;
-            width: 100%;
-            height: 100%;
-            max-width: none;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-
+            margin: 100px auto 0;
+            max-width: 520px;
+            padding: 25px;
           }
         }
       }

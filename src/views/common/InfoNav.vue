@@ -86,7 +86,7 @@ export default {
 
 #app .info-nav {
   min-height: 100px;
-  max-width: $common-content-width;
+  max-width: $common-content-width-xxs;
   margin: 0 auto;
 
   .info-nav-content {
@@ -136,7 +136,7 @@ export default {
   }
 }
 
-@media (max-width: #{$responsive-width-small}) {
+@media (max-width: #{$responsive-width-xs}) {
   #app .info-nav {
 
     .info-nav-content {

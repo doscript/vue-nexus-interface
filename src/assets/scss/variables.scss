@@ -51,12 +51,14 @@ $common-section-height: 600px;
 $full-percent-width: 100%;
 $sidenav-width: 100%;
 
-$responsive-width-small: 768px;   // css responsive width defined
-$responsive-width-xs: 320px;
+$responsive-width-small: 800px;   // css responsive width defined
+$responsive-width-xs: 500px;
+$responsive-width-xxs: 320px;
 $responsive-width-middle: 1200px;
+$responsive-width-large: 1440px;
 
 $topnav-width: #{$responsive-width-small};
-$common-content-width: #{$responsive-width-small};
+$common-content-width-xxs: calc(100vw - 15px);
 
 // domain
 $eben-resource-domain: 'http://img1.ereneben.com';

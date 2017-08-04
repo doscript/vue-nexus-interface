@@ -45,7 +45,7 @@ export default {
 
   .footer-content {
     padding: 15px;
-    max-width: $common-content-width;
+    max-width: $common-content-width-xxs;
     margin: 0 auto;
 
     .eben-divider {
