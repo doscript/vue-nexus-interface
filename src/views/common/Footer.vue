@@ -12,8 +12,6 @@
   </footer>
 </template>
 <script>
-import Vue from 'vue'
-
 export default {
   name: 'footer',
 
@@ -37,43 +35,46 @@ export default {
 </script>
 
 <style type="text/css" lang="scss">
-@import './../../assets/scss/variables.scss';
-@import './../../assets/scss/mixins.scss';
+  @import './../../assets/scss/variables.scss';
+  @import './../../assets/scss/mixins.scss';
 
-#app .footer {
-  min-height: $footer-height;
-
-  .footer-content {
-    padding: 15px;
-    max-width: $common-content-width-xxs;
-    margin: 0 auto;
-
-    .eben-divider {
-      border-top: 1px solid $unimportant-char-color;
-      margin: 0;
-
-    }
-
-    .copyright {
-      padding-top: 15px;
-
-      p {
-        color: $unimportant-char-color;
-        font-size: 12px;
-        transition: all 0.25s ease-in-out;
-      }
-
-      p:hover {
-        color: $unimportant-char-color-hover;
-      }
-    }
-  }
-}
-
-@media (max-width: #{$responsive-width-small}) {
   #app .footer {
+    min-height: $footer-height;
 
+    .footer-content {
+      padding: 15px;
+      max-width: $common-content-width-xxs;
+      margin: 0 auto;
+
+      .eben-divider {
+        border-top: 1px solid $unimportant-char-color;
+        margin: 0;
+
+      }
+
+      .copyright {
+        padding-top: 15px;
+
+        p {
+          color: $unimportant-char-color;
+          font-size: 12px;
+          transition: all 0.25s ease-in-out;
+        }
+
+        p:hover {
+          color: $unimportant-char-color-hover;
+        }
+      }
+    }
   }
 
-}
+  @media (min-width: #{$responsive-width-small}) {
+    #app .footer {
+
+      .footer-content {
+        max-width: $common-content-width-small;
+      }
+    }
+
+  }
 </style>

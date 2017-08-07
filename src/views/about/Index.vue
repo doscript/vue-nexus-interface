@@ -43,6 +43,7 @@
             北京壹人壹本信息科技有限公司
             <span class="en">Beijing ERENEBEN Information Technology Ltd.,co</span>
           </div>
+          <br>
           <p>公司成立于2009年，是清华同方股份（600100）旗下的全资子公司，是北京市科委和中关村管委会颁发认证的高新技术企业、北京市专利示范单位、移动电子政务安全本示范单位。</p>
           <p class="last-child">我们凭借强大的技术和产品实力，致力于为中国高端政商用户、政企及各行业用户提供安全、高效的移动办公解决方案。</p>
           <a href="javascript:void(0);" class="more">企业荣誉 >></a>
@@ -263,6 +264,7 @@
       overflow: hidden;
 
       .page-body {
+        width: 100%;
         max-width: $common-content-width-xxs;
         margin: 0 auto;
       }
@@ -287,7 +289,7 @@
 
       .page-body {
         display: flex;
-        justify-content: flex-end;
+        justify-content: center;
 
         .content {
           background: $opacity-white-bg-color;
@@ -328,10 +330,11 @@
           .top-pic {
             min-height: $responsive-width-xxs;
             min-width: $common-content-width-xxs;
+            padding: $common-padding;
 
             figure {
+              background: no-repeat center;
               background-size: contain;
-              background-repeat: no-repeat;
             }
           }
 
@@ -461,15 +464,50 @@
   @media (min-width: #{$responsive-width-small}) {
     #app .about-index {
 
+      section.page {
+
+        .page-body {
+          max-width: $common-content-width-small;
+        }
+
+      }
+
+      section.page:nth-of-type(1) {
+
+        .page-body {
+          justify-content: flex-end;
+        }
+      }
+
+      section.page:nth-of-type(2) {
+
+        .page-body {
+
+          .top-device {
+
+            .top-pic {
+              min-width: 50%;
+            }
+
+            .content {
+
+            }
+          }
+        }
+      }
+
       section.page:nth-of-type(3) {
 
         .page-body {
-          height: $common-section-height;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
 
           .content {
-            margin: 100px auto 0;
             max-width: 520px;
             padding: 25px;
+            margin: 0 auto;
+            height: auto;
           }
         }
       }

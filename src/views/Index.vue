@@ -218,19 +218,10 @@ export default{
 
 }
 
-@media (max-width: #{$responsive-width-small}) {
-  #app {
+@media (min-width: #{$responsive-width-small}) {
+  #app .page-index {
 
-    .el-carousel {
 
-      .el-carousel__container {
-
-        .el-carousel__item {
-
-        }
-
-      }
-    }
   }
 }
 </style>

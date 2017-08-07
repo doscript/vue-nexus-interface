@@ -81,74 +81,35 @@ export default {
 </script>
 
 <style type="text/css" lang="scss">
-@import './../../assets/scss/variables.scss';
-@import './../../assets/scss/mixins.scss';
+  @import './../../assets/scss/variables.scss';
+  @import './../../assets/scss/mixins.scss';
 
-#app .info-nav {
-  min-height: 100px;
-  max-width: $common-content-width-xxs;
-  margin: 0 auto;
-
-  .info-nav-content {
-    padding: 50px 15px;
-    display: -webkit-flex;
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-
-    .info-nav-single {
-      position: relative;
-
-      a {
-        width: 80px;
-        height: 90px;
-        font-size: 15px;
-        line-height: 1.5em;
-        color: $char-hover-color;
-        text-align: center;
-        display: block;
-        float: left;
-        transition: all 0.25s ease-in-out;
-
-        .eben-icon {
-          background: url("#{$eben-resource-domain}/new_images/icon.png") 0 -40px no-repeat;
-          margin: 0 auto 12px;
-          width: 51px;
-          height: 51px;
-        }
-
-        .icons {
-          display: none;
-          color: inherit;
-        }
-
-        p {
-
-        }
-      }
-
-      a:hover {
-        color: $char-color;
-        cursor: pointer;
-      }
-    }
-
-  }
-}
-
-@media (max-width: #{$responsive-width-xs}) {
   #app .info-nav {
+    min-height: 100px;
+    max-width: $common-content-width-xxs;
+    margin: 0 auto;
 
     .info-nav-content {
+      display: -webkit-flex;
+      display: flex;
+      justify-content: space-between;
       flex-flow: column;
       padding: 15px 15px 0;
 
       .info-nav-single {
+        position: relative;
         padding: 15px;
 
         a {
           height: auto;
           width: 100%;
+          font-size: 15px;
+          line-height: 1.5em;
+          color: $char-hover-color;
+          text-align: center;
+          display: block;
+          float: left;
+          transition: all 0.25s ease-in-out;
 
           .eben-icon {
             display: none;
@@ -167,9 +128,53 @@ export default {
           }
         }
 
+        a:hover {
+          color: $char-color;
+          cursor: pointer;
+        }
       }
+
     }
   }
 
-}
+  @media (min-width: #{$responsive-width-xs}) {
+    #app .info-nav {
+
+      .info-nav-content {
+        padding: 50px 15px;
+        flex-flow: row nowrap;
+
+        .info-nav-single {
+
+          a {
+            width: 80px;
+            height: 90px;
+
+            .eben-icon {
+              display: block;
+              background: url("#{$eben-resource-domain}/new_images/icon.png") 0 -40px no-repeat;
+              margin: 0 auto 12px;
+              width: 51px;
+              height: 51px;
+            }
+
+            .icons {
+              display: none;
+              color: inherit;
+            }
+
+          }
+
+        }
+      }
+    }
+
+  }
+
+  @media (min-width: #{$responsive-width-small}) {
+    #app .info-nav {
+      max-width: $common-content-width-small;
+    }
+
+  }
 </style>
