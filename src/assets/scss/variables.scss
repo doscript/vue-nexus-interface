@@ -41,6 +41,7 @@ $font-medium: 16px;
 $font-small: 12px;
 
 $common-padding: 15px;
+$common-margin: 15px;
 
 // height
 $header-height: 60px;
@@ -59,7 +60,7 @@ $responsive-width-large: 1440px;
 
 $topnav-width: #{$responsive-width-small};  // nav width, set as small size
 
-$common-content-width-xxs: calc(100vw - 15px);
+$common-content-width-xxs: calc(100vw - 30px);
 $common-content-width-small: #{$responsive-width-small};
 
 // domain

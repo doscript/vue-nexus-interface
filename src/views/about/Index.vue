@@ -54,70 +54,54 @@
     <section class="page">
       <div class="page-body">
         <div class="title">三大产品线</div>
-        <ul class="product-lines">
-          <li>
+        <div class="product-lines">
+          <div class="content" v-for="item in data.productLines" :key="item">
             <div class="pic">
-              <figure></figure>
+              <figure :style="item.style"></figure>
             </div>
-            <div class="name">商务平板</div>
-            <p>公司自2010年1月发布第一代支持手写办公的商务平板电脑至今，已陆续推出十余款商务平板电脑系列产品，是中国商务平板电脑领域的领军品牌。</p>
-            <a href="javascript:void(0);" class="more" >了解更多 >></a>
-          </li>
-          <li>
-            <div class="pic"><img src="http://img1<{$imgdomain}>/new_images/about/about_p2.jpg" /></div>
-            <div class="name">安全手机</div>
-            <p>2014年6月，公司首次推出“安全手机”产品线，率先提出了硬件+系统+软件“三位一体”的移动终端信息安全理念，为高安全级别的用户提供自主可控的手机信息安全解决方案。</p>
-            <!--<a href="javascript:void(0);" target="_blank" class="more" target="_blank">了解更多 >></a>-->
-          </li>
-          <li class="last-child">
-            <div class="pic"><img src="http://img1<{$imgdomain}>/new_images/about/about_p3.jpg" /></div>
-            <div class="name">行业应用</div>
-            <p>E人E本提供高度可定制化服务，为集团客户提供安全、高效的移动办公解决方案。覆盖安全政务、移动办公、移动执法、智慧教学、智慧医疗共六大领域。</p>
-            <a href="javascript:void(0);" class="more" >了解更多 >></a>
-          </li>
-        </ul>
+            <div class="description">
+              <div class="name">{{ item.title }}</div>
+              <p>{{ item.description }}</p>
+              <a v-if="item.linkType == '_blank'" :href="item.link" :target="item.linkType" class="more" >了解更多 >></a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="page">
       <div class="page-body">
         <div class="title">三大核心技术</div>
-        <ul class="clearfix">
-          <li>
-            <div class="pic"><img src="http://img1<{$imgdomain}>/new_images/about/about_p4.jpg" /></div>
-            <div class="name">原笔迹数字书写</div>
-            <p>“原笔迹数字书写技术”（MindMark）是由壹人壹本公司自主研发并具有独立知识产权。 融合了全球领先的电磁压感技术和智能识别技术……</p>
-            <a href="javascript:void(0);" class="more" >了解更多 >></a>
-          </li>
-          <li>
-            <div class="pic"><img src="http://img1<{$imgdomain}>/new_images/about/about_p5.jpg" /></div>
-            <div class="name">手写办公系统</div>
-            <p>公司自主设计开发的“手写办公系统”核心应用，使得E人E本的原笔迹手写不仅仅停留在“电子记事本”上，而是完整融入办公生态。横向打通各种办公设备，如……</p>
-            <a href="javascript:void(0);" class="more" >了解更多 >></a>
-          </li>
-          <li class="last-child">
-            <div class="pic"><img src="http://img1<{$imgdomain}>/new_images/about/about_p6.jpg" /></div>
-            <div class="name">SEA安全增强架构</div>
-            <p>E人E本SEA安全增强架构（Security Enhanced Architecture）是基于Android操作系统的安全操作系统解决方案，采用国密算法安全模块，为用户提供以安全启动……</p>
-            <a href="javascript:void(0);" class="more" >了解更多 >></a>
-          </li>
-        </ul>
+        <div class="core-tech">
+          <div class="content" v-for="item in data.coreTech" :key="item">
+            <div class="pic">
+              <figure :style="item.style"></figure>
+            </div>
+            <div class="description">
+              <div class="name">{{ item.title }}</div>
+              <p>{{ item.description }}</p>
+              <a v-if="item.linkType == '_blank'" :href="item.link" :target="item.linkType" class="more" >了解更多 >></a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="page">
       <div class="page-body">
-        <div class="e"><img src="http://img1<{$imgdomain}>/new_images/page6_e.png" /></div>
-        <div class="content">
-          <div class="title">E术家</div>
-          <p>一直以来，E人E本无与伦比的原笔迹手写体验深受众多书画爱好者的青睐。利用E人E本，他们在漫画创作、服装设计、建筑规划、3D画创作、舞台剧布景等等艺术领域中实现了数字艺术创作与移动办公的完美结合。</p>
-          <p>通过这些作品，您可以品读出E人E本用户通过这支独一无二的手写笔，对爱好、生活、工作进行的深入思考及诠释。而“E术家”也因此成为E人E本与众多新老用户互动交流的品牌活动。</p>
+        <div class="e">
+          <figure></figure>
+          <div class="content">
+            <div class="title">E术家</div>
+            <p>一直以来，E人E本无与伦比的原笔迹手写体验深受众多书画爱好者的青睐。利用E人E本，他们在漫画创作、服装设计、建筑规划、3D画创作、舞台剧布景等等艺术领域中实现了数字艺术创作与移动办公的完美结合。</p>
+            <p>通过这些作品，您可以品读出E人E本用户通过这支独一无二的手写笔，对爱好、生活、工作进行的深入思考及诠释。而“E术家”也因此成为E人E本与众多新老用户互动交流的品牌活动。</p>
+          </div>
         </div>
-        <ul class="clearfix">
-          <li><img src="http://img1<{$imgdomain}>/new_images/page6_p1.jpg" /></li>
-          <li><img src="http://img1<{$imgdomain}>/new_images/page6_p2.jpg" /></li>
-          <li class="last-child"><img src="http://img1<{$imgdomain}>/new_images/page6_p3.jpg" /></li>
-        </ul>
+        <div class="eben-cards">
+          <div class="eben-card" v-for="item in data.eArts" :key="item">
+            <figure :style="item.style"></figure>
+          </div>
+        </div>
         <a href="javascript:void(0);" class="more" >了解更多 >></a>
       </div>
     </section>
@@ -126,24 +110,24 @@
       <div class="page-body">
         <div class="t1">需求为纲、体验为本、品牌为魂</div>
         <div class="t2">E人E本致力于做一家卓越的产品公司</div>
-        <ul class="clearfix">
-          <li>
+        <div class="content">
+          <div class="description">
             <div class="title"><span>热爱</span>是态度</div>
             <p>只有热爱才能拥有追求<br />卓越的无尽动力。</p>
-          </li>
-          <li>
+          </div>
+          <div class="description">
             <div class="title"><span>专注</span>是精神</div>
             <p>只做一件事<br />把一件事做到极致。</p>
-          </li>
-          <li>
+          </div>
+          <div class="description">
             <div class="title"><span>细节</span>是方法，是习惯</div>
             <p>有关注细节的习惯<br />也有把握细节的方法。</p>
-          </li>
-          <li class="last-child">
+          </div>
+          <div class="description">
             <div class="title"><span>简单</span>是能力</div>
             <p>在庞杂无序的信息洪流中，<br />实践大道至简的朴素本质。</p>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -154,7 +138,7 @@
 
 <script>
   import InfoNav from '../common/InfoNav'
-  import { EbenResourceDomain } from '../../constants/index'
+  import { EbenResourceDomain, EbenDomain } from '../../constants/index'
 
   export default{
     name: 'AboutIndex',
@@ -218,6 +202,79 @@
               title: 'T8',
               style: {
                 backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_t8.png")',
+              }
+            },
+          ],
+          productLines: [
+            {
+              title: '商务平板',
+              description: '公司自2010年1月发布第一代支持手写办公的商务平板电脑至今，已陆续推出十余款商务平板电脑系列产品，是中国商务平板电脑领域的领军品牌。',
+              link: EbenDomain + '/businesstablet/t9',
+              linkType: '_blank',
+              style: {
+                backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_p1.jpg")',
+              }
+            },
+            {
+              title: '安全手机',
+              description: '2014年6月，公司首次推出“安全手机”产品线，率先提出了硬件+系统+软件“三位一体”的移动终端信息安全理念，为高安全级别的用户提供自主可控的手机信息安全解决方案。',
+              style: {
+                backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_p2.jpg")',
+              }
+            },
+            {
+              title: '行业应用',
+              description: 'E人E本提供高度可定制化服务，为集团客户提供安全、高效的移动办公解决方案。覆盖安全政务、移动办公、移动执法、智慧教学、智慧医疗共六大领域。',
+              link: EbenDomain + '/businessproduct/solution',
+              linkType: '_blank',
+              style: {
+                backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_p3.jpg")',
+              }
+            },
+          ],
+          coreTech: [
+            {
+              title: '原笔迹数字书写',
+              description: '“原笔迹数字书写技术”（MindMark）是由壹人壹本公司自主研发并具有独立知识产权。 融合了全球领先的电磁压感技术和智能识别技术……',
+              link: EbenDomain + '/abouts/corey',
+              linkType: '_blank',
+              style: {
+                backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_p4.jpg")',
+              }
+            },
+            {
+              title: '手写办公系统',
+              description: '公司自主设计开发的“手写办公系统”核心应用，使得E人E本的原笔迹手写不仅仅停留在“电子记事本”上，而是完整融入办公生态。横向打通各种办公设备，如……',
+              link: EbenDomain + '/abouts/cores',
+              linkType: '_blank',
+              style: {
+                backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_p5.jpg")',
+              }
+            },
+            {
+              title: 'SEA安全增强架构',
+              description: 'E人E本SEA安全增强架构（Security Enhanced Architecture）是基于Android操作系统的安全操作系统解决方案，采用国密算法安全模块，为用户提供以安全启动……',
+              link: EbenDomain + '/abouts/corea',
+              linkType: '_blank',
+              style: {
+                backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_p6.jpg")',
+              }
+            },
+          ],
+          eArts: [
+            {
+              style: {
+                backgroundImage: 'url("' + EbenResourceDomain + '/new_images/page6_p1.jpg")',
+              }
+            },
+            {
+              style: {
+                backgroundImage: 'url("' + EbenResourceDomain + '/new_images/page6_p2.jpg")',
+              }
+            },
+            {
+              style: {
+                backgroundImage: 'url("' + EbenResourceDomain + '/new_images/page6_p3.jpg")',
               }
             },
           ]
@@ -429,7 +486,8 @@
       }
     }
 
-    section.page:nth-of-type(4) {
+    section.page:nth-of-type(4),
+    section.page:nth-of-type(5) {
 
       .page-body {
 
@@ -440,8 +498,43 @@
           text-align: center;
         }
 
-        .product-lines {
+        .product-lines,
+        .core-tech {
+          display: flex;
+          flex-direction: column;
 
+          .content {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: #{$common-padding} 0;
+
+            .pic {
+              min-width: 50%;
+
+              figure {
+                min-height: 200px;
+                background: #000 no-repeat center;
+                background-size: contain;
+              }
+            }
+
+            .description {
+              padding: $common-padding;
+
+              .name {
+                font-size: 21px;
+                line-height: 1.5em;
+                text-align: center;
+                padding: 0 0 #{$common-padding};
+              }
+
+              p {
+                font-size: 14px;
+                text-indent: 2em;
+                line-height: 1.5em;
+              }
+            }
+          }
         }
       }
     }
@@ -452,12 +545,167 @@
     }
 
     section.page:nth-of-type(6) {
+      .page-body {
+        padding: 30px 0;
 
+        .e {
+
+          figure {
+            background: url("#{$eben-resource-domain}/new_images/page6_e.png") no-repeat center;
+            background-size: contain;
+            min-height: 200px;
+            padding: $common-padding;
+          }
+
+          .content {
+            padding: $common-padding;
+
+            .title {
+              font-size: 28px;
+              line-height: 1.5em;
+            }
+
+            p {
+              margin-top: 30px;
+              font-size: 14px;
+              line-height: 1.8em;
+            }
+          }
+        }
+
+        .eben-cards {
+
+          .eben-card {
+            padding: 5px;
+
+            figure {
+              background: no-repeat center;
+              background-size: cover;
+              height: 190px;
+              width: 255px;
+              margin: 0 auto;
+              border: 3px solid #fdfdfd;
+              box-shadow: 3px 3px 10px #777;
+            }
+          }
+        }
+
+        .more {
+          margin: 15px;
+          display: inline-block;
+          float: right;
+        }
+      }
     }
 
     section.page:nth-of-type(7) {
       background: url("#{$eben-resource-domain}/new_images/page7_bg.jpg") no-repeat center;
       background-size: cover;
+
+      .page-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: $common-section-height;
+
+        .t1 {
+          font-size: 21px;
+          line-height: 1.5em;
+          text-align: center;
+          padding: 30px 0 15px 0;
+        }
+
+        .t2 {
+          font-size: 36px;
+          line-height: 1.5em;
+          text-align: center;
+          padding: 0 0 30px 0;
+        }
+
+        .content {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          flex-direction: column;
+
+          .description {
+            padding: 15px 10px;
+            text-align: center;
+
+            .title {
+              font-size: 14px;
+              line-height: 1.5em;
+
+              span {
+                font-size: 36px;
+                padding-right: 10px;
+              }
+            }
+
+            p {
+              margin-top: 20px;
+              font-size: 12px;
+              line-height: 1.5em;
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  @media (min-width: #{$responsive-width-xs}) {
+    #app .about-index {
+
+      section.page:nth-of-type(4),
+      section.page:nth-of-type(5) {
+
+        .page-body {
+
+          .product-lines,
+          .core-tech {
+
+            .content {
+              display: flex;
+              max-width: 100%;
+
+              .pic {
+                padding: $common-padding;
+              }
+
+              .description {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                padding: $common-padding;
+
+                .name {
+                  text-align: left;
+                }
+
+                p {
+                  text-indent: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      section.page:nth-of-type(7) {
+
+        .page-body {
+
+          .content {
+            flex-direction: row;
+
+            .description {
+              min-width: 34%;
+              text-align: left;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -512,6 +760,87 @@
         }
       }
 
+      section.page:nth-of-type(4),
+      section.page:nth-of-type(5) {
+
+        .page-body {
+
+          .product-lines,
+          .core-tech {
+            flex-direction: row;
+
+            .content {
+              flex-direction: column;
+              min-width: 33%;
+
+              .pic {
+                padding: 3px;
+              }
+
+              .description {
+
+                .name {
+                  text-align: center;
+                }
+
+                p {
+                  text-indent: 2em;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      section.page:nth-of-type(7) {
+
+        .page-body {
+
+          .content {
+            flex-direction: row;
+
+            .description {
+              max-width: 25%;
+              min-width: auto;
+            }
+          }
+        }
+      }
+
+      section.page:nth-of-type(6) {
+        .page-body {
+
+          .e {
+            display: flex;
+
+            figure {
+              min-height: 300px;
+            }
+
+            .content {
+
+              .title {
+
+              }
+
+              p {
+
+              }
+            }
+          }
+
+          .eben-cards {
+            display: flex;
+
+            .eben-card {
+
+              figure {
+
+              }
+            }
+          }
+        }
+      }
     }
   }
 </style>
