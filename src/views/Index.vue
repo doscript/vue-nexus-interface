@@ -1,6 +1,7 @@
 <template>
   <div class="page-index">
     <header-component></header-component>
+    <scroll-info></scroll-info>
     <div class="frame-content">
       <side-nav></side-nav>
       <main @click="onHideMenuClick">
@@ -36,6 +37,7 @@ import SideNav from './common/SideNav'
 import InfoNav from './common/InfoNav'
 import HeaderComponent from './common/Header'
 import FooterComponent from './common/Footer'
+import ScrollInfo from './common/ScrollInfo'
 import { EbenResourceDomain } from '../constants/index'
 
 export default{
@@ -99,7 +101,8 @@ export default{
     SideNav,
     HeaderComponent,
     FooterComponent,
-    InfoNav
+    InfoNav,
+    ScrollInfo
   },
 
   methods: {

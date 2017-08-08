@@ -21,7 +21,8 @@
           <div class="content">
             <div class="title">产品沿革</div>
             <p>自2010年1月至今，<br />E人E本已陆续推出十余款商务平板电脑系列产品，<br />成为中国商务平板领域当之无愧的领军品牌。<br />2014年6月首次推出安全手机M1，涉足手机行业。</p>
-            <a href="javascript:void(0);" class="more video" data-ebenaction="视频：了解e本-看看用户怎么说">看看用户怎么说 >><span class="icon-gray-video"></span></a>
+            <a href="javascript:void(0);" @click="showVideoPlayer();" class="more video" data-ebenaction="视频：了解e本-看看用户怎么说"><icon class="icons" name="player"></icon> 看看用户怎么说 >></a>
+            <video-player :id="videoUser.id" :url="videoUser.url" ref="VideoPlayer"></video-player>
           </div>
         </div>
 
@@ -138,6 +139,7 @@
 
 <script>
   import InfoNav from '../common/InfoNav'
+  import VideoPlayer from '../common/VideoPlayer'
   import { EbenResourceDomain, EbenDomain } from '../../constants/index'
 
   export default{
@@ -147,6 +149,10 @@
       return {
         itemEvent: {
           path: '/about/events'
+        },
+        videoUser: {
+          url: EbenResourceDomain + '/video/userfinal.mp4',
+          id: 'userfinal'
         },
         data: {
           productTopPic: {
@@ -296,17 +302,29 @@
 
     },
 
+    components: {
+      InfoNav,
+      VideoPlayer
+    },
+
     methods: {
 
       onClickItem(item) {
         console.log(item);
         this.$router.push(item.path);
-      }
+      },
+
+      showVideoPlayer() {
+        this.$refs.VideoPlayer.openVideoPlayer();
+      },
+
+//      setTrigger(trigger) {
+//        // 这是用于子组件传值给父组件的方法，子组件调用$emit('transferTrigger', trigger)可触发
+//        this.videoUser.trigger = trigger;
+//      },
+
     },
 
-    components: {
-      InfoNav
-    },
   }
 </script>
 
@@ -380,14 +398,14 @@
 
         .top-device {
           display: flex;
-          justify-content: space-around;
+          justify-content: center;
           flex-wrap: wrap;
           padding: $common-padding;
 
           .top-pic {
             min-height: $responsive-width-xxs;
             min-width: $common-content-width-xxs;
-            padding: $common-padding;
+            padding: 0;
 
             figure {
               background: no-repeat center;
@@ -398,7 +416,7 @@
           .content {
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            justify-content: center;
             padding: $common-padding;
 
             .title {
@@ -410,6 +428,15 @@
             p {
               font-size: 14px;
               line-height: 2.5em;
+            }
+
+            .video {
+
+              .icon {
+                color: inherit;
+                width: 16px;
+                height: 16px;
+              }
             }
           }
         }
@@ -728,6 +755,9 @@
       }
 
       section.page:nth-of-type(2) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
 
         .page-body {
 
@@ -801,7 +831,7 @@
 
             .description {
               max-width: 25%;
-              min-width: auto;
+              min-width: 20%;
             }
           }
         }
@@ -831,6 +861,7 @@
 
           .eben-cards {
             display: flex;
+            justify-content: center;
 
             .eben-card {
 
