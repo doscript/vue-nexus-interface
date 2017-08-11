@@ -105,7 +105,7 @@ export default {
     text-align: center;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
+    justify-content: center;
   }
 
   a {

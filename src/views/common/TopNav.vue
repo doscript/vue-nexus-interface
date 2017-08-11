@@ -4,9 +4,9 @@
       <template v-for="(item, index) in sideNav">
         <side-nav-node :model="item" v-if="item.children"></side-nav-node>
         <a v-else-if="item.type == 'open'" :href="item.path" :target="item.target" class="open-target">
-          <el-menu-item index="item.id" class="single-menu-item" style="padding-left: 15px;">{{ item.title[$currentLang] }}</el-menu-item>
+          <el-menu-item index="item.id" class="single-menu-item" >{{ item.title[$currentLang] }}</el-menu-item>
         </a>
-        <el-menu-item v-else index="item.id" @click="onMenuItemClick(item)" class="single-menu-item" style="padding-left: 15px;">{{ item.title[$currentLang] }}</el-menu-item>
+        <el-menu-item v-else index="item.id" @click="onMenuItemClick(item)" class="single-menu-item" >{{ item.title[$currentLang] }}</el-menu-item>
       </template>
     </el-menu>
   </div>
@@ -53,7 +53,8 @@ export default {
     }
     .el-menu--dark .el-submenu__title {
       border: none;
-      padding: 0 15px 0 0;
+      padding: 0;
+      text-align: center;
     }
     .el-menu--dark .el-menu-item:hover, .el-menu--dark .el-submenu__title:hover {
       color: $char-hover-color;
@@ -68,6 +69,8 @@ export default {
       .el-menu-item.single-menu-item {
         display: block;
         border: none;
+        padding: 0;
+        text-align: center;
       }
 
       .eben-nav-submenu {

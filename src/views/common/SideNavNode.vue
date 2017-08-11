@@ -1,7 +1,7 @@
 <template>
   <el-submenu v-if="isContainMore(model)" :index="model.id" class="eben-nav-submenu">
     <template slot="title">
-      <i v-if="model.icon" :class="`el-icon-${model.icon}`"></i>
+      <!--<i v-if="model.icon" :class="`el-icon-${model.icon}`"></i>-->
       {{ model.title[$currentLang] }}
     </template>
     <template v-for="(item, index) in model.children">
