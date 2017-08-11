@@ -78,5 +78,13 @@ export default {
   removeStorage (name) {
     if (!name) return
     window.localStorage.removeItem(name)
+  },
+
+  setTitle(object) {
+    this.setStorage('page-title', JSON.stringify(object));
+  },
+
+  getTitle() {
+    return this.getStorage('page-title');
   }
 }

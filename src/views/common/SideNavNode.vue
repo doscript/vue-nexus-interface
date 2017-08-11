@@ -19,27 +19,32 @@
 </template>
 
 <script>
-export default {
-  name: 'side-nav-node',
+  import { $utils } from '@helper'
+  export default {
+    name: 'side-nav-node',
 
-  props: {
-    model: {
-      type: Object,
-      required: true,
-      default: () => {}
-    },
-  },
-
-  methods: {
-    isContainMore (model) {
-      return model.children && model.children.length
+    props: {
+      model: {
+        type: Object,
+        required: true,
+        default: () => {}
+      },
     },
 
-    onMenuItemClick (item) {
-      console.log(item);
-      document.getElementById('app').className = '';
-      this.$router.push(item.path)
+    methods: {
+      isContainMore (model) {
+        return model.children && model.children.length
+      },
+
+      onMenuItemClick (item) {
+        document.getElementById('app').className = '';
+        if (item.pageTitle) {
+          $utils.setTitle(item.pageTitle);
+        } else {
+          $utils.setTitle(item.title);
+        }
+        this.$router.push({path: item.path, query: item.query});
+      }
     }
   }
-}
 </script>

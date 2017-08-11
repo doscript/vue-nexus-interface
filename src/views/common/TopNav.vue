@@ -13,28 +13,34 @@
 </template>
 
 <script>
-import SideNavNode from './SideNavNode'
-import MenuConfig from '@constants/menuConfig'
+  import { $utils } from '@helper'
+  import SideNavNode from './SideNavNode'
+  import MenuConfig from '@constants/menuConfig'
 
-export default {
-  name: 'top-nav',
+  export default {
+    name: 'top-nav',
 
-  data () {
-    return {
-      sideNav: MenuConfig,
-      defaultOpeneds: ['']
+    data () {
+      return {
+        sideNav: MenuConfig,
+        defaultOpeneds: ['']
+      }
+    },
+    methods: {
+      onMenuItemClick (item) {
+        document.getElementById('app').className = '';
+        if (item.pageTitle) {
+          $utils.setTitle(item.pageTitle);
+        } else {
+          $utils.setTitle(item.title);
+        }
+        this.$router.push({path: item.path, query: item.query});
+      }
+    },
+    components: {
+      SideNavNode
     }
-  },
-  methods: {
-    onMenuItemClick (item) {
-      console.log(item);
-      this.$router.push(item.path)
-    }
-  },
-  components: {
-    SideNavNode
   }
-}
 </script>
 
 <style lang="scss">
