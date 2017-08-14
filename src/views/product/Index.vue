@@ -218,15 +218,18 @@
 
     section.page {
       width: 100%;
-      min-height: calc(100vh * 0.5);
+      height: calc(100vh * 0.5);
+      min-height: 320px;
       max-height: 650px;
       overflow: hidden;
 
       .page-body {
+        height: inherit;
         min-height: inherit;
 
         figure {
           width: 100%;
+          height: inherit;
           min-height: inherit;
           background: center no-repeat;
           background-size: 200% 100%;
