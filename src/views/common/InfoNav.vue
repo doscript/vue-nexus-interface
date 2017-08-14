@@ -82,7 +82,6 @@ export default {
 
 <style type="text/css" lang="scss">
   @import './../../assets/scss/variables.scss';
-  @import './../../assets/scss/mixins.scss';
 
   #app .info-nav {
     min-height: 100px;

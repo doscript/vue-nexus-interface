@@ -1,103 +1,211 @@
 <template>
   <div class="product">
-    <section class="page">
+    <section class="page" v-for="item in sections" :key="item">
       <div class="page-body">
-
+        <figure :style="item.style"></figure>
       </div>
     </section>
+
+    <not-found v-if="sections == [] || sections.length == 0"></not-found>
+
+    <history-devices></history-devices>
 
   </div>
 </template>
 
 <script>
   import { EbenResourceDomain, EbenDomain } from '@constants/index'
+  import HistoryDevices from '../common/HistoryDevices'
+  import NotFound from '../exception/NotFound'
 
   export default{
     name: 'Product',
 
     data () {
       return {
-        data: {
-          productHistory: [
-            {
-              title: 'T1',
-              style: {
-                backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_t1.png")',
-              }
-            },
-            {
-              title: 'T2',
-              style: {
-                backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_t2.png")',
-              }
-            },
-            {
-              title: 'T3',
-              style: {
-                backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_t3.png")',
-              }
-            },
-            {
-              title: 'T4',
-              style: {
-                backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_t4.png")',
-              }
-            },
-            {
-              title: 'T5',
-              style: {
-                backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_t5.png")',
-              }
-            },
-            {
-              title: 'T6',
-              style: {
-                backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_t6.png")',
-              }
-            },
-            {
-              title: 'T7',
-              style: {
-                backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_t7.png")',
-              }
-            },
-            {
-              title: 'T8',
-              style: {
-                backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_t8.png")',
-              }
-            },
-          ],
-
-        }
+        sections: [],
       }
     },
 
     computed: {},
 
-    created () {},
+    created () {
+      // 组件创建完后获取数据，
+      // 此时 data 已经被 observed 了
+      this.initSections();
+    },
 
-    mounted () {},
+    mounted () {
+
+    },
 
     props: {
 
     },
 
     watch: {
-
+      // 如果路由有变化，会再次执行该方法
+      '$route': 'initSections'
     },
 
     components: {
-
+      HistoryDevices,
+      NotFound
     },
 
     methods: {
 
-      onClickItem(item) {
-        console.log(item);
-        this.$router.push(item.path);
-      },
-
+      initSections() {
+        console.log('The mark of this page is: ' + this.$route.query.mark);
+        switch (this.$route.query.mark) {
+          case 'T9S':
+            this.sections = [
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9s/t9s_bg_01.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9s/t9s_bg_02.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9s/t9s_bg_03.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9s/t9s_bg_04.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9s/t9s_bg_05.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9s/t9s_bg_06.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9s/t9s_bg_07.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9s/t9s_bg_08.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9s/t9s_bg_09.png")', } },
+            ];
+            break;
+          case 'T9':
+            this.sections = [
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_01.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_02.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_03.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_04.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_05.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_06.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_07.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_08.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_09.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_10.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_11.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_12.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_13.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_14.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_15.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_16.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_17.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_18.jpg")', } },
+            ];
+            break;
+          case 'T9honor':
+            this.sections = [
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_01.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_02.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_03.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_04.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_05.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_06.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_07.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_08.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_09.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_10.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_11.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_12.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_13.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_14.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_15.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_16.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_17.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_18.jpg")', } },
+            ];
+            break;
+          case 'T9Study':
+            this.sections = [
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9study/t9study_bg_01.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9study/t9study_bg_02.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9study/t9study_bg_03.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9study/t9study_bg_04.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9study/t9study_bg_05.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9study/t9study_bg_06.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9study/t9study_bg_07.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9study/t9study_bg_08.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9study/t9study_bg_09.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9study/t9study_bg_10.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9study/t9study_bg_11.jpg")', } },
+            ];
+            break;
+          case 'T8S':
+            this.sections = [
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_01.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_02.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_03.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_04.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_05.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_06.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_07.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_08.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_09.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_10.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_11.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_12.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_13.jpg")', } },
+            ];
+            break;
+          case 'T7S':
+            this.sections = [
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_01.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_02.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_03.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_04.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_05.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_06.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_07.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_08.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_09.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_10.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_11.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_12.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_13.jpg")', } },
+            ];
+            break;
+          case 'K9':
+            this.sections = [
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k9/k9_bg_01.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k9/k9_bg_02.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k9/k9_bg_03.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k9/k9_bg_04.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k9/k9_bg_05.png")', } },
+//              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k9/k9_bg_06.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k9/k9_bg_07.png")', } },
+            ];
+            break;
+          case 'L2':
+            this.sections = [
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/l2/l2_bg_01.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/l2/l2_bg_02.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/l2/l2_bg_03.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/l2/l2_bg_04.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/l2/l2_bg_05.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/l2/l2_bg_06.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/l2/l2_bg_07.png")', } },
+            ];
+            break;
+          case 'K8S':
+            this.sections = [
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k8s/k8s_bg_01.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k8s/k8s_bg_02.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k8s/k8s_bg_03.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k8s/k8s_bg_04.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k8s/k8s_bg_05.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k8s/k8s_bg_06.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k8s/k8s_bg_07.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k8s/k8s_bg_08.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k8s/k8s_bg_09.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k8s/k8s_bg_10.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k8s/k8s_bg_11.jpg")', } },
+            ];
+            break;
+          default:
+            this.sections = [];
+            break;
+        }
+      }
     },
 
   }
@@ -106,29 +214,73 @@
 <style type="text/css" lang="scss">
   @import "../../assets/scss/variables.scss";
 
-  #app .about-index {
+  #app .product {
 
     section.page {
       width: 100%;
-      min-height: $product-section-height;
+      min-height: calc(100vh * 0.5);
+      max-height: 650px;
       overflow: hidden;
 
       .page-body {
+        min-height: inherit;
 
+        figure {
+          width: 100%;
+          min-height: inherit;
+          background: center no-repeat;
+          background-size: 200% 100%;
+        }
       }
     }
 
   }
 
   @media (min-width: #{$responsive-width-xs}) {
-    #app .about-index {
+    #app .product {
 
+      section.page {
+        min-height: calc(100vh * 0.7);
+
+        .page-body {
+
+          figure {
+
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: 700px) {
+    #app .product {
+
+      section.page {
+        min-height: calc(100vh * 0.8);
+
+        .page-body {
+
+          figure {
+
+          }
+        }
+      }
     }
   }
 
   @media (min-width: #{$responsive-width-small}) {
-    #app .about-index {
+    #app .product {
 
+      section.page {
+        min-height: $product-section-height;
+
+        .page-body {
+
+          figure {
+            background-size: cover;
+          }
+        }
+      }
     }
   }
 </style>

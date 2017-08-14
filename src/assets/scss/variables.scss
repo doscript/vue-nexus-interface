@@ -47,7 +47,7 @@ $common-margin: 15px;
 $header-height: 60px;
 $footer-height: 160px;
 $common-section-height: 600px;
-$product-section-height: 100vh;
+$product-section-height: calc(100vh - #{$header-height});
 
 // width
 $full-percent-width: 100%;

@@ -22,34 +22,40 @@ export default{
 }
 </script>
 <style lang="scss">
-.page-error {
-  color: #707473;
-  text-align: center;
-  .box{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 360px;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+  @import "../../assets/scss/variables.scss";
+  #app .page-error {
+    color: $unimportant-char-color;
+    text-align: center;
+    height: calc(100vh - #{$header-height});
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .box {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      .pic {
+        padding: $common-padding;
+
+        img {
+          width: 157px;
+        }
+      }
+
+      .info{
+        padding: $common-padding;
+
+        h1 {
+          font-size: 64px;
+        }
+        h4 {
+          font-size: 16px;
+          margin-bottom: 20px;
+        }
+      }
+    }
+
   }
-  .pic{
-    float: left;
-  }
-  .info{
-    float: right;
-  }
-  img{
-    width: 157px;
-  }
-  h1 {
-    font-size: 64px;
-  }
-  h4 {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-}
 </style>

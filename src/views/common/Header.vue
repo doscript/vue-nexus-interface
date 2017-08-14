@@ -118,8 +118,7 @@ export default {
   }
   .logo {
     float: left;
-    /*padding: 10px 0 8px 35px;*/
-    padding: 6px 30px 14px;
+    padding: 6px 30px 14px 0;
 
     img {
       display: inline-block;

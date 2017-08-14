@@ -80,3 +80,11 @@ div.clear {
 .text-line {
   text-decoration: underline;
 }
+
+a {
+  transition: all 0.25s ease-in-out;
+}
+
+a:hover {
+  text-decoration: none;
+}

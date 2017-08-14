@@ -42,7 +42,7 @@ export default {
     min-height: $footer-height;
 
     .footer-content {
-      padding: 15px;
+      padding: 15px 0;
       max-width: $common-content-width-xxs;
       margin: 0 auto;
 

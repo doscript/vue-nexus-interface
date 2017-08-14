@@ -7,17 +7,23 @@ export default {
   children: [
     {
       title: $utils.titleLang('K9 (EBEN 81002)', 'K9'),
-      path: '/businessTablet/k9',
+      path: '/product/eben',
+      query: { mark: 'K9' },
+      pageTitle: $utils.titleLang('K9 (EBEN 81002) - E人E本', 'K9'),
       type: ''
     },
     {
       title: $utils.titleLang('L2 (EBEN 82004)', 'L2'),
-      path: '/businessTablet/l2',
+      path: '/product/eben',
+      query: { mark: 'L2' },
+      pageTitle: $utils.titleLang('L2 (EBEN 82004) - E人E本', 'L2'),
       type: ''
     },
     {
       title: $utils.titleLang('K8S', 'K8S'),
-      path: '/businessTablet/k8s',
+      path: '/product/eben',
+      query: { mark: 'K8S' },
+      pageTitle: $utils.titleLang('K8S - E人E本', 'K8S'),
       type: ''
     },
     {
@@ -32,7 +38,9 @@ export default {
     },
     {
       title: $utils.titleLang('安全政务本', 'EBEN Safety'),
-      path: '/businessTablet/safety',
+      path: '/product/eben',
+      query: { mark: 'safety' },
+      pageTitle: $utils.titleLang('安全政务本 - E人E本', 'Safety'),
       type: ''
     },
   ]

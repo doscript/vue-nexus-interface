@@ -138,6 +138,7 @@ export default{
 
     .main-carousel {
       height: calc(100vh - #{$header-height});
+      max-height: 650px;
     }
 
     .el-carousel {
