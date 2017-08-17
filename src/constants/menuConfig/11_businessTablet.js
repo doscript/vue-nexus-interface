@@ -42,10 +42,11 @@ export default {
     },
     {
       title: $utils.titleLang('T7增强版', 'T7S'),
-      path: '/product/eben',
-      query: { mark: 'T7S' },
-      pageTitle: $utils.titleLang('T7增强版 - E人E本', 'T7S'),
-      type: ''
+      path: 'http://www.eben.cn/businesstablet/t7s',
+      // query: { mark: 'T7S' },
+      // pageTitle: $utils.titleLang('T7增强版 - E人E本', 'T7S'),
+      type: 'open',
+      target: '_blank'
     },
   ]
 }

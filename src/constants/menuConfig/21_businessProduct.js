@@ -38,10 +38,11 @@ export default {
     },
     {
       title: $utils.titleLang('安全政务本', 'EBEN Safety'),
-      path: '/product/eben',
-      query: { mark: 'safety' },
-      pageTitle: $utils.titleLang('安全政务本 - E人E本', 'Safety'),
-      type: ''
+      path: 'http://www.eben.cn/businesstablet/safety',
+      // query: { mark: 'safety' },
+      // pageTitle: $utils.titleLang('安全政务本 - E人E本', 'Safety'),
+      type: 'open',
+      target: '_blank'
     },
   ]
 }

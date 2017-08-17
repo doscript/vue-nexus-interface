@@ -10,7 +10,7 @@
           {{ item.title[$currentLang] }}
         </el-menu-item>
       </a>
-      <el-menu-item :class="item.path === $route.path ? 'is-active': ''" @click="onMenuItemClick(item)" index="item.id">
+      <el-menu-item v-else :class="item.path === $route.path ? 'is-active': ''" @click="onMenuItemClick(item)" index="item.id">
         {{ item.title[$currentLang] }}
       </el-menu-item>
       <side-nav-node :model="item"></side-nav-node>
