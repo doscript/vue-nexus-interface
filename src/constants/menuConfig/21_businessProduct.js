@@ -28,7 +28,7 @@ export default {
     },
     {
       title: $utils.titleLang('E本解决方案', 'EBEN Solutions'),
-      path: '/businessTablet/solution',
+      path: '/product/solution',
       type: ''
     },
     {

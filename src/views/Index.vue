@@ -1,7 +1,6 @@
 <template>
   <div class="page-index">
     <header-component></header-component>
-    <scroll-info></scroll-info>
     <div class="frame-content">
       <side-nav></side-nav>
       <main @click="onHideMenuClick">
@@ -37,8 +36,6 @@ import SideNav from './common/SideNav'
 import InfoNav from './common/InfoNav'
 import HeaderComponent from './common/Header'
 import FooterComponent from './common/Footer'
-import ScrollInfo from './common/ScrollInfo'
-import { EbenResourceDomain } from '../constants/index'
 
 export default{
   name: 'Index',
@@ -53,41 +50,44 @@ export default{
           titleSmall: '这是小标题一',
           titleLarge: '这是大标题一',
           figureStyle: {
-            backgroundImage: 'url("' + EbenResourceDomain + '/new_images/focus_1.jpg")'
+            backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_1.jpg")'
           }
         },
         {
           titleSmall: '这是小标题二',
           titleLarge: '这是大标题二',
           figureStyle: {
-            backgroundImage: 'url("' + EbenResourceDomain + '/new_images/focus_2.jpg")'
+            backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_2.jpg")'
           }
         },
         {
           titleSmall: '这是小标题三',
           titleLarge: '这是大标题三',
           figureStyle: {
-            backgroundImage: 'url("' + EbenResourceDomain + '/new_images/focus_3.jpg")'
+            backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_3.jpg")'
           }
         },
       ],
       cardArray: [
         {
-          path: '',
+          titleSmall: '这是小标题一',
+          titleLarge: '这是大标题一',
           figureStyle: {
-            backgroundImage: 'url("' + EbenResourceDomain + '/new_images/focus_1.jpg")'
+            backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_1.jpg")'
           }
         },
         {
-          path: '',
+          titleSmall: '这是小标题二',
+          titleLarge: '这是大标题二',
           figureStyle: {
-            backgroundImage: 'url("' + EbenResourceDomain + '/new_images/focus_2.jpg")'
+            backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_2.jpg")'
           }
         },
         {
-          path: '',
+          titleSmall: '这是小标题三',
+          titleLarge: '这是大标题三',
           figureStyle: {
-            backgroundImage: 'url("' + EbenResourceDomain + '/new_images/focus_3.jpg")'
+            backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_3.jpg")'
           }
         },
       ],
@@ -101,8 +101,7 @@ export default{
     SideNav,
     HeaderComponent,
     FooterComponent,
-    InfoNav,
-    ScrollInfo
+    InfoNav
   },
 
   methods: {
@@ -115,7 +114,7 @@ export default{
 
 <style lang="scss">
 @import './../assets/scss/variables.scss';
-
+@import './../assets/scss/mixins.scss';
 #app {
   height: auto;
 
@@ -138,7 +137,6 @@ export default{
 
     .main-carousel {
       height: calc(100vh - #{$header-height});
-      max-height: 650px;
     }
 
     .el-carousel {
@@ -199,21 +197,25 @@ export default{
             background-position: center;
             background-repeat: no-repeat;
             position: absolute;
-            bottom: 0;
-            left: 0;
+            bottom: 0px;
+            left: 0px;
             width: 100%;
             height: 100%;
             z-index: 1;
-            border: 1px solid $page-background-color;
-            transition: all 0.5s ease-in-out;
-          }
-
-          figure:hover {
-            cursor: pointer;
-            border-color: $info-nav-hover-color;
+            border: 2px solid #fff;
           }
         }
 
+      }
+
+      div:nth-of-type(1) .card-inner figure {
+        background-image: url("https://images.apple.com/cn/home/images/row-promos/apple_pay_small_2x.jpg");
+      }
+      div:nth-of-type(2) .card-inner figure {
+        background-image: url("https://images.apple.com/v/home/dj/images/row-promos/imac_small_2x.jpg");
+      }
+      div:nth-of-type(3) .card-inner figure {
+        background-image: url("https://images.apple.com/v/home/dj/images/row-promos/summer_casual_small_2x.jpg");
       }
 
     }
@@ -222,10 +224,19 @@ export default{
 
 }
 
-@media (min-width: #{$responsive-width-small}) {
-  #app .page-index {
+@media (max-width: #{$responsive-width-small}) {
+  #app {
 
+    .el-carousel {
 
+      .el-carousel__container {
+
+        .el-carousel__item {
+
+        }
+
+      }
+    }
   }
 }
 </style>
