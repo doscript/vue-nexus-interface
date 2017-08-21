@@ -20,6 +20,13 @@ export default [
         },
         component: resolve => require(['../../views/product/Solution'], resolve)
       },
+      {
+        path: 'product/advantage',
+        meta: {
+          ignoreAuth: true
+        },
+        component: resolve => require(['../../views/product/Advantage'], resolve)
+      }
     ]
   },
 ]

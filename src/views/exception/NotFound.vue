@@ -5,8 +5,8 @@
         <img src="../../assets/images/404.png" alt=""></div>
       <div class="info">
         <h1>404</h1>
-        <h4>返回首页</h4>
-        <el-button type="primary" @click.native="back">抱歉，该页面不存在</el-button>
+        <h4>抱歉，该页面不存在</h4>
+        <el-button type="primary" @click.native="back">返回首页</el-button>
       </div>
     </div>
   </div>

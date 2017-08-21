@@ -140,7 +140,7 @@ export default {
     #app .info-nav {
 
       .info-nav-content {
-        padding: 50px 15px;
+        padding: 30px 15px;
         flex-flow: row nowrap;
 
         .info-nav-single {

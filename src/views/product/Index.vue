@@ -198,7 +198,7 @@
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k8s/k8s_bg_08.jpg")', } },
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k8s/k8s_bg_09.jpg")', } },
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k8s/k8s_bg_10.jpg")', } },
-              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k8s/k8s_bg_11.jpg")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k8s/k8s_bg_1.jpg")', } },
             ];
             break;
           default:
@@ -218,18 +218,15 @@
 
     section.page {
       width: 100%;
-      height: calc(100vh * 0.5);
-      min-height: 320px;
+      min-height: calc(100vh * 0.5);
       max-height: 650px;
       overflow: hidden;
 
       .page-body {
-        height: inherit;
         min-height: inherit;
 
         figure {
           width: 100%;
-          height: inherit;
           min-height: inherit;
           background: center no-repeat;
           background-size: 200% 100%;

@@ -86,5 +86,14 @@ export default {
 
   getTitle() {
     return this.getStorage('page-title');
+  },
+
+
+  /**
+   * auto scroll to top
+   */
+  scrollTop() {
+    document.documentElement.scrollTop = 0;
   }
+
 }

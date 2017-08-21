@@ -33,7 +33,7 @@ export default {
     },
     {
       title: $utils.titleLang('E本应用优势', 'EBEN Advantage'),
-      path: '/businessTablet/advantage',
+      path: '/product/advantage',
       type: ''
     },
     {

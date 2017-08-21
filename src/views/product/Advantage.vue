@@ -1,5 +1,5 @@
 <template>
-  <div class="solution">
+  <div class="advantage">
     <section class="page card-collection">
       <div class="page-body">
         <div class="content">
@@ -11,14 +11,6 @@
           </div>
         </div>
         <div></div>
-      </div>
-    </section>
-
-    <section class="solution-more">
-      <div class="page-body">
-        <div class="content">
-          <figure :style="solutionMore.style" @click="onClickItem(solutionMore.item)"></figure>
-        </div>
       </div>
     </section>
 
@@ -40,77 +32,60 @@
   import { EbenResourceDomain, EbenDomain } from '../../constants/index'
 
   export default{
-    name: 'Solution',
+    name: 'Advantage',
 
     data () {
       return {
         cards: [
           {
-            title: '安全政务',
-            path: EbenDomain + '/businessproduct/solutionsdetail/safety',
+            title: 'E本定制',
+            path: EbenDomain + '/businessproduct/advantagesdetail/customized',
             pathType: '_blank',
             style: {
-              backgroundImage: 'url("' + EbenResourceDomain + '/new_images/product_s1.jpg")',
+              backgroundImage: 'url("' + EbenResourceDomain + '/new_images/product_a1.jpg")',
             }
           },
           {
-            title: '移动办公',
-            path: EbenDomain + '/businessproduct/solutionsdetail/mobile',
+            title: 'E本能力',
+            path: EbenDomain + '/businessproduct/advantagesdetail/ability',
             pathType: '_blank',
             style: {
-              backgroundImage: 'url("' + EbenResourceDomain + '/new_images/product_s2.jpg")',
+              backgroundImage: 'url("' + EbenResourceDomain + '/new_images/product_a2.jpg")',
             }
           },
           {
-            title: '智慧教学',
-            path: EbenDomain + '/businessproduct/solutionsdetail/wisdom',
+            title: 'E本特色',
+            path: EbenDomain + '/businessproduct/advantagesdetail/characteristic',
             pathType: '_blank',
             style: {
-              backgroundImage: 'url("' + EbenResourceDomain + '/new_images/product_s3.jpg")',
+              backgroundImage: 'url("' + EbenResourceDomain + '/new_images/product_a3.jpg")',
             }
           },
           {
-            title: '移动执法',
-            path: EbenDomain + '/businessproduct/solutionsdetail/lawenforcement',
+            title: '应用领域',
+            path: EbenDomain + '/businessproduct/advantagesdetail/application',
             pathType: '_blank',
             style: {
-              backgroundImage: 'url("' + EbenResourceDomain + '/new_images/product_s4.jpg")',
+              backgroundImage: 'url("' + EbenResourceDomain + '/new_images/product_a4.jpg")',
             }
           },
           {
-            title: '智慧金融',
-            path: EbenDomain + '/businessproduct/solutionsdetail/finance',
+            title: '合作开发',
+            path: EbenDomain + '/businessproduct/advantagesdetail/cooperation',
             pathType: '_blank',
             style: {
-              backgroundImage: 'url("' + EbenResourceDomain + '/new_images/product_s5.jpg")',
-            }
-          },
-          {
-            title: '智慧医疗',
-            path: EbenDomain + '/businessproduct/solutionsdetail/medicalcare',
-            pathType: '_blank',
-            style: {
-              backgroundImage: 'url("' + EbenResourceDomain + '/new_images/product_s6.jpg")',
+              backgroundImage: 'url("' + EbenResourceDomain + '/new_images/product_a5.jpg")',
             }
           },
         ],
         picBanner: {
           style: {
-            backgroundImage: 'url("' + EbenResourceDomain + '/new_images/k9_pic.jpg")',
+            backgroundImage: 'url("' + EbenResourceDomain + '/new_images/k8s_pic.jpg")',
           },
           item: {
-            path: '/product/eben?mark=K9'
+            path: '/product/eben?mark=K8S'
           }
         },
-        solutionMore: {
-          style: {
-            backgroundImage: 'url("' + EbenResourceDomain + '/new_images/more_app.png")',
-          },
-          item: {
-            path: EbenDomain + '/businessproduct/solutionsdetail/more',
-            pathType: '_blank',
-          }
-        }
       }
     },
 
@@ -151,7 +126,7 @@
 <style type="text/css" lang="scss">
   @import "../../assets/scss/variables.scss";
 
-  #app .solution {
+  #app .advantage {
 
     section {
       width: $common-content-width-xxs;
@@ -160,6 +135,7 @@
 
     section.pic-banner {
       min-height: 200px;
+      padding-top: 30px;
 
       .page-body {
         height: inherit;
@@ -234,38 +210,10 @@
         }
       }
     }
-
-    section.solution-more {
-      height: 80px;
-
-      .page-body {
-        height: inherit;
-
-        .content {
-          height: inherit;
-          padding: 10px 5px;
-          display: flex;
-          justify-content: flex-end;
-
-          figure {
-            width: 180px;
-            opacity: 0.9;
-            background: center no-repeat;
-            background-size: contain;
-            transition: opacity 0.25s ease-in-out;
-          }
-
-          figure:hover {
-            cursor: pointer;
-            opacity: 1;
-          }
-        }
-      }
-    }
   }
 
   @media (min-width: #{$responsive-width-xs}) {
-    #app .solution {
+    #app .advantage {
 
       section.pic-banner {
         min-height: 300px;
@@ -293,24 +241,11 @@
           }
         }
       }
-
-      section.solution-more {
-
-        .page-body {
-
-          .content {
-
-            figure {
-
-            }
-          }
-        }
-      }
     }
   }
 
   @media (min-width: #{$responsive-width-small}) {
-    #app .solution {
+    #app .advantage {
 
       section {
         width: $common-content-width-small;
@@ -325,6 +260,12 @@
             .eben-card {
               width: 33.3%;
             }
+
+            div.eben-card:nth-of-type(4),
+            div.eben-card:nth-of-type(5) {
+              width: 50%;
+            }
+
           }
         }
       }

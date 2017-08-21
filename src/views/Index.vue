@@ -11,17 +11,19 @@
                 <h2>{{ item.titleSmall }}</h2>
                 <h1>{{ item.titleLarge }}</h1>
               </div>
-              <figure class="bg-img" :style="item.figureStyle"></figure>
+              <figure class="bg-img" :style="item.figureStyle" @click="onClickItem(item)"></figure>
             </el-carousel-item>
           </el-carousel>
         </article>
         <section class="main-card">
-          <el-col :xs="24" :sm="8" class="card-part" v-for="item in cardArray" :key="item">
-            <div class="card-inner">
-              <figure class="card-image" :style="item.figureStyle"></figure>
-            </div>
-          </el-col>
-          <div class="clear"></div>
+          <div class="page-body">
+            <el-col :xs="24" :sm="8" class="card-part" v-for="item in cardArray" :key="item">
+              <div class="card-inner">
+                <figure class="card-image" :style="item.figureStyle" @click="onClickItem(item)"></figure>
+              </div>
+            </el-col>
+            <div class="clear"></div>
+          </div>
         </section>
 
         <info-nav></info-nav>
@@ -51,21 +53,24 @@ export default{
           titleLarge: '这是大标题一',
           figureStyle: {
             backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_1.jpg")'
-          }
+          },
+          path: '/product/eben?mark=T9S',
         },
         {
           titleSmall: '这是小标题二',
           titleLarge: '这是大标题二',
           figureStyle: {
             backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_2.jpg")'
-          }
+          },
+          path: '/product/eben?mark=K9',
         },
         {
           titleSmall: '这是小标题三',
           titleLarge: '这是大标题三',
           figureStyle: {
             backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_3.jpg")'
-          }
+          },
+          path: '/product/eben?mark=L2',
         },
       ],
       cardArray: [
@@ -73,22 +78,25 @@ export default{
           titleSmall: '这是小标题一',
           titleLarge: '这是大标题一',
           figureStyle: {
-            backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_1.jpg")'
-          }
+            backgroundImage: 'url("http://img1.ereneben.com/new_images/p1.jpg")'
+          },
+          path: '/product/eben?mark=T9S',
         },
         {
           titleSmall: '这是小标题二',
           titleLarge: '这是大标题二',
           figureStyle: {
-            backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_2.jpg")'
-          }
+            backgroundImage: 'url("http://img1.ereneben.com/new_images/p2.jpg")'
+          },
+          path: '/product/eben?mark=L2',
         },
         {
           titleSmall: '这是小标题三',
           titleLarge: '这是大标题三',
           figureStyle: {
-            backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_3.jpg")'
-          }
+            backgroundImage: 'url("http://img1.ereneben.com/new_images/p3.jpg")'
+          },
+          path: '/product/solution',
         },
       ],
     }
@@ -107,7 +115,16 @@ export default{
   methods: {
     onHideMenuClick () {
       document.getElementById('app').className = ''
-    }
+    },
+
+    onClickItem(item) {
+      console.log(item);
+      if (item.pathType === '_blank') {
+        window.location.href = item.path;
+        return;
+      }
+      this.$router.push(item.path);
+    },
   }
 }
 </script>
@@ -149,11 +166,15 @@ export default{
           background-size: auto 100%;
           background-repeat: no-repeat;
           background-position-x: center;
-          position: absolute;
           width: 100%;
           height: 100%;
+          /*left: 0;*/
+          /*position: absolute;*/
           /*min-height: 900px;*/
-          left: 0;
+        }
+
+        figure:hover {
+          cursor: pointer;
         }
 
         /*div:nth-of-type(1) figure{*/
@@ -174,7 +195,7 @@ export default{
           width: 100%;
           top: 20%;
           color: #fff;
-          z-index: 99;
+          /*z-index: 99;*/
           text-align: center;
         }
 
@@ -182,27 +203,34 @@ export default{
 
     }
 
-    .main-card {
+    section.main-card {
       min-height: 200px;
+      width: $common-content-width-xxs;
+      padding-top: 30px;
+      margin: 0 auto;
 
       .card-part {
         position: relative;
+        padding: 3px;
 
         .card-inner {
           width: 100%;
-          min-height: 200px;
+          height: 200px;
 
           figure {
+            background: center no-repeat;
             background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: absolute;
-            bottom: 0px;
-            left: 0px;
             width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
             height: 100%;
-            z-index: 1;
-            border: 2px solid #fff;
+            border: 1px solid #555;
+            transition: all 0.25s ease-in-out;
+          }
+
+          figure:hover {
+            border-color: $opacity-white-bg-color;
+            cursor: pointer;
           }
         }
 
@@ -224,17 +252,31 @@ export default{
 
 }
 
-@media (max-width: #{$responsive-width-small}) {
+@media (min-width: #{$responsive-width-xs}) {
   #app {
 
-    .el-carousel {
+    .page-index {
 
-      .el-carousel__container {
+      main {
 
-        .el-carousel__item {
+        section.main-card {
 
         }
+      }
+    }
+  }
+}
 
+@media (min-width: #{$responsive-width-small}) {
+  #app {
+
+    .page-index {
+
+      main {
+
+        section.main-card {
+          width: $common-content-width-small;
+        }
       }
     }
   }

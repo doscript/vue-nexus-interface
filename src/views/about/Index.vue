@@ -63,7 +63,8 @@
             <div class="description">
               <div class="name">{{ item.title }}</div>
               <p>{{ item.description }}</p>
-              <a v-if="item.linkType == '_blank'" :href="item.link" :target="item.linkType" class="more" >了解更多 >></a>
+              <a v-if="item.pathType == '_blank'" :href="item.path" :target="item.pathType" class="more" >了解更多 >></a>
+              <a v-if="item.path && item.pathType != '_blank'" href="javascript:void(0)" @click="onClickItem(item)" class="more" >了解更多 >></a>
             </div>
           </div>
         </div>
@@ -81,7 +82,8 @@
             <div class="description">
               <div class="name">{{ item.title }}</div>
               <p>{{ item.description }}</p>
-              <a v-if="item.linkType == '_blank'" :href="item.link" :target="item.linkType" class="more" >了解更多 >></a>
+              <a v-if="item.pathType == '_blank'" :href="item.path" :target="item.pathType" class="more" >了解更多 >></a>
+              <a v-if="item.path && item.pathType != '_blank'" href="javascript:void(0)" @click="onClickItem(item)" class="more" >了解更多 >></a>
             </div>
           </div>
         </div>
@@ -215,8 +217,8 @@
             {
               title: '商务平板',
               description: '公司自2010年1月发布第一代支持手写办公的商务平板电脑至今，已陆续推出十余款商务平板电脑系列产品，是中国商务平板电脑领域的领军品牌。',
-              link: EbenDomain + '/businesstablet/t9',
-              linkType: '_blank',
+              path: '/product/eben?mark=T9',
+              pathType: '',
               style: {
                 backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_p1.jpg")',
               }
@@ -231,8 +233,8 @@
             {
               title: '行业应用',
               description: 'E人E本提供高度可定制化服务，为集团客户提供安全、高效的移动办公解决方案。覆盖安全政务、移动办公、移动执法、智慧教学、智慧医疗共六大领域。',
-              link: EbenDomain + '/businessproduct/solution',
-              linkType: '_blank',
+              path: '/product/solution',
+              pathType: '',
               style: {
                 backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_p3.jpg")',
               }
@@ -242,8 +244,8 @@
             {
               title: '原笔迹数字书写',
               description: '“原笔迹数字书写技术”（MindMark）是由壹人壹本公司自主研发并具有独立知识产权。 融合了全球领先的电磁压感技术和智能识别技术……',
-              link: EbenDomain + '/abouts/corey',
-              linkType: '_blank',
+              path: EbenDomain + '/abouts/corey',
+              pathType: '_blank',
               style: {
                 backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_p4.jpg")',
               }
@@ -251,8 +253,8 @@
             {
               title: '手写办公系统',
               description: '公司自主设计开发的“手写办公系统”核心应用，使得E人E本的原笔迹手写不仅仅停留在“电子记事本”上，而是完整融入办公生态。横向打通各种办公设备，如……',
-              link: EbenDomain + '/abouts/cores',
-              linkType: '_blank',
+              path: EbenDomain + '/abouts/cores',
+              pathType: '_blank',
               style: {
                 backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_p5.jpg")',
               }
@@ -260,8 +262,8 @@
             {
               title: 'SEA安全增强架构',
               description: 'E人E本SEA安全增强架构（Security Enhanced Architecture）是基于Android操作系统的安全操作系统解决方案，采用国密算法安全模块，为用户提供以安全启动……',
-              link: EbenDomain + '/abouts/corea',
-              linkType: '_blank',
+              path: EbenDomain + '/abouts/corea',
+              pathType: '_blank',
               style: {
                 backgroundImage: 'url("' + EbenResourceDomain + '/new_images/about/about_p6.jpg")',
               }
@@ -311,6 +313,10 @@
 
       onClickItem(item) {
         console.log(item);
+        if (item.pathType === '_blank') {
+          window.location.href = item.path;
+          return;
+        }
         this.$router.push(item.path);
       },
 
@@ -560,6 +566,10 @@
                 text-indent: 2em;
                 line-height: 1.5em;
               }
+
+              a {
+                width: 80px;
+              }
             }
           }
         }
@@ -572,6 +582,7 @@
     }
 
     section.page:nth-of-type(6) {
+
       .page-body {
         padding: 30px 0;
 
@@ -861,7 +872,7 @@
 
           .eben-cards {
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
 
             .eben-card {
 
