@@ -30,6 +30,7 @@
 <script>
   import InfoNav from '../common/InfoNav'
   import { EbenResourceDomain, EbenDomain } from '../../constants/index'
+  import { $utils } from '@helper'
 
   export default{
     name: 'Advantage',
@@ -91,7 +92,10 @@
 
     computed: {},
 
-    created () {},
+    created () {
+
+      this.$utils.scrollTop();
+    },
 
     mounted () {},
 

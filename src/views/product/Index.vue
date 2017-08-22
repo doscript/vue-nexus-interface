@@ -17,6 +17,7 @@
   import { EbenResourceDomain, EbenDomain } from '@constants/index'
   import HistoryDevices from '../common/HistoryDevices'
   import NotFound from '../exception/NotFound'
+  import { $utils } from '@helper'
 
   export default{
     name: 'Product',
@@ -33,6 +34,8 @@
       // 组件创建完后获取数据，
       // 此时 data 已经被 observed 了
       this.initSections();
+
+      this.$utils.scrollTop();
     },
 
     mounted () {
