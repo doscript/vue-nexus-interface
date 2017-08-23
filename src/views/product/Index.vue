@@ -221,7 +221,7 @@
 
     section.page {
       width: 100%;
-      min-height: calc(100vh * 0.5);
+      min-height: 60vw;
       max-height: 650px;
       overflow: hidden;
 
@@ -243,23 +243,6 @@
     #app .product {
 
       section.page {
-        min-height: calc(100vh * 0.7);
-
-        .page-body {
-
-          figure {
-
-          }
-        }
-      }
-    }
-  }
-
-  @media (min-width: 700px) {
-    #app .product {
-
-      section.page {
-        min-height: calc(100vh * 0.8);
 
         .page-body {
 

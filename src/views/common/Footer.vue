@@ -3,7 +3,7 @@
     <div class="footer-content">
       <hr class="eben-divider">
       <div class="copyright">
-        <p>版权所有：2009-2015© 北京壹人壹本信息科技有限公司</p>
+        <p>版权所有：2009-2017© 北京壹人壹本信息科技有限公司</p>
         <p>京ICP证120259号</p>
         <p>京ICP备09102141号</p>
         <p>公安备案号：1101050193</p>

@@ -163,20 +163,16 @@
     }
 
     section.pic-banner {
-      min-height: 200px;
+      padding-top: $section-padding-top;
 
       .page-body {
-        height: inherit;
-        min-height: inherit;
 
         .content {
-          height: inherit;
-          min-height: inherit;
-          padding: 5px;
+          height: 32vw;
+          max-height: 350px;
+          min-height: 140px;
 
           figure {
-            height: inherit;
-            min-height: inherit;
             background: center no-repeat;
             background-size: cover;
             transition: all 0.25s linear;
@@ -194,7 +190,7 @@
     }
 
     section.card-collection {
-      padding-top: 30px;
+      padding-top: $section-padding-top;
     }
 
     section.page {
@@ -213,7 +209,7 @@
             cursor: pointer;
             opacity: 0.9;
             transition: opacity 0.25s linear;
-            padding: 5px;
+            padding: 5px 0;
 
             figure {
               background: center no-repeat;
@@ -272,7 +268,6 @@
     #app .solution {
 
       section.pic-banner {
-        min-height: 300px;
 
         .page-body {
 
@@ -293,6 +288,19 @@
 
             .eben-card {
               width: 50%;
+              padding: 5px;
+            }
+
+            div.eben-card:nth-of-type(1),
+            div.eben-card:nth-of-type(3),
+            div.eben-card:nth-of-type(5) {
+              padding-left: 0;
+            }
+
+            div.eben-card:nth-of-type(2),
+            div.eben-card:nth-of-type(4),
+            div.eben-card:nth-of-type(6) {
+              padding-right: 0;
             }
           }
         }
@@ -328,6 +336,20 @@
 
             .eben-card {
               width: 33.3%;
+              padding: 5px;
+            }
+
+            div.eben-card:nth-of-type(1),
+            div.eben-card:nth-of-type(4) {
+              padding: 5px 5px 5px 0;
+            }
+            div.eben-card:nth-of-type(2),
+            div.eben-card:nth-of-type(5) {
+              padding: 5px;
+            }
+            div.eben-card:nth-of-type(3),
+            div.eben-card:nth-of-type(6) {
+              padding: 5px 0 5px 5px;
             }
           }
         }

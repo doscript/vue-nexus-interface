@@ -47,7 +47,7 @@
   @import './../../assets/scss/variables.scss';
 
   #app .topnav {
-    display: inline-block;
+    display: none;
     background-color: $side-nav-color;
     transition: all 0.75s ease;
 
@@ -95,9 +95,9 @@
 
   }
 
-  @media (max-width: #{$responsive-width-small}){
+  @media (min-width: #{$responsive-width-small}){
     #app .topnav {
-      display: none;
+      display: inline-block;
 
       .open-target {
         padding: 0;

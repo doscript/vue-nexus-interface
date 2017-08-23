@@ -206,7 +206,7 @@ export default{
     section.main-card {
       min-height: 200px;
       width: $common-content-width-xxs;
-      padding-top: 30px;
+      padding-top:  $section-padding-top;
       margin: 0 auto;
 
       .card-part {
