@@ -42,10 +42,14 @@
             <span class="icon-point"></span>公告区
           </div>
           <div class="list-content">
-
+            <ul class="">
+              <li class="" v-for="item in notices" :key="item">
+                <span @click="onClickItem(item)">{{ item.title }}</span>
+              </li>
+            </ul>
           </div>
           <div class="more">
-
+            <span @click="onClickItem(moreNotices)">更多公告</span>
           </div>
         </div>
         <div class="list-area list-part">
@@ -53,30 +57,39 @@
             <span class="icon-point"></span>常见热门问题
           </div>
           <div class="list-content">
-
+            <ul class="">
+              <li class="" v-for="item in questions" :key="item">
+                <span @click="onClickItem(item)">{{ item.title }}</span>
+              </li>
+            </ul>
           </div>
           <div class="more">
-
+            <span @click="onClickItem(moreQuestions)">更多常见问题</span>
           </div>
         </div>
-        <div class="list-part">
+        <div class="list-collection">
           <div class="list-area">
             <div class="title">
               <span class="icon-point"></span>视频说明书
             </div>
             <div class="list-content">
-
+              <div class="pic-area">
+                <figure></figure>
+                <figure @click="onClickItem(videoPage)"></figure>
+              </div>
             </div>
           </div>
           <div class="list-area">
             <div class="title">
-              <span class="icon-point"></span>资源下载
+              <div class="">
+                <span class="icon-point"></span>资源下载
+              </div>
+              <div class="">
+                <span class="more" @click="onClickItem(videoPage)">更多</span>
+              </div>
             </div>
             <div class="list-content">
-
-            </div>
-            <div class="more">
-
+              <span class="download-link" v-for="item in downloadLinks" :key="item" @click="onClickItem(videoPage)">{{ item.title }}</span>
             </div>
           </div>
         </div>
@@ -136,7 +149,47 @@
           keyword: ''
         },
         searchLoading: false,
-
+        notices: [
+          { id: '612', title: '预置应用公示', path: EbenDomain + '/about/detail/612', pathType: '_blank' },
+          { id: '609', title: '关于对E本商城八大类应用下架通知', path: EbenDomain + '/about/detail/609', pathType: '_blank' },
+          { id: '603', title: '2016年春节售后服务网点放假安排的通知', path: EbenDomain + '/about/detail/603', pathType: '_blank' },
+          { id: '602', title: '售后服务站点新增通知', path: EbenDomain + '/about/detail/602', pathType: '_blank' },
+          { id: '586', title: '售后服务站点电话变更通知', path: EbenDomain + '/about/detail/586', pathType: '_blank' },
+          { id: '584', title: '售后服务站点撤站及地址变更通知', path: EbenDomain + '/about/detail/584', pathType: '_blank' },
+          { id: '578', title: '售后服务站点新增通知', path: EbenDomain + '/about/detail/578', pathType: '_blank' },
+          { id: '576', title: '售后服务站点电话变更通知', path: EbenDomain + '/about/detail/576', pathType: '_blank' },
+        ],
+        moreNotices: {
+          path: EbenDomain + '/about/introduction',
+          pathType: '_blank'
+        },
+        questions: [
+          { id: '112164', title: '如何打电话？', path: EbenDomain + '/mutual/detail/M1/0/112164', pathType: '_blank' },
+          { id: '110005', title: '如何开启蓝牙？', path: EbenDomain + '/mutual/detail/M1/0/110005', pathType: '_blank' },
+          { id: '110004', title: '如何查查看4G流量？', path: EbenDomain + '/mutual/detail/M1/0/110004', pathType: '_blank' },
+          { id: '110003', title: '如何关闭4G网络？', path: EbenDomain + '/mutual/detail/M1/0/110003', pathType: '_blank' },
+          { id: '110002', title: '如何连接4G网络？', path: EbenDomain + '/mutual/detail/M1/0/110002', pathType: '_blank' },
+          { id: '110001', title: '如何安装SIM卡？', path: EbenDomain + '/mutual/detail/M1/0/110001', pathType: '_blank' },
+          { id: '110000', title: '如何添加WLAN网络？', path: EbenDomain + '/mutual/detail/M1/0/110000', pathType: '_blank' },
+          { id: '109999', title: '如何连接WLAN网络？', path: EbenDomain + '/mutual/detail/M1/0/109999', pathType: '_blank' },
+        ],
+        moreQuestions: {
+          path: EbenDomain + '/mutual/lists/',
+          pathType: '_blank'
+        },
+        videoPage: {
+          path: EbenDomain + '/service/video',
+          pathType: '_blank'
+        },
+        downloadLinks: [
+          { id: '538', title: 'T9固件', path: EbenDomain + '/about/detail/538', pathType: '_blank' },
+          { id: '487', title: 'T7固件', path: EbenDomain + '/about/detail/487', pathType: '_blank' },
+          { id: '472', title: 'T5版本', path: EbenDomain + '/about/detail/472/introduction', pathType: '_blank' },
+        ],
+        moreDownloadLinks: {
+          path: EbenDomain + '/mutual/resourcedown',
+          pathType: '_blank'
+        }
       }
     },
 
@@ -242,13 +295,15 @@
       .page-body {
         display: flex;
         justify-content: space-around;
+        flex-direction: column;
 
         .list-area {
+          padding-bottom: $common-padding;
 
           .title {
             position: relative;
-            padding-left: 10px;
-            padding-bottom: 15px;
+            padding-left: $inner-content-padding;
+            padding-bottom: $common-padding;
             font-size: 18px;
             line-height: 1.5em;
             color: #AE8646;
@@ -256,7 +311,7 @@
 
             .icon-point {
               background: url("#{$eben-resource-domain}/new_images/icon.png") -120px -120px no-repeat;
-              margin-right: 15px;
+              margin-right: $common-margin;
               width: 12px;
               height: 12px;
               display: inline-block;
@@ -264,12 +319,153 @@
           }
 
           .list-content {
+            border-bottom: 1px solid #444040;
+
+            ul {
+              margin: 0;
+              padding: $inner-content-padding;
+
+              li {
+
+                span {
+                  width: auto;
+                  max-width: 100%;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                  line-height: 28px;
+                  color: $char-color;
+                  transition: color 0.25s ease-in-out;
+                  display: inline-block;
+                }
+
+                span:hover {
+                  cursor: pointer;
+                  color: $char-hover-color;
+                }
+              }
+
+            }
+          }
+
+          .more {
+            padding: 15px 10px;
+
+            span {
+              color: $char-color;
+              transition: color 0.25s ease-in-out;
+              display: inline-block;
+              line-height: 1em;
+            }
+
+            span:hover {
+              cursor: pointer;
+              color: $char-hover-color;
+            }
+
+            span::after {
+              content: ' >>';
+            }
+          }
+        }
+
+        .list-area.list-part {
+
+          .list-content {
             height: 270px;
           }
         }
 
-        .list-part {
+        .list-collection {
 
+          .list-area:nth-of-type(1) {
+
+            .list-content {
+              border: none;
+
+              .pic-area {
+                padding: 30px 10px;
+                position: relative;
+
+                figure {
+                  width: 266px;
+                  height: 144px;
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                  border-radius: 5px;
+                }
+
+                figure:nth-of-type(1) {
+                  background: url("#{$eben-resource-domain}/new_images/video_img.jpg");
+                }
+
+                figure:nth-of-type(2) {
+                  background: url("#{$eben-resource-domain}/new_images/video_bg.png");
+                  position: absolute;
+                  top: 30px;
+                  z-index: 2;
+                  transition: all 0.25s ease-in-out;
+                  opacity: 0.8;
+                }
+
+                figure:hover {
+                  cursor: pointer;
+                  opacity: 1;
+                }
+              }
+            }
+          }
+
+          .list-area:nth-of-type(2) {
+
+            .title {
+              display: flex;
+              justify-content: space-between;
+
+              .more {
+                color: $char-color;
+                font-size: $font-normal-size;
+                transition: all 0.25s ease-in-out;
+              }
+
+              .more::after {
+                content: ' >>';
+              }
+
+              .more:hover {
+                color: $char-hover-color;
+                cursor: pointer;
+              }
+            }
+
+            .list-content {
+              border: none;
+              padding: 30px 10px;
+
+              .download-link {
+                color: $char-color;
+                padding: 10px;
+                display: inline-block;
+                border: 1px solid #{$char-color};
+                transition: all 0.25s ease-in-out;
+              }
+
+              .download-link:hover {
+                cursor: pointer;
+                color: $char-hover-color;
+                border-color: $char-hover-color;
+              }
+
+              .download-link:nth-of-type(1) {
+                margin: 5px 5px 5px 0;
+              }
+              .download-link:nth-of-type(2),
+              .download-link:nth-of-type(3) {
+                margin: 5px;
+              }
+
+            }
+          }
         }
       }
     }
@@ -279,6 +475,42 @@
   @media (min-width: #{$responsive-width-xs}) {
     #app .customer-service {
 
+      section.info-list {
+
+        .page-body {
+          flex-direction: row;
+          flex-wrap: wrap;
+
+          .list-area.list-part {
+            width: 50%;
+          }
+
+          .list-area.list-part:nth-of-type(1) {
+            padding-right: 5px;
+          }
+          .list-area.list-part:nth-of-type(2) {
+            padding-left: 5px;
+          }
+
+          .list-collection {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+
+            .list-area {
+              width: 50%;
+            }
+
+            .list-area:nth-of-type(1) {
+              padding-right: 5px;
+            }
+            .list-area:nth-of-type(2) {
+              padding-left: 5px;
+            }
+
+          }
+        }
+      }
     }
   }
 
@@ -316,18 +548,46 @@
       section.info-list {
 
         .page-body {
+          justify-content: space-around;
 
-          .list-part {
+          .list-area.list-part {
             width: 33.3%;
-            padding: 40px;
           }
 
-          .list-part:nth-of-type(1) {
-            padding-left: 0;
+          .list-area.list-part:nth-of-type(1) {
+            padding-right: 20px;
           }
 
-          .list-part:nth-of-type(3) {
-            padding-right: 0;
+          .list-area.list-part:nth-of-type(2) {
+            padding-left: 20px;
+            padding-right: 20px;
+          }
+
+          .list-collection {
+            width: 33.3%;
+            padding-left: 20px;
+            flex-direction: column;
+
+            .list-area {
+              width: 100%;
+            }
+
+            .list-area:nth-of-type(1) {
+              padding: 0;
+
+              .list-content {
+                height: calc(270px - 43px);
+              }
+            }
+
+            .list-area:nth-of-type(2) {
+              padding-left: 0;
+
+              .list-content {
+                padding: 10px;
+              }
+            }
+
           }
         }
       }
