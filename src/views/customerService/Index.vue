@@ -321,11 +321,12 @@
           display: flex;
           flex-direction: row;
           flex-wrap: wrap;
-          justify-content: center;
+          justify-content: space-between;
 
           .link-service {
             padding: 10px 0;
-            width: 50%;
+            /*width: 50%;*/
+            width: auto;
             text-align: center;
             transition: all 0.25s ease-in-out;
 
@@ -355,7 +356,7 @@
           }
 
           .pic-service {
-            width: 50%;
+            width: 100%;
             text-align: center;
 
             figure {
@@ -582,10 +583,16 @@
     #app .customer-service {
 
       section.links-list {
+        position: absolute;
+        top: 40vw;
+        left: 0;
+        right: 0;
+        padding-top: 0;
 
         .page-body {
 
           .content {
+            justify-content: space-around;
 
             .link-service.hover-action {
 
@@ -625,6 +632,10 @@
               figure {
                 background-position: -756px 0;
               }
+            }
+
+            .pic-service {
+              width: auto;
             }
           }
         }
@@ -677,11 +688,7 @@
       }
 
       section.links-list {
-        position: absolute;
         top: 375px;
-        left: 0;
-        right: 0;
-        padding-top: 0;
 
         .page-body {
 

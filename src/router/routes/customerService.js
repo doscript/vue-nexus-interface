@@ -13,6 +13,13 @@ export default [
         },
         component: resolve => require(['../../views/customerService/Index'], resolve)
       },
+      {
+        path: 'customerService/network',
+        meta: {
+          ignoreAuth: true
+        },
+        component: resolve => require(['../../views/customerService/Network'], resolve)
+      },
     ]
   },
 ]

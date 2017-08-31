@@ -1,34 +1,10 @@
 <template>
   <section class="info-nav">
     <div class="info-nav-content">
-      <div class="info-nav-single">
-        <a class="icon-pointer">
-          <div class="eben-icon eben-icon-service" :style="styles.ebenIconService"></div>
-          <p><icon class="icons" name="wrench"></icon><span>客服网点</span></p>
-        </a>
-      </div>
-      <div class="info-nav-single">
-      <a class="icon-pointer">
-        <div class="eben-icon eben-icon-contact" :style="styles.ebenIconContact"></div>
-        <p><icon class="icons" name="telephone"></icon><span>联系我们</span></p>
-      </a>
-      </div>
-      <div class="info-nav-single">
-        <a class="icon-pointer">
-          <div class="eben-icon eben-icon-business" :style="styles.ebenIconBusiness"></div>
-          <p><icon class="icons" name="keys"></icon><span>渠道招商</span></p>
-        </a>
-      </div>
-      <div class="info-nav-single">
-        <a class="icon-pointer">
-          <div class="eben-icon eben-icon-join" :style="styles.ebenIconJoin"></div>
-          <p><icon class="icons" name="email"></icon><span>加入我们</span></p>
-        </a>
-      </div>
-      <div class="info-nav-single">
-        <a class="icon-pointer">
-          <div class="eben-icon eben-icon-statement" :style="styles.ebenIconStatement"></div>
-          <p><icon class="icons" name="message"></icon><span>隐私声明</span></p>
+      <div class="info-nav-single" v-for="item in infoList" :key="item">
+        <a class="icon-pointer" @click="onClickItem(item)">
+          <div class="eben-icon eben-icon-statement" :style="item.style"></div>
+          <p><icon class="icons" :name="item.icon"></icon><span>{{ item.title }}</span></p>
         </a>
       </div>
     </div>
@@ -36,34 +12,64 @@
 </template>
 
 <script>
-import { EbenResourceDomain } from '../../constants/index'
+import { EbenResourceDomain, EbenDomain } from '../../constants/index'
 
 export default {
   name: 'info-nav',
 
   data () {
     return {
-      styles: {
-        ebenIconService: {
-          background: 'url("' + EbenResourceDomain + '/new_images/icon.png") no-repeat',
-          backgroundPosition: '0 -100px'
+      infoList: [
+        {
+          icon: 'wrench',
+          title: '客服网点',
+          path: '/customerService/network',
+          pathType: '',
+          style: {
+            background: 'url("' + EbenResourceDomain + '/new_images/icon.png") no-repeat',
+            backgroundPosition: '0 -100px'
+          }
         },
-        ebenIconContact: {
-          background: 'url("' + EbenResourceDomain + '/new_images/icon.png") no-repeat',
-          backgroundPosition: '0 -220px'
+        {
+          icon: 'telephone',
+          title: '联系我们',
+          path: '',
+          pathType: '',
+          style: {
+            background: 'url("' + EbenResourceDomain + '/new_images/icon.png") no-repeat',
+            backgroundPosition: '0 -220px'
+          }
         },
-        ebenIconBusiness: {
-          background: 'url("' + EbenResourceDomain + '/new_images/icon-business.png") no-repeat',
+        {
+          icon: 'keys',
+          title: '渠道招商',
+          path: '',
+          pathType: '',
+          style: {
+            background: 'url("' + EbenResourceDomain + '/new_images/icon-business.png") no-repeat',
+          }
         },
-        ebenIconJoin: {
-          background: 'url("' + EbenResourceDomain + '/new_images/icon.png") no-repeat',
-          backgroundPosition: '0 -280px'
+        {
+          icon: 'email',
+          title: '加入我们',
+          path: '',
+          pathType: '',
+          style: {
+            background: 'url("' + EbenResourceDomain + '/new_images/icon.png") no-repeat',
+            backgroundPosition: '0 -280px'
+          }
         },
-        ebenIconStatement: {
-          background: 'url("' + EbenResourceDomain + '/new_images/icon.png") no-repeat',
-          backgroundPosition: '0 -340px'
+        {
+          icon: 'message',
+          title: '隐私声明',
+          path: '',
+          pathType: '',
+          style: {
+            background: 'url("' + EbenResourceDomain + '/new_images/icon.png") no-repeat',
+            backgroundPosition: '0 -340px'
+          }
         },
-      }
+      ],
     }
   },
 
@@ -76,6 +82,14 @@ export default {
 
   methods: {
 
+    onClickItem(item) {
+      console.log(item);
+      if (item.pathType === '_blank') {
+        window.location.href = item.path;
+        return;
+      }
+      this.$router.push(item.path);
+    },
   }
 }
 </script>

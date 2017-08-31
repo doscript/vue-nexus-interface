@@ -190,7 +190,7 @@
     }
 
     section.card-collection {
-      padding-top: $section-padding-top;
+
     }
 
     section.page {
