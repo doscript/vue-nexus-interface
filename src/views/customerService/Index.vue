@@ -9,6 +9,33 @@
       </div>
     </section>
 
+    <section class="links-list">
+      <div class="page-body">
+        <div class="content">
+          <div class="link-service hover-action">
+            <figure></figure>
+            <div><icon class="icons" name="wrench"></icon><span>知识库</span></div>
+          </div>
+          <div class="link-service hover-action">
+            <figure></figure>
+            <div><icon class="icons" name="wrench"></icon><span>E问E答</span></div>
+          </div>
+          <div class="link-service hover-action">
+            <figure></figure>
+            <div><icon class="icons" name="wrench"></icon><span>售后维修网点</span></div>
+          </div>
+          <div class="link-service hover-action">
+            <figure></figure>
+            <div><icon class="icons" name="wrench"></icon><span>E本社区</span></div>
+          </div>
+          <div class="link-service pic-service">
+            <figure></figure>
+            <div><span>微信服务平台</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="search-form">
       <div class="page-body">
         <div class="content">
@@ -189,6 +216,24 @@
         moreDownloadLinks: {
           path: EbenDomain + '/mutual/resourcedown',
           pathType: '_blank'
+        },
+        linksList: {
+          knowledge: {
+            path: EbenDomain + '/mutual/lists/',
+            pathType: '_blank'
+          },
+          equestion: {
+            path: EbenDomain + '/service/question',
+            pathType: '_blank'
+          },
+          serviceplace: {
+            path: EbenDomain + '/service/network',
+            pathType: '_blank'
+          },
+          ebbs: {
+            path: 'http://bbs.eben.cn/forum.php',
+            pathType: '_blank'
+          }
         }
       }
     },
@@ -261,6 +306,67 @@
           figure {
             background: top center no-repeat;
             background-size: contain;
+          }
+        }
+      }
+    }
+
+    section.links-list {
+      padding-top: 30px;
+
+      .page-body {
+
+        .content {
+          color: $char-color;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+
+          .link-service {
+            padding: 10px 0;
+            width: 50%;
+            text-align: center;
+            transition: all 0.25s ease-in-out;
+
+            div {
+
+              span {
+                font-size: 16px;
+                padding-left: 5px;
+              }
+            }
+          }
+
+          .link-service.hover-action {
+
+            figure {
+              display: none;
+            }
+
+            div {
+
+            }
+          }
+
+          .link-service.hover-action:hover {
+            cursor: pointer;
+            color: $char-hover-color;
+          }
+
+          .pic-service {
+            width: 50%;
+            text-align: center;
+
+            figure {
+              background: url("#{$eben-resource-domain}/new_images/ercode.jpg") no-repeat center;
+              background-size: contain;
+              height: 63px;
+            }
+
+            div {
+              padding: 10px 0;
+            }
           }
         }
       }
@@ -475,6 +581,55 @@
   @media (min-width: #{$responsive-width-xs}) {
     #app .customer-service {
 
+      section.links-list {
+
+        .page-body {
+
+          .content {
+
+            .link-service.hover-action {
+
+              figure {
+                display: block;
+                background: url("#{$eben-resource-domain}/new_images/service_nav_icon.png") no-repeat center;
+                width: 63px;
+                height: 63px;
+                margin: 0 auto;
+              }
+
+              div {
+                padding: 10px;
+
+                svg {
+                  display: none;
+                }
+              }
+            }
+
+            .link-service.hover-action:nth-of-type(1) {
+              figure {
+                background-position: 0 0;
+              }
+            }
+            .link-service.hover-action:nth-of-type(2) {
+              figure {
+                background-position: -188px 0;
+              }
+            }
+            .link-service.hover-action:nth-of-type(3) {
+              figure {
+                background-position: -377px 0;
+              }
+            }
+            .link-service.hover-action:nth-of-type(4) {
+              figure {
+                background-position: -756px 0;
+              }
+            }
+          }
+        }
+      }
+
       section.info-list {
 
         .page-body {
@@ -519,6 +674,34 @@
 
       section {
         width: $common-content-width-small;
+      }
+
+      section.links-list {
+        position: absolute;
+        top: 375px;
+        left: 0;
+        right: 0;
+        padding-top: 0;
+
+        .page-body {
+
+          .content {
+            justify-content: space-around;
+
+            .link-service {
+              width: auto;
+            }
+
+            .pic-service {
+
+              figure {
+                height: 63px;
+                width: 63px;
+                margin: 0 auto;
+              }
+            }
+          }
+        }
       }
 
       section.search-form {
