@@ -12,19 +12,19 @@
     <section class="links-list">
       <div class="page-body">
         <div class="content">
-          <div class="link-service hover-action">
+          <div class="link-service hover-action" @click="onClickItem(linksList.knowledge)">
             <figure></figure>
             <div><icon class="icons" name="wrench"></icon><span>知识库</span></div>
           </div>
-          <div class="link-service hover-action">
+          <div class="link-service hover-action" @click="onClickItem(linksList.equestion)">
             <figure></figure>
             <div><icon class="icons" name="wrench"></icon><span>E问E答</span></div>
           </div>
-          <div class="link-service hover-action">
+          <div class="link-service hover-action" @click="onClickItem(linksList.serviceplace)">
             <figure></figure>
             <div><icon class="icons" name="wrench"></icon><span>售后维修网点</span></div>
           </div>
-          <div class="link-service hover-action">
+          <div class="link-service hover-action" @click="onClickItem(linksList.ebb)">
             <figure></figure>
             <div><icon class="icons" name="wrench"></icon><span>E本社区</span></div>
           </div>
@@ -227,8 +227,7 @@
             pathType: '_blank'
           },
           serviceplace: {
-            path: EbenDomain + '/service/network',
-            pathType: '_blank'
+            path: '/customerService/network',
           },
           ebbs: {
             path: 'http://bbs.eben.cn/forum.php',
@@ -333,7 +332,7 @@
             div {
 
               span {
-                font-size: 16px;
+                font-size: 14px;
                 padding-left: 5px;
               }
             }
@@ -609,6 +608,10 @@
 
                 svg {
                   display: none;
+                }
+
+                span {
+                  padding-left: 0;
                 }
               }
             }
