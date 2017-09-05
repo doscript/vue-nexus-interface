@@ -5,7 +5,7 @@
       <side-nav></side-nav>
       <main @click="onHideMenuClick">
         <article class="main-carousel">
-          <el-carousel trigger="click" indicator-position="" :interval="4000" :autoplay="true">
+          <el-carousel trigger="click" indicator-position="" :interval="4000" :autoplay="true" arrow="always">
             <el-carousel-item v-for="item in carouselArray" :key="item">
               <div class="img-title">
                 <h2>{{ item.titleSmall }}</h2>
@@ -17,12 +17,11 @@
         </article>
         <section class="main-card">
           <div class="page-body">
-            <el-col :xs="24" :sm="8" class="card-part" v-for="item in cardArray" :key="item">
+            <div class="card-part" v-for="item in cardArray" :key="item">
               <div class="card-inner">
                 <figure class="card-image" :style="item.figureStyle" @click="onClickItem(item)"></figure>
               </div>
-            </el-col>
-            <div class="clear"></div>
+            </div>
           </div>
         </section>
 
@@ -49,24 +48,24 @@ export default{
     return {
       carouselArray: [
         {
-          titleSmall: '这是小标题一',
-          titleLarge: '这是大标题一',
+          titleSmall: '',
+          titleLarge: '',
           figureStyle: {
             backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_1.jpg")'
           },
           path: '/product/eben?mark=T9S',
         },
         {
-          titleSmall: '这是小标题二',
-          titleLarge: '这是大标题二',
+          titleSmall: '',
+          titleLarge: '',
           figureStyle: {
             backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_2.jpg")'
           },
           path: '/product/eben?mark=K9',
         },
         {
-          titleSmall: '这是小标题三',
-          titleLarge: '这是大标题三',
+          titleSmall: '',
+          titleLarge: '',
           figureStyle: {
             backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_3.jpg")'
           },
@@ -75,24 +74,24 @@ export default{
       ],
       cardArray: [
         {
-          titleSmall: '这是小标题一',
-          titleLarge: '这是大标题一',
+          titleSmall: '',
+          titleLarge: '',
           figureStyle: {
             backgroundImage: 'url("http://img1.ereneben.com/new_images/p1.jpg")'
           },
           path: '/product/eben?mark=T9S',
         },
         {
-          titleSmall: '这是小标题二',
-          titleLarge: '这是大标题二',
+          titleSmall: '',
+          titleLarge: '',
           figureStyle: {
             backgroundImage: 'url("http://img1.ereneben.com/new_images/p2.jpg")'
           },
           path: '/product/eben?mark=L2',
         },
         {
-          titleSmall: '这是小标题三',
-          titleLarge: '这是大标题三',
+          titleSmall: '',
+          titleLarge: '',
           figureStyle: {
             backgroundImage: 'url("http://img1.ereneben.com/new_images/p3.jpg")'
           },
@@ -153,7 +152,8 @@ export default{
     flex: 1;
 
     .main-carousel {
-      height: calc(100vh - #{$header-height});
+      height: 45vw;
+      max-height: calc(100vh - #{$header-height});
     }
 
     .el-carousel {
@@ -204,48 +204,56 @@ export default{
     }
 
     section.main-card {
-      min-height: 200px;
       width: $common-content-width-xxs;
-      padding-top:  $section-padding-top;
+      padding-top: $section-padding-top;
       margin: 0 auto;
 
-      .card-part {
-        position: relative;
-        padding: 3px;
+      .page-body {
+        display: flex;
+        flex-direction: column;
 
-        .card-inner {
-          width: 100%;
-          height: 200px;
+        .card-part {
+          position: relative;
+          padding: 3px;
 
-          figure {
-            background: center no-repeat;
-            background-size: cover;
+          .card-inner {
             width: 100%;
-            max-width: 500px;
-            margin: 0 auto;
-            height: 100%;
-            border: 1px solid #555;
-            transition: all 0.25s ease-in-out;
+            height: 35vw;
+            max-height: 200px;
+
+            figure {
+              background: center no-repeat;
+              background-size: cover;
+              width: 100%;
+              max-width: 500px;
+              margin: 0 auto;
+              height: 100%;
+              border: 1px solid #555;
+              transition: all 0.25s ease-in-out;
+            }
+
+            figure:hover {
+              border-color: $opacity-white-bg-color;
+              cursor: pointer;
+            }
+
           }
 
-          figure:hover {
-            border-color: $opacity-white-bg-color;
-            cursor: pointer;
-          }
+        }
+
+        div:nth-of-type(1) .card-inner figure {
+          background-image: url("https://images.apple.com/cn/home/images/row-promos/apple_pay_small_2x.jpg");
+        }
+
+        div:nth-of-type(2) .card-inner figure {
+          background-image: url("https://images.apple.com/v/home/dj/images/row-promos/imac_small_2x.jpg");
+        }
+
+        div:nth-of-type(3) .card-inner figure {
+          background-image: url("https://images.apple.com/v/home/dj/images/row-promos/summer_casual_small_2x.jpg");
         }
 
       }
-
-      div:nth-of-type(1) .card-inner figure {
-        background-image: url("https://images.apple.com/cn/home/images/row-promos/apple_pay_small_2x.jpg");
-      }
-      div:nth-of-type(2) .card-inner figure {
-        background-image: url("https://images.apple.com/v/home/dj/images/row-promos/imac_small_2x.jpg");
-      }
-      div:nth-of-type(3) .card-inner figure {
-        background-image: url("https://images.apple.com/v/home/dj/images/row-promos/summer_casual_small_2x.jpg");
-      }
-
     }
 
   }
@@ -261,6 +269,17 @@ export default{
 
         section.main-card {
 
+          .page-body {
+            flex-direction: row;
+
+            .card-part {
+              width: 33.3%;
+
+              .card-inner {
+                height: 20vw;
+              }
+            }
+          }
         }
       }
     }
@@ -276,6 +295,10 @@ export default{
 
         section.main-card {
           width: $common-content-width-small;
+
+          .page-body {
+
+          }
         }
       }
     }
