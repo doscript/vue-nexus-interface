@@ -232,7 +232,7 @@
           width: 100%;
           min-height: inherit;
           background: center no-repeat;
-          background-size: 200% 100%;
+          background-size: cover;
         }
       }
     }
