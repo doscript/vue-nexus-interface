@@ -53,6 +53,7 @@
     padding: 0 20px;
     overflow: hidden;
     transition: all 0.75s ease;
+    z-index: 11;
 
     .el-menu--dark {
       background: $side-nav-color;
