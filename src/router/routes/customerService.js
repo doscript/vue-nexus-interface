@@ -20,6 +20,13 @@ export default [
         },
         component: resolve => require(['../../views/customerService/Network'], resolve)
       },
+      {
+        path: 'customerService/equestion',
+        meta: {
+          ignoreAuth: true
+        },
+        component: resolve => require(['../../views/customerService/Equestion'], resolve)
+      },
     ]
   },
 ]
