@@ -27,6 +27,13 @@ export default [
         },
         component: resolve => require(['../../views/customerService/Equestion'], resolve)
       },
+      {
+        path: 'customerService/knowledge',
+        meta: {
+          ignoreAuth: true
+        },
+        component: resolve => require(['../../views/customerService/Knowledge'], resolve)
+      },
     ]
   },
 ]

@@ -66,7 +66,7 @@
       <div class="page-body">
         <div class="list-area list-part">
           <div class="title">
-            <span class="icon-point"></span>公告区
+            <icon name="point" class="icon-point"></icon>公告区
           </div>
           <div class="list-content">
             <ul class="">
@@ -81,7 +81,7 @@
         </div>
         <div class="list-area list-part">
           <div class="title">
-            <span class="icon-point"></span>常见热门问题
+            <icon name="point" class="icon-point"></icon>常见热门问题
           </div>
           <div class="list-content">
             <ul class="">
@@ -97,7 +97,7 @@
         <div class="list-collection">
           <div class="list-area">
             <div class="title">
-              <span class="icon-point"></span>视频说明书
+              <icon name="point" class="icon-point"></icon>视频说明书
             </div>
             <div class="list-content">
               <div class="pic-area">
@@ -109,7 +109,7 @@
           <div class="list-area">
             <div class="title">
               <div class="">
-                <span class="icon-point"></span>资源下载
+                <icon name="point" class="icon-point"></icon>资源下载
               </div>
               <div class="">
                 <span class="more" @click="onClickItem(videoPage)">更多</span>
@@ -219,8 +219,7 @@
         },
         linksList: {
           knowledge: {
-            path: EbenDomain + '/mutual/lists/',
-            pathType: '_blank'
+            path: '/customerService/knowledge',
           },
           equestion: {
             path: '/customerService/equestion',
@@ -274,6 +273,7 @@
         setTimeout(function () {
           sthis.searchLoading = false;
         }, 2000);
+        this.$router.push({ path: '/customerService/knowledge', query: this.searchParams });
       },
 
     },
@@ -354,7 +354,7 @@
 
           .link-service.hover-action:hover {
             cursor: pointer;
-            color: $char-hover-color;
+            opacity: 0.8;
           }
 
           .link-service.hover-action:nth-of-type(1) {
@@ -436,20 +436,18 @@
             padding-bottom: $common-padding;
             font-size: 18px;
             line-height: 1.5em;
-            color: #AE8646;
-            border-bottom: 1px solid #444040;
+            color: $custom-service-title-color;
+            border-bottom: 1px solid #{$custom-service-border-color};
+            height: 44px;
 
             .icon-point {
-              background: url("#{$eben-resource-domain}/new_images/icon.png") -120px -120px no-repeat;
               margin-right: $common-margin;
               width: 12px;
-              height: 12px;
-              display: inline-block;
             }
           }
 
           .list-content {
-            border-bottom: 1px solid #444040;
+            border-bottom: 1px solid #{$custom-service-border-color};
 
             ul {
               margin: 0;

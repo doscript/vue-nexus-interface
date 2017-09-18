@@ -4,6 +4,7 @@
     <div class="frame-content">
       <side-nav></side-nav>
       <main @click="onHideMenuClick">
+        <scroll-info></scroll-info>
         <article class="main-carousel">
           <el-carousel trigger="click" indicator-position="" :interval="4000" :autoplay="true" arrow="always">
             <el-carousel-item v-for="item in carouselArray" :key="item">
@@ -37,6 +38,7 @@ import SideNav from './common/SideNav'
 import InfoNav from './common/InfoNav'
 import HeaderComponent from './common/Header'
 import FooterComponent from './common/Footer'
+import ScrollInfo from './common/ScrollInfo'
 
 export default{
   name: 'Index',
@@ -108,7 +110,8 @@ export default{
     SideNav,
     HeaderComponent,
     FooterComponent,
-    InfoNav
+    InfoNav,
+    ScrollInfo
   },
 
   methods: {
