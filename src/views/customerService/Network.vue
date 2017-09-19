@@ -372,9 +372,10 @@
 
         article {
           /* 将banner高度设置50%屏幕宽度 */
-          height: 50vw;
+          height: 40vw;
           min-height: 150px;
-          max-height: 500px;
+          max-height: 400px;
+          padding: 15px 0;
 
           figure {
             background: top center no-repeat;

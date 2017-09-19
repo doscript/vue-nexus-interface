@@ -27,7 +27,7 @@
       </div>
     </section>
 
-    <section class="knowledge-questions">
+    <section class="knowledge-questions" v-show="triggerQuestions">
       <div class="page-body">
         <div class="list-area list-part">
           <div class="title">
@@ -36,15 +36,22 @@
           <div class="list-content">
             <ul class="question-ul">
               <li v-for="item in questionList" :key="item" class="question-item">
-                <span>· {{ item.label }}</span>
+                <span @click="getQuestionDetail(item)">· {{ item.label }}</span>
               </li>
             </ul>
+            <div class="question-pages">
+              <el-pagination
+                small
+                layout="prev, pager, next"
+                :total="50">
+              </el-pagination>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="knowledge-detail">
+    <section class="knowledge-detail" v-show="triggerDetail">
       <div class="page-body">
         <div class="list-area list-part">
           <div class="title">
@@ -130,7 +137,9 @@
         questionDetail: {
           question: '如何打电话？',
           answer: '点击电话图片，打开拨号键盘即可。点击电话图片，打开拨号键盘即可。点击电话图片，打开拨号键盘即可。点击电话图片，打开拨号键盘即可。点击电话图片，打开拨号键盘即可。点击电话图片，打开拨号键盘即可。点击电话图片，打开拨号键盘即可。',
-        }
+        },
+        triggerQuestions: true,
+        triggerDetail: false,
       }
     },
 
@@ -174,22 +183,49 @@
 
       onclickItemDevice(item) {
         this.deviceChoose = item;
+        this.qtypes = [
+          { value: '111', label: '安全' },
+          { value: '112', label: '记事' },
+          { value: '113', label: '文档' },
+          { value: '114', label: '邮件' },
+          { value: '115', label: '日程' },
+          { value: '118', label: '激活' },
+          { value: '122', label: 'E问E答' },
+          { value: '123', label: '桌面' },
+          { value: '125', label: 'OFFICE' },
+          { value: '126', label: '网络类' },
+          { value: '127', label: '系统类' },
+        ];
+        this.qtypeChoose = this.qtypes[0];
+        this.searchQuestions();
       },
 
       onclickItemQtype(item) {
         this.qtypeChoose = item;
+        this.searchQuestions();
       },
 
-      searchQuestions(item) {
-        console.log(item);
+      searchQuestions() {
+        console.log(this.deviceChoose);
+        console.log(this.qtypeChoose);
+        this.questionList = [
+          { id: 1, label: '如何设置防打扰？' },
+          { id: 2, label: '如何设置防丢失功能？' },
+          { id: 3, label: '无线安全锁的是使用说明？' },
+          { id: 4, label: '如何启用无线安全锁？' },
+        ];
+        this.triggerDetail = false;
+        this.triggerQuestions = true;
       },
 
       getQuestionDetail(item) {
         console.log(item);
+        this.triggerQuestions = false;
+        this.triggerDetail = true;
       },
 
       returnToQuestionList() {
-
+        this.searchQuestions();
       },
     },
 
@@ -314,7 +350,45 @@
                   color: $char-hover-color;
                 }
               }
+            }
 
+            .question-pages {
+              display: flex;
+              justify-content: center;
+
+              .el-pagination.el-pagination--small {
+                color: $char-color;
+
+                .btn-next,
+                .btn-prev {
+                  background-color: $main-color;
+                  color: $char-color;
+                }
+
+                .btn-next.disabled,
+                .btn-prev.disabled {
+                  color: $unimportant-char-color;
+                }
+
+                .el-pager {
+
+                  li {
+                    background: $main-color;
+                    border: 1px solid #{$main-color};
+                    color: $char-color;
+                    transition: all 0.25s ease-in-out;
+                  }
+
+                  li:hover {
+                    color: $char-hover-color;
+                  }
+
+                  li.active {
+                    border-color: $unimportant-char-color;
+                    color: $unimportant-char-color;
+                  }
+                }
+              }
             }
           }
         }
