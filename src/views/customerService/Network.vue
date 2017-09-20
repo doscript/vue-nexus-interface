@@ -375,7 +375,6 @@
           height: 40vw;
           min-height: 150px;
           max-height: 400px;
-          padding: 15px 0;
 
           figure {
             background: top center no-repeat;
