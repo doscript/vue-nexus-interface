@@ -187,8 +187,10 @@
           { id: '576', title: '售后服务站点电话变更通知', path: EbenDomain + '/about/detail/576', pathType: '_blank' },
         ],
         moreNotices: {
-          path: EbenDomain + '/about/introduction',
-          pathType: '_blank'
+          path: '/customerService/announcements',
+          query: {
+            type: 'customerService',
+          }
         },
         questions: [
           { id: '112164', title: '如何打电话？', path: EbenDomain + '/mutual/detail/M1/0/112164', pathType: '_blank' },
@@ -201,8 +203,7 @@
           { id: '109999', title: '如何连接WLAN网络？', path: EbenDomain + '/mutual/detail/M1/0/109999', pathType: '_blank' },
         ],
         moreQuestions: {
-          path: EbenDomain + '/mutual/lists/',
-          pathType: '_blank'
+          path: '/customerService/knowledge',
         },
         videoPage: {
           path: EbenDomain + '/service/video',
@@ -261,6 +262,10 @@
         console.log(item);
         if (item.pathType === '_blank') {
           window.location.href = item.path;
+          return;
+        }
+        if (item.query) {
+          this.$router.push({ path: item.path, query: item.query});
           return;
         }
         this.$router.push(item.path);

@@ -35,8 +35,11 @@ $border-black: #7a8ba9;
 $black: #333;             // font color
 $red: #fa0101;
 
+$title-color: #AE8646;
+$title-hover-color: #7e5b22;
+
 // customService
-$custom-service-title-color: #AE8646;
+$custom-service-title-color: #{$title-color};
 $custom-service-border-color: #444040;
 
 // size

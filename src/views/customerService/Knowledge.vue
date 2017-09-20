@@ -100,20 +100,7 @@
           { value: 'A1', label: 'A1' },
         ],
         qtypes: [
-          { value: '108', label: '电话' },
-          { value: '109', label: '联系人' },
-          { value: '110', label: '短信' },
-          { value: '111', label: '安全' },
-          { value: '112', label: '记事' },
-          { value: '113', label: '文档' },
-          { value: '114', label: '邮件' },
-          { value: '115', label: '日程' },
-          { value: '118', label: '激活' },
-          { value: '122', label: 'E问E答' },
-          { value: '123', label: '桌面' },
-          { value: '125', label: 'OFFICE' },
-          { value: '126', label: '网络类' },
-          { value: '127', label: '系统类' },
+
         ],
         deviceChoose: {
           value: '',
@@ -124,19 +111,11 @@
           label: '',
         },
         questionList: [
-          { id: 1, label: '如何打电话？' },
-          { id: 2, label: '如何删除通话记录？' },
-          { id: 3, label: '如何查看未接来电？' },
-          { id: 4, label: '通话中如何记录内容？' },
-          { id: 5, label: '通话中如何录音？' },
-          { id: 6, label: '通话中如何添加新的通话？' },
-          { id: 7, label: '当前通话如何静音？' },
-          { id: 8, label: '如何暂停当前通话？' },
-          { id: 9, label: '拒接电话“不在服务区”提示' },
+
         ],
         questionDetail: {
-          question: '如何打电话？',
-          answer: '点击电话图片，打开拨号键盘即可。点击电话图片，打开拨号键盘即可。点击电话图片，打开拨号键盘即可。点击电话图片，打开拨号键盘即可。点击电话图片，打开拨号键盘即可。点击电话图片，打开拨号键盘即可。点击电话图片，打开拨号键盘即可。',
+          question: '',
+          answer: '',
         },
         triggerQuestions: true,
         triggerDetail: false,
@@ -147,13 +126,10 @@
 
     created () {
       console.log(this.query);
-      if (this.query == null || this.query == {}) {
-        this.query = {
-          device: 'M1',
-          qatype: '',
-          keyword: ''
-        }
-      }
+
+      this.deviceChoose.value = this.query.device;
+      this.qtypeChoose.value = this.query.qatype;
+      this.searchQtype();
     },
 
     mounted () {},
@@ -183,19 +159,47 @@
 
       onclickItemDevice(item) {
         this.deviceChoose = item;
-        this.qtypes = [
-          { value: '111', label: '安全' },
-          { value: '112', label: '记事' },
-          { value: '113', label: '文档' },
-          { value: '114', label: '邮件' },
-          { value: '115', label: '日程' },
-          { value: '118', label: '激活' },
-          { value: '122', label: 'E问E答' },
-          { value: '123', label: '桌面' },
-          { value: '125', label: 'OFFICE' },
-          { value: '126', label: '网络类' },
-          { value: '127', label: '系统类' },
-        ];
+        this.searchQtype();
+      },
+
+      searchQtype() {
+        if (!this.deviceChoose.value || this.deviceChoose.value == '') {
+          this.deviceChoose.value = 'M1';
+        }
+        console.log(this.deviceChoose);
+        if (this.deviceChoose.value != 'M1') {
+          this.qtypes = [
+            { value: '111', label: '安全' },
+            { value: '112', label: '记事' },
+            { value: '113', label: '文档' },
+            { value: '114', label: '邮件' },
+            { value: '115', label: '日程' },
+            { value: '118', label: '激活' },
+            { value: '122', label: 'E问E答' },
+            { value: '123', label: '桌面' },
+            { value: '125', label: 'OFFICE' },
+            { value: '126', label: '网络类' },
+            { value: '127', label: '系统类' },
+          ];
+        } else {
+          this.qtypes = [
+            { value: '108', label: '电话' },
+            { value: '109', label: '联系人' },
+            { value: '110', label: '短信' },
+            { value: '111', label: '安全' },
+            { value: '112', label: '记事' },
+            { value: '113', label: '文档' },
+            { value: '114', label: '邮件' },
+            { value: '115', label: '日程' },
+            { value: '118', label: '激活' },
+            { value: '122', label: 'E问E答' },
+            { value: '123', label: '桌面' },
+            { value: '125', label: 'OFFICE' },
+            { value: '126', label: '网络类' },
+            { value: '127', label: '系统类' },
+          ];
+        }
+
         this.qtypeChoose = this.qtypes[0];
         this.searchQuestions();
       },
@@ -208,12 +212,26 @@
       searchQuestions() {
         console.log(this.deviceChoose);
         console.log(this.qtypeChoose);
-        this.questionList = [
-          { id: 1, label: '如何设置防打扰？' },
-          { id: 2, label: '如何设置防丢失功能？' },
-          { id: 3, label: '无线安全锁的是使用说明？' },
-          { id: 4, label: '如何启用无线安全锁？' },
-        ];
+        if (this.qtypeChoose.value == '111') {
+          this.questionList = [
+            { id: 1, label: '如何设置防打扰？' },
+            { id: 2, label: '如何设置防丢失功能？' },
+            { id: 3, label: '无线安全锁的是使用说明？' },
+            { id: 4, label: '如何启用无线安全锁？' },
+          ];
+        } else {
+          this.questionList = [
+            { id: 1, label: '如何打电话？' },
+            { id: 2, label: '如何删除通话记录？' },
+            { id: 3, label: '如何查看未接来电？' },
+            { id: 4, label: '通话中如何记录内容？' },
+            { id: 5, label: '通话中如何录音？' },
+            { id: 6, label: '通话中如何添加新的通话？' },
+            { id: 7, label: '当前通话如何静音？' },
+            { id: 8, label: '如何暂停当前通话？' },
+            { id: 9, label: '拒接电话“不在服务区”提示' },
+          ];
+        }
         this.triggerDetail = false;
         this.triggerQuestions = true;
       },
@@ -222,6 +240,10 @@
         console.log(item);
         this.triggerQuestions = false;
         this.triggerDetail = true;
+        this.questionDetail = {
+          question: '如何打电话？',
+          answer: '点击电话图片，打开拨号键盘即可。点击电话图片，打开拨号键盘即可。点击电话图片，打开拨号键盘即可。点击电话图片，打开拨号键盘即可。点击电话图片，打开拨号键盘即可。点击电话图片，打开拨号键盘即可。点击电话图片，打开拨号键盘即可。',
+        }
       },
 
       returnToQuestionList() {

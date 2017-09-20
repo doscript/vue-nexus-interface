@@ -63,6 +63,7 @@ export default {
 
         p:hover {
           color: $unimportant-char-color-hover;
+          cursor: default;
         }
       }
     }

@@ -34,6 +34,20 @@ export default [
         },
         component: resolve => require(['../../views/customerService/Knowledge'], resolve)
       },
+      {
+        path: 'customerService/announcements',
+        meta: {
+          ignoreAuth: true
+        },
+        component: resolve => require(['../../views/common/ArticleList'], resolve)
+      },
+      {
+        path: 'customerService/article',
+        meta: {
+          ignoreAuth: true
+        },
+        component: resolve => require(['../../views/common/Article'], resolve)
+      },
     ]
   },
 ]
