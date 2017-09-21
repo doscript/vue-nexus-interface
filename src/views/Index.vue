@@ -149,7 +149,7 @@ export default{
     flex: 1;
     display: flex;
     width: 100%;
-    margin-top: $header-height;
+    /*margin-top: $header-height;*/
   }
 
   main {
@@ -278,6 +278,7 @@ export default{
 
             .card-part {
               width: 33.3%;
+              padding: 3px;
 
               .card-inner {
                 height: 20vw;

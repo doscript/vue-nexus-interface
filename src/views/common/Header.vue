@@ -71,8 +71,8 @@ export default {
   @import './../../assets/scss/variables.scss';
 
   #app .header {
-    position: fixed;
-    /*position: relative;*/
+    /*position: fixed;*/
+    position: relative;
     z-index: 11;
     height: $header-height;
     width: 100%;
