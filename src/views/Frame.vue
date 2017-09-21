@@ -55,6 +55,7 @@ export default{
     .frame-content {
       flex: 1;
       display: block;
+      margin-top: $header-height;
     }
 
     main {

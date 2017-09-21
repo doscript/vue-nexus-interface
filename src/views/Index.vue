@@ -140,8 +140,8 @@ export default{
   .page-index {
     height: 100%;
     width: 100%;
-    /*display: flex;*/
-    display: block;
+    display: flex;
+    /*display: block;*/
     flex-direction: column;
   }
 
@@ -149,6 +149,7 @@ export default{
     flex: 1;
     display: flex;
     width: 100%;
+    margin-top: $header-height;
   }
 
   main {
@@ -217,7 +218,7 @@ export default{
 
         .card-part {
           position: relative;
-          padding: 3px;
+          padding: 10px 0;
 
           .card-inner {
             width: 100%;
