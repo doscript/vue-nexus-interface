@@ -57,9 +57,11 @@ $section-padding-top: 30px;
 
 // height
 $header-height: 60px;
-$footer-height: 160px;
+$footer-height: 120px;
 $common-section-height: 600px;
 $product-section-height: calc(100vh - #{$header-height});
+
+$common-line-height: 24px;
 
 // width
 $full-percent-width: 100%;

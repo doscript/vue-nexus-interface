@@ -324,7 +324,7 @@
           display: flex;
           flex-direction: row;
           flex-wrap: wrap;
-          justify-content: space-evenly;
+          justify-content: space-around;
 
           .link-service {
             padding: 10px 0;
@@ -363,27 +363,32 @@
           }
 
           .link-service.hover-action:nth-of-type(1) {
+            order: 1;
             figure {
               background-position: 0 0;
             }
           }
           .link-service.hover-action:nth-of-type(2) {
+            order: 2;
             figure {
               background-position: -188px 0;
             }
           }
           .link-service.hover-action:nth-of-type(3) {
+            order: 3;
             figure {
               background-position: -377px 0;
             }
           }
           .link-service.hover-action:nth-of-type(4) {
+            order: 4;
             figure {
               background-position: -756px 0;
             }
           }
 
           .pic-service {
+            order: 5;
             width: auto;
             text-align: center;
 

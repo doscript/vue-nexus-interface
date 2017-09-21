@@ -3,10 +3,10 @@
     <div class="footer-content">
       <hr class="eben-divider">
       <div class="copyright">
-        <p>版权所有：2009-2017© 北京壹人壹本信息科技有限公司</p>
-        <p>京ICP证120259号</p>
-        <p>京ICP备09102141号</p>
-        <p>公安备案号：1101050193</p>
+        <p><span>版权所有：2009-2017© 北京壹人壹本信息科技有限公司</span></p>
+        <p><span>京ICP证120259号</span></p>
+        <p><span>京ICP备09102141号</span></p>
+        <p><span>公安备案号：1101050193</span></p>
       </div>
     </div>
   </footer>
@@ -54,16 +54,60 @@ export default {
 
       .copyright {
         padding-top: 15px;
+        display: flex;
+        flex-direction: column;
 
         p {
-          color: $unimportant-char-color;
-          font-size: 12px;
-          transition: all 0.25s ease-in-out;
-        }
+          margin: 0;
 
-        p:hover {
-          color: $unimportant-char-color-hover;
-          cursor: default;
+          span {
+            color: $unimportant-char-color;
+            font-size: 12px;
+            transition: all 0.25s ease-in-out;
+            line-height: $common-line-height;
+          }
+
+          span:hover {
+            color: $unimportant-char-color-hover;
+            cursor: default;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: #{$responsive-width-xs}) {
+    #app .footer {
+
+      .footer-content {
+
+        .copyright {
+          flex-direction: row;
+          flex-wrap: wrap;
+
+          p {
+            text-align: center;
+          }
+
+          p:nth-of-type(1) {
+            width: 100%;
+          }
+
+          p:nth-of-type(2) {
+            width: 50%;
+            text-align: right;
+            padding-right: 5px;
+          }
+
+          p:nth-of-type(3) {
+            width: 50%;
+            text-align: left;
+            padding-left: 5px;
+          }
+
+          p:nth-of-type(4) {
+            width: 100%;
+          }
         }
       }
     }
