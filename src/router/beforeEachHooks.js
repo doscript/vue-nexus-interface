@@ -18,21 +18,22 @@ export default {
       }
     }
 
+    // 对首页的特殊处理，导航为／时无法携带meta信息，会因为未知原因致使页面无法正确加载
+    if (to.path === '/') {
+      next('/index');
+      return;
+    }
+
     if (to.meta && to.meta.ignoreAuth) {
       next()
     } else {
       if ($auth.checkLogin()) {
         next()
       } else {
-        // 对首页的特殊处理，导航为／时无法携带meta信息，会因为未知原因致使页面无法正确加载
-        if (to.path === '/') {
-          next('/index');
-        } else {
-          console.log('Not login, return to index');
-          next({
-            path: '/user-center/login'
-          })
-        }
+        console.log('Not login, return to index');
+        next({
+          path: '/user-center/login'
+        })
       }
     }
   },
