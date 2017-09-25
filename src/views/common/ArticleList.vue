@@ -83,8 +83,8 @@
         console.log(this.query);
         if (this.query.type == 'customerService') {
           this.articleList = [
-            { id: '1', title: '测试用的链接', path: '/customerService/article', pathType: '', query: { id: '1', type: 'customerService' }, description: '点击前往详情测试页面' },
-            { id: '2', title: '测试用的链接-不带作者和时间', path: '/customerService/article', pathType: '', query: { id: '2', type: 'customerService' }, description: '点击前往详情测试页面' },
+            { id: '1', title: '测试用的链接', path: '/customer-service/article', pathType: '', query: { id: '1', type: 'customerService' }, description: '点击前往详情测试页面' },
+            { id: '2', title: '测试用的链接-不带作者和时间', path: '/customer-service/article', pathType: '', query: { id: '2', type: 'customerService' }, description: '点击前往详情测试页面' },
             { id: '612', title: '预置应用公示', path: EbenDomain + '/about/detail/612/introduction', pathType: '_blank', description: '声明移动智能终端预置应用软件是指由生产企业自行或与互联网信息服务提供者合作在移动智能终端出厂前安装的应用软件。壹人壹本公司现将移动智能终端中预置应用软件进行公示：1、本次公示的为首批发货的量产版本，设' },
             { id: '609', title: '关于对E本商城八大类应用下架通知', path: EbenDomain + '/about/detail/609/introduction', pathType: '_blank', description: '关于对E本商城八大类应用下架通知亲爱的E本用户：大家好，鉴于近期中央网信办和公安部严查各应用商店的内容，网信办提出要求在2017年6月1日新规定出台后上架的应用都要开发者实名认证；公安部提出以下八类应' },
             { id: '603', title: '2016年春节售后服务网点放假安排的通知', path: EbenDomain + '/about/detail/603/introduction', pathType: '_blank', description: '尊敬的E人E本用户：为确保用户服务质量，2016年春节期间全国售后服务机构的放假工作安排如下：2月7号-2月9号全体服务机构休息；2月10-2月14日服务机构值班，保证正常的接单，请用户上门前先致电服' },

@@ -21,13 +21,18 @@ export default {
     if (to.meta && to.meta.ignoreAuth) {
       next()
     } else {
-      if ($auth.checkSession()) {
+      if ($auth.checkLogin()) {
         next()
       } else {
-        console.log('Not login, return to index');
-        next({
-          path: '/index'
-        })
+        // 对首页的特殊处理，导航为／时无法携带meta信息，会因为未知原因致使页面无法正确加载
+        if (to.path === '/') {
+          next('/index');
+        } else {
+          console.log('Not login, return to index');
+          next({
+            path: '/user-center/login'
+          })
+        }
       }
     }
   },

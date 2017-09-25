@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import Moment from 'moment'
 
 if (typeof String.prototype.startsWith !== 'function') {
   Window.String.prototype.startsWith = function (prefix) {
@@ -95,6 +96,22 @@ export default {
   scrollTop() {
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
+  },
+
+  /**
+   * get current time
+   */
+  getCurrentTimeMillis() {
+    return (new Date()).getTime();
+  },
+
+  getCurrentTimeUTC() {
+    return (new Date()).getUTCDate();
+  },
+
+  getCurrentTimeString() {
+    let time = new Date();
+    return time && Moment(time).format('YYYY-MM-DD HH:mm:ss');
   }
 
 }

@@ -7,42 +7,42 @@ export default [
     component: Frame,
     children: [
       {
-        path: 'customerService/index',
+        path: 'customer-service/index',
         meta: {
           ignoreAuth: true
         },
         component: resolve => require(['../../views/customerService/Index'], resolve)
       },
       {
-        path: 'customerService/network',
+        path: 'customer-service/network',
         meta: {
           ignoreAuth: true
         },
         component: resolve => require(['../../views/customerService/Network'], resolve)
       },
       {
-        path: 'customerService/equestion',
+        path: 'customer-service/equestion',
         meta: {
           ignoreAuth: true
         },
         component: resolve => require(['../../views/customerService/Equestion'], resolve)
       },
       {
-        path: 'customerService/knowledge',
+        path: 'customer-service/knowledge',
         meta: {
           ignoreAuth: true
         },
         component: resolve => require(['../../views/customerService/Knowledge'], resolve)
       },
       {
-        path: 'customerService/announcements',
+        path: 'customer-service/announcements',
         meta: {
           ignoreAuth: true
         },
         component: resolve => require(['../../views/common/ArticleList'], resolve)
       },
       {
-        path: 'customerService/article',
+        path: 'customer-service/article',
         meta: {
           ignoreAuth: true
         },

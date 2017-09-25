@@ -187,7 +187,7 @@
           { id: '576', title: '售后服务站点电话变更通知', path: EbenDomain + '/about/detail/576', pathType: '_blank' },
         ],
         moreNotices: {
-          path: '/customerService/announcements',
+          path: '/customer-service/announcements',
           query: {
             type: 'customerService',
           }
@@ -203,7 +203,7 @@
           { id: '109999', title: '如何连接WLAN网络？', path: EbenDomain + '/mutual/detail/M1/0/109999', pathType: '_blank' },
         ],
         moreQuestions: {
-          path: '/customerService/knowledge',
+          path: '/customer-service/knowledge',
         },
         videoPage: {
           path: EbenDomain + '/service/video',
@@ -220,13 +220,13 @@
         },
         linksList: {
           knowledge: {
-            path: '/customerService/knowledge',
+            path: '/customer-service/knowledge',
           },
           equestion: {
-            path: '/customerService/equestion',
+            path: '/customer-service/equestion',
           },
           serviceplace: {
-            path: '/customerService/network',
+            path: '/customer-service/network',
           },
           ebbs: {
             path: 'http://bbs.eben.cn/forum.php',
@@ -278,7 +278,7 @@
         setTimeout(function () {
           sthis.searchLoading = false;
         }, 2000);
-        this.$router.push({ path: '/customerService/knowledge', query: this.searchParams });
+        this.$router.push({ path: '/customer-service/knowledge', query: this.searchParams });
       },
 
     },

@@ -7,7 +7,7 @@ export default [
     component: Frame,
     children: [
       {
-        path: 'userCenter/login',
+        path: 'user-center/login',
         meta: {
           ignoreAuth: true
         },

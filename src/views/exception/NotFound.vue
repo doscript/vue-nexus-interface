@@ -16,7 +16,7 @@ export default{
   name: 'not-found',
   methods: {
     back () {
-      this.$router.push('/')
+      this.$router.push('/index')
     }
   }
 }

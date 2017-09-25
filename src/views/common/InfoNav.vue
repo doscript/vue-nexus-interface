@@ -23,7 +23,7 @@ export default {
         {
           icon: 'wrench',
           title: '客服网点',
-          path: '/customerService/network',
+          path: '/customer-service/network',
           pathType: '',
           style: {
             background: 'url("' + EbenResourceDomain + '/new_images/icon.png") no-repeat',

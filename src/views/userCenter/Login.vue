@@ -1,20 +1,26 @@
 <template>
   <div class="login">
     <section class="page">
-      <div class="login-form">
+      <div class="logout-form" v-if="isLogin == true && loginInfo">
+        <h4>已登录账户</h4>
+        <p>当前用户：{{ loginInfo.username }}</p>
+        <p>登录时间：{{ loginInfo.loginTime }}</p>
+        <el-button type="primary" class="logout-btn" @click="logout('form')">注  销</el-button>
+      </div>
+      <div class="login-form" v-else>
         <h4>E本账户登录</h4>
-        <el-form ref="form" :model="form" label-width="0px" class="form-content">
-          <el-form-item label="">
-            <el-input v-model="form.username" placeholder="请输入用户名">
+        <el-form :rules="rules" ref="form" :model="form" label-width="0px" class="form-content">
+          <el-form-item label="" prop="username">
+            <el-input v-model="form.username" placeholder="请输入用户名" required>
             </el-input>
           </el-form-item>
-          <el-form-item label="">
+          <el-form-item label="" prop="password">
             <el-input v-model="form.password" placeholder="请输入密码" type="password">
             </el-input>
           </el-form-item>
           <div class="function-button">
             <a class="" href="javascript:void(0);" @click="resetPassword">忘记密码 >></a>
-            <el-button type="primary" class="submit-btn" @click="onSubmit" :loading="buttonSubmit.loading">登 录</el-button>
+            <el-button type="primary" class="submit-btn" @click="login('form')" :loading="buttonSubmit.loading">登 录</el-button>
           </div>
         </el-form>
       </div>
@@ -30,18 +36,28 @@
 
 <script>
   import { EbenResourceDomain, EbenDomain } from '@constants/index'
-  import { $utils } from '@helper'
+  import { $utils, $auth } from '@helper'
 
   export default{
     name: 'Login',
 
     data () {
       return {
+        isLogin: $auth.checkLogin(),
+        loginInfo: $auth.getLoginInfo(),
         form: {
           username: '',
           password: '',
         },
-        buttonSubmit:{
+        rules: {
+          username: [
+            { required: true, message: '请输入用户名', trigger: 'change' },
+          ],
+          password: [
+            { required: true, message: '请输入密码', trigger: 'change' },
+          ],
+        },
+        buttonSubmit: {
           loading: false,
         }
       }
@@ -73,13 +89,47 @@
 
     methods: {
 
-      onSubmit() {
-        console.log('submit!');
-        this.buttonSubmit.loading = true;
+      login(formName) {
         const othis = this;
-        setTimeout(function() {
-          othis.buttonSubmit.loading = false;
-        }, 2000);
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            console.log('login!');
+            this.buttonSubmit.loading = true;
+            setTimeout(function() {
+              // 向远程服务器发送登录请求，服务器返回用户基本信息
+              let loginInfo = {
+                loginSN: 'cfbb50130344e9564e6a415f64be9054',
+                nickname: '沐圣',
+              };
+              $utils.setStorage('is-login', 'true');
+              $utils.setStorage('login-sn', loginInfo.loginSN);
+              $utils.setStorage('login-info', {
+                username: othis.form.username,
+                nickname: loginInfo.nickname,
+                loginTime: $utils.getCurrentTimeString(),
+              });
+              othis.buttonSubmit.loading = false;
+              othis.loginInfo = $auth.getLoginInfo();
+              othis.isLogin = true;
+              othis.resetForm(formName);
+            }, 2000);
+          } else {
+            console.log('error login!');
+            return false;
+          }
+        });
+      },
+
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
+      },
+
+      logout(formName) {
+        console.log('logout');
+        $utils.setStorage('is-login', 'false');
+        $utils.removeStorage('login-sn');
+        $utils.removeStorage('login-info');
+        this.isLogin = false;
       },
 
       resetPassword() {
@@ -114,6 +164,20 @@
     }
 
     section.page {
+
+      .logout-form {
+        height: 240px;
+        max-width: 400px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        h4 {
+          padding: 20px 0;
+          text-align: left;
+        }
+      }
 
       .login-form {
         height: 300px;
@@ -182,6 +246,14 @@
       section.page {
         display: flex;
 
+        .logout-form {
+          padding: 0 20px 0 0;
+
+          .logout-btn {
+            max-width: 200px;
+          }
+        }
+
         .login-form {
           height: 240px;
           width: 50%;
@@ -190,7 +262,7 @@
 
         hr {
           height: 240px;
-          border-left: 1px solid #{$char-color};
+          border-left: 1px solid #{$unimportant-char-color};
         }
 
         .login-info {
@@ -211,7 +283,7 @@
 
       section.page {
 
-        .login-form {
+        .login-form, .logout-form {
           padding: 0 70px;
         }
 
