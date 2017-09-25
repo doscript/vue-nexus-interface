@@ -6,7 +6,7 @@
       <main @click="onHideMenuClick">
         <scroll-info></scroll-info>
         <article class="main-carousel">
-          <el-carousel trigger="click" indicator-position="" :interval="4000" :autoplay="true" arrow="always">
+          <el-carousel trigger="click" indicator-position="" :interval="5000" :autoplay="true" arrow="always">
             <el-carousel-item v-for="item in carouselArray" :key="item">
               <div class="img-title">
                 <h2>{{ item.titleSmall }}</h2>
