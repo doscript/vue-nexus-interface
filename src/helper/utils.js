@@ -69,8 +69,15 @@ export default {
    * get localStorage
    */
   getStorage (name) {
-    if (!name) return
-    return window.localStorage.getItem(name)
+    if (!name) return;
+    let getContent = window.localStorage.getItem(name);
+    if(!getContent) return;
+    try {
+      // content有可能不是JSON字符串而是纯字符串
+      return JSON.parse(getContent);
+    } catch (e) {
+      return getContent;
+    }
   },
 
   /**

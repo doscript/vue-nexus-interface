@@ -13,5 +13,9 @@ export default {
 @import "./assets/scss/style.scss";
   #app {
     height: auto;
+
+    label {
+      color: $char-color;
+    }
   }
 </style>

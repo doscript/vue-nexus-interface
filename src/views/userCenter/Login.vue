@@ -5,7 +5,7 @@
         <h4>已登录账户</h4>
         <p>当前用户：{{ loginInfo.username }}</p>
         <p>登录时间：{{ loginInfo.loginTime }}</p>
-        <el-button type="primary" class="logout-btn" @click="logout('form')">注  销</el-button>
+        <el-button type="primary" class="logout-btn" @click="logout()">注  销</el-button>
       </div>
       <div class="login-form" v-else>
         <h4>E本账户登录</h4>
@@ -109,8 +109,14 @@
                 loginTime: $utils.getCurrentTimeString(),
               });
               othis.buttonSubmit.loading = false;
-              othis.loginInfo = $auth.getLoginInfo();
-              othis.isLogin = true;
+              let pageTo = $utils.getStorage('page-to');
+              if (pageTo && pageTo != null) {
+                othis.$router.push(pageTo.path);
+                $utils.removeStorage('page-to');
+              } else {
+                othis.loginInfo = $auth.getLoginInfo();
+                othis.isLogin = true;
+              }
               othis.resetForm(formName);
             }, 2000);
           } else {
@@ -124,7 +130,7 @@
         this.$refs[formName].resetFields();
       },
 
-      logout(formName) {
+      logout() {
         console.log('logout');
         $utils.setStorage('is-login', 'false');
         $utils.removeStorage('login-sn');

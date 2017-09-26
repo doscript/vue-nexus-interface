@@ -12,7 +12,7 @@ export default {
       document.title = to.meta.title[Vue.config.lang]
     } else {
       // 若未在路由信息中配置，则在跳转页面之前将菜单配置的页面title名称存入localStorage，在此处调用
-      let pageTitle = JSON.parse($utils.getTitle());
+      let pageTitle = $utils.getTitle();
       if (pageTitle && pageTitle[Vue.config.lang]) {
         document.title = pageTitle[Vue.config.lang];
       }
@@ -31,6 +31,8 @@ export default {
         next()
       } else {
         console.log('Not login, return to index');
+        // 用户登录验证未通过时，记录下路由对象中的to对象，登录后跳转到用户原先需要进入的页面
+        $utils.setStorage('page-to', to);
         next({
           path: '/user-center/login'
         })

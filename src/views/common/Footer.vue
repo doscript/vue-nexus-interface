@@ -47,7 +47,7 @@ export default {
       margin: 0 auto;
 
       .eben-divider {
-        border-top: 1px solid $unimportant-char-color;
+        border-top: 1px solid #{$divider-color};
         margin: 0;
 
       }

@@ -13,7 +13,13 @@ export default [
         },
         component: resolve => require(['../../views/userCenter/Login'], resolve)
       },
-
+      {
+        path: 'user-center/user-info',
+        meta: {
+          ignoreAuth: false
+        },
+        component: resolve => require(['../../views/userCenter/UserInfo'], resolve)
+      },
     ]
   },
 ]
