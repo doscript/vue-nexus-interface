@@ -20,6 +20,20 @@ export default [
         },
         component: resolve => require(['../../views/userCenter/UserInfo'], resolve)
       },
+      {
+        path: 'user-center/mind-cloud',
+        meta: {
+          ignoreAuth: false
+        },
+        component: resolve => require(['../../views/userCenter/MindCloud'], resolve)
+      },
+      {
+        path: 'user-center/mdm',
+        meta: {
+          ignoreAuth: false
+        },
+        component: resolve => require(['../../views/userCenter/MDM'], resolve)
+      },
     ]
   },
 ]
