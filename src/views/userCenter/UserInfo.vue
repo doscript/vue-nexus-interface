@@ -157,7 +157,15 @@
 
     methods: {
       handleClick(tab, event) {
-        console.log(tab, event);
+        console.log('tab change');
+      },
+
+      submitForm(formName) {
+        console.log(formName + ' submit');
+      },
+
+      resetForm(formName) {
+        console.log(formName + ' reset');
       },
 
       logout() {
@@ -224,6 +232,9 @@
             .first {
               display: flex;
               flex-direction: column;
+              align-items: center;
+              min-height: 360px;
+              justify-content: center;
 
               .avatar {
                 height: 200px;

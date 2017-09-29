@@ -34,6 +34,13 @@ export default [
         },
         component: resolve => require(['../../views/userCenter/MDM'], resolve)
       },
+      {
+        path: 'user-center/account',
+        meta: {
+          ignoreAuth: false
+        },
+        component: resolve => require(['../../views/userCenter/Account'], resolve)
+      },
     ]
   },
 ]
