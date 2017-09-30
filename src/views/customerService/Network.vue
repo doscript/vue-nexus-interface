@@ -19,7 +19,7 @@
         </div>
         <div class="province-list">
           <div class="content">
-            <div class="address" v-for="item in provinces" :key="item" @click="changeRecentChoose(item)"><span>{{ item.name }}</span></div>
+            <div class="address" v-for="item in provinces" :key="item"><span @click="changeRecentChoose(item)">{{ item.name }}</span></div>
           </div>
         </div>
         <div class="address-list">
