@@ -22,15 +22,6 @@ export default [
     component: resolve => require(['@/views/Index'], resolve)
   },
   {
-    path: '/login',
-    name: 'Login',
-    meta: {
-      title: $utils.titleLang('登录', 'Login'),
-      ignoreAuth: true
-    },
-    component: resolve => require(['@/views/Login'], resolve)
-  },
-  {
     path: '*',
     meta: {
       title: $utils.titleLang('页面未找到', 'Page not found'),

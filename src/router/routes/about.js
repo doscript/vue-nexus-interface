@@ -8,7 +8,8 @@ export default [{
     {
       path: 'about/index',
       meta: {
-        ignoreAuth: true
+        ignoreAuth: true,
+        title: $utils.titleLang('了解我们', 'About EBEN'),
       },
       component: resolve => require(['../../views/about/Index'], resolve)
     },

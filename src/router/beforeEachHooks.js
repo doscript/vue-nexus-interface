@@ -9,7 +9,11 @@ export default {
   checkLoginAuth (to, from, next) {
     if (to.meta.title && to.meta.title[Vue.config.lang]) {
       // 首先根据路由配置的信息设置页面title
-      document.title = to.meta.title[Vue.config.lang]
+      if (Vue.config.lang == 'zh') {
+        document.title = to.meta.title[Vue.config.lang] + ' - 壹人壹本'
+      } else {
+        document.title = to.meta.title[Vue.config.lang]
+      }
     } else {
       // 若未在路由信息中配置，则在跳转页面之前将菜单配置的页面title名称存入localStorage，在此处调用
       let pageTitle = $utils.getTitle();
