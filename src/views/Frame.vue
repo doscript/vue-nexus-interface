@@ -4,7 +4,9 @@
     <div class="frame-content">
       <side-nav></side-nav>
       <main @click="onHideMenuClick">
-        <router-view></router-view>
+        <transition name="fade" mode="out-in">
+          <router-view></router-view>
+        </transition>
       </main>
     </div>
     <footer-component></footer-component>
@@ -45,6 +47,13 @@ export default{
 
 <style lang="scss">
   @import '../assets/scss/variables.scss';
+
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s ease;
+  }
+  .fade-enter, .fade-leave-active {
+    opacity: 0
+  }
 
   .page-frame {
     height: 100%;
