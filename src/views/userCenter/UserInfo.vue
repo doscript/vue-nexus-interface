@@ -16,21 +16,41 @@
             </div>
           </el-tab-pane>
           <el-tab-pane label="个人资料" name="second" class="second">
-            <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-              <el-form-item label="活动名称" prop="name">
-                <el-input v-model="ruleForm.name"></el-input>
+            <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="60px" class="demo-ruleForm">
+              <el-form-item label="昵称" prop="nickname">
+                <el-input v-model="ruleForm.nickname" :disabled="true"></el-input>
               </el-form-item>
-              <el-form-item label="活动时间" required>
-                <el-form-item prop="date1">
-                  <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.date1" style="width: 100%;"></el-date-picker>
+              <el-form-item label="姓名" prop="name">
+                <el-input v-model="ruleForm.name" placeholder="请输入您的姓名" required></el-input>
+              </el-form-item>
+              <el-form-item label="邮箱" prop="email">
+                <el-input v-model="ruleForm.email" placeholder="请输入您的邮箱" required></el-input>
+              </el-form-item>
+              <el-form-item label="生日">
+                <el-form-item prop="birthday">
+                  <el-date-picker type="date" placeholder="选择日期" v-model="ruleForm.birthday" style="width: 100%;"></el-date-picker>
                 </el-form-item>
               </el-form-item>
-              <el-form-item label="特殊资源" prop="resource">
-                <el-radio-group v-model="ruleForm.resource">
-                  <el-radio label="线上品牌商赞助"></el-radio>
-                  <el-radio label="线下场地免费"></el-radio>
+              <el-form-item label="性别" prop="sex">
+                <el-radio-group v-model="ruleForm.sex">
+                  <el-radio label="男"></el-radio>
+                  <el-radio label="女"></el-radio>
                 </el-radio-group>
               </el-form-item>
+              <el-form-item label="身份" prop="identity">
+                <el-select v-model="ruleForm.identity" placeholder="请选择身份">
+                  <el-option v-for="item in identities" :key="item" :label="item.label" :value="item.value"></el-option>
+                </el-select>
+              </el-form-item>
+              <el-form-item label="地区" prop="province">
+                <el-select v-model="ruleForm.province" placeholder="请选择所在地区">
+                  <el-option v-for="item in provinces" :key="item" :label="item.name" :value="item.id"></el-option>
+                </el-select>
+              </el-form-item>
+              <el-form-item label="手机" prop="phone">
+                <el-input v-model="ruleForm.phone" placeholder="请输入您的手机号" required></el-input>
+              </el-form-item>
+              <el-form-item>
                 <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
                 <el-button @click="resetForm('ruleForm')">重置</el-button>
               </el-form-item>
@@ -68,6 +88,7 @@
     name: 'UserInfo',
 
     data () {
+      // 密码输入验证
       let validatePass = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请输入密码'));
@@ -78,6 +99,7 @@
           callback();
         }
       };
+      // 再次输入密码验证
       let validatePass2 = (rule, value, callback) => {
         if (value === '') {
           callback(new Error('请再次输入密码'));
@@ -87,33 +109,47 @@
           callback();
         }
       };
+      // 邮箱验证，是对原有验证的补充，可在规则属性中先写原有验证（如非空等），再写自定义验证
+      let validateEmail = (rule, value, callback) => {
+        if (!$utils.checkEmail(value)) {
+          callback(new Error('请输入正确的邮箱'));
+        } else {
+          callback();
+        }
+      };
+      // 手机号验证
+      let validatePhone = (rule, value, callback) => {
+        if (!$utils.checkPhone(value)) {
+          callback(new Error('请输入正确的手机号'));
+        } else {
+          callback();
+        }
+      };
       return {
         loginInfo: $auth.getLoginInfo(),
         activeName: 'first',
         ruleForm: {
+          nickname: '',
           name: '',
-          date1: '',
-          delivery: false,
-          type: [],
-          resource: '',
-          desc: ''
+          email: '',
+          birthday: '',
+          sex: '',
+          identity: '',
+          province: '',
+          phone: '',
         },
         rules: {
           name: [
-            { required: true, message: '请输入活动名称', trigger: 'blur' },
-            { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+            { required: true, message: '请输入您的姓名', trigger: 'blur' },
+            { min: 1, max: 20, message: '长度在 1 到 20 个字符', trigger: 'change' },
           ],
-          region: [
-            { required: true, message: '请选择活动区域', trigger: 'change' }
+          email: [
+            { required: true, message: '请输入您的邮箱', trigger: 'blur' },
+            { validator: validateEmail, trigger: 'change' },
           ],
-          date1: [
-            { type: 'date', required: true, message: '请选择日期', trigger: 'change' }
-          ],
-          type: [
-            { type: 'array', required: true, message: '请至少选择一个活动性质', trigger: 'change' }
-          ],
-          resource: [
-            { required: true, message: '请选择活动资源', trigger: 'change' }
+          phone: [
+            { required: true, message: '请输入您的手机号', trigger: 'blur' },
+            { validator: validatePhone, trigger: 'change' }
           ],
         },
         ruleForm2: {
@@ -129,6 +165,44 @@
             { validator: validatePass2, trigger: 'blur' }
           ],
         },
+        identities: [
+          { label: '党政军', value: '1' },
+          { label: '企事业', value: '2' },
+          { label: '教科文', value: '3' },
+        ],
+        provinces: [
+          { id: '1', name: '北京市' },
+          { id: '20', name: '天津市' },
+          { id: '39', name: '上海市' },
+          { id: '59', name: '重庆市' },
+          { id: '100', name: '河北省' },
+          { id: '284', name: '山西省' },
+          { id: '414', name: '河南省' },
+          { id: '588', name: '辽宁省' },
+          { id: '702', name: '吉林省' },
+          { id: '772', name: '黑龙江' },
+          { id: '916', name: '内蒙古自治区' },
+          { id: '1027', name: '江苏省' },
+          { id: '1138', name: '山东省' },
+          { id: '1296', name: '安徽省' },
+          { id: '1414', name: '浙江省' },
+          { id: '1515', name: '福建省' },
+          { id: '1610', name: '湖北省' },
+          { id: '1726', name: '湖南省' },
+          { id: '1863', name: '广东省' },
+          { id: '2006', name: '广西自治区' },
+          { id: '2129', name: '江西省' },
+          { id: '2239', name: '四川省' },
+          { id: '2440', name: '贵州省' },
+          { id: '2538', name: '云南省' },
+          { id: '2684', name: '西藏自治区' },
+          { id: '2765', name: '海南省' },
+          { id: '2791', name: '陕西省' },
+          { id: '2907', name: '甘肃省' },
+          { id: '3007', name: '宁夏自治区' },
+          { id: '3024', name: '青海省' },
+          { id: '3076', name: '新疆自治区' },
+        ],
       }
     },
 
@@ -157,15 +231,40 @@
 
     methods: {
       handleClick(tab, event) {
-        console.log('tab change');
+        if (tab.index == 1) {
+          this.initUserInfoForm();
+        }
+      },
+
+      initUserInfoForm() {
+        this.ruleForm = {
+          nickname: 'liuchao1xcv1234',
+          name: '沐圣',
+          email: '425893642@qq.com',
+          birthday: '1900-10-01',
+          sex: '男',
+          identity: '1',
+          province: '1',
+          phone: '18611111111',
+        };
       },
 
       submitForm(formName) {
-        console.log(formName + ' submit');
+        this.ruleForm.birthday = this.$utils.dayConvert(this.ruleForm.birthday);
+        console.log(this.ruleForm);
+        this.$refs[formName].validate((valid) => {
+          if (valid) {
+            console.log('验证成功，提交!');
+          } else {
+            console.log('验证失败!');
+            return false;
+          }
+        });
       },
 
       resetForm(formName) {
-        console.log(formName + ' reset');
+        this.$refs[formName].resetFields();
+        console.log(formName + ' 重置');
       },
 
       logout() {
@@ -268,7 +367,12 @@
             }
 
             .second {
+              padding-top: 30px;
 
+              form {
+                max-width: 400px;
+                margin: 0 auto;
+              }
             }
 
             .third {
@@ -281,6 +385,14 @@
           }
         }
       }
+    }
+
+    .el-radio {
+      margin-bottom: 0;
+    }
+
+    .el-select {
+      display: block;
     }
 
   }

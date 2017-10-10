@@ -54,11 +54,13 @@ export default {
   },
 
   /* -----------------------------localStorage------------------------------------ */
-  /*
-   * set localStorage
+  /**
+   * 存放一条本地存储记录
+   * @param name
+   * @param content
    */
   setStorage (name, content) {
-    if (!name) return
+    if (!name) return;
     if (typeof content !== 'string') {
       content = JSON.stringify(content)
     }
@@ -66,7 +68,8 @@ export default {
   },
 
   /**
-   * get localStorage
+   * 根据名称获取本地存储的值
+   * @param name
    */
   getStorage (name) {
     if (!name) return;
@@ -81,17 +84,26 @@ export default {
   },
 
   /**
-   * delete localStorage
+   * 删除指定name的本地存储值
+   * @param name
    */
   removeStorage (name) {
-    if (!name) return
+    if (!name) return;
     window.localStorage.removeItem(name)
   },
 
+  /**
+   * 设置页面标题
+   * @param object
+   */
   setTitle(object) {
     this.setStorage('page-title', JSON.stringify(object));
   },
 
+  /**
+   * 获取页面标题
+   * @returns {*}
+   */
   getTitle() {
     return this.getStorage('page-title');
   },
@@ -106,19 +118,48 @@ export default {
   },
 
   /**
-   * get current time
+   * 获取当前时间
+   * @returns {number}
    */
   getCurrentTimeMillis() {
     return (new Date()).getTime();
   },
-
   getCurrentTimeUTC() {
     return (new Date()).getUTCDate();
   },
-
   getCurrentTimeString() {
     let time = new Date();
     return time && Moment(time).format('YYYY-MM-DD HH:mm:ss');
-  }
+  },
+
+  /**
+   * 格式化日期时间
+   * @param time
+   * @returns {*|string}
+   */
+  dateConvert (time) {
+    return time && Moment(time).format('YYYY-MM-DD HH:mm:ss')
+  },
+  dayConvert (time) {
+    return time && Moment(time).format('YYYY-MM-DD')
+  },
+
+  /**
+   * 正则验证邮箱
+   * @param email
+   * @returns {boolean}
+   */
+  checkEmail(email){
+    return (/^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/.test(email));
+  },
+
+  /**
+   * 正则验证手机号
+   * @param phone
+   * @returns {boolean}
+   */
+  checkPhone(phone){
+    return (/^1(3|4|5|7|8)\d{9}$/.test(phone));
+  },
 
 }
