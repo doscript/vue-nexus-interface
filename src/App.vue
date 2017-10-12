@@ -8,7 +8,15 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+
+  created () {
+  },
+
+  mounted () {
+    document.getElementById('loading-area').style.display = 'none';
+    document.getElementById('app').style.display = 'block';
+  },
 }
 </script>
 <style lang="scss">
