@@ -104,6 +104,8 @@ export default{
   },
 
   created () {
+    document.getElementById('loading-area').style.display = 'none';
+    document.getElementById('app').style.display = 'block';
   },
 
   components: {
