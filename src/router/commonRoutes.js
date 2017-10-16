@@ -7,7 +7,7 @@ export default [
   {
     path: '/',
     meta: {
-      title: $utils.titleLang('首页 - E人E本', 'Home'),
+      title: $utils.titleLang('首页', 'Home'),
       ignoreAuth: true
     },
     component: resolve => require(['@/views/Index'], resolve)
@@ -16,7 +16,7 @@ export default [
     path: '/index',
     name: 'Index',
     meta: {
-      title: $utils.titleLang('首页 - E人E本', 'Home'),
+      title: $utils.titleLang('首页', 'Home'),
       ignoreAuth: true
     },
     component: resolve => require(['@/views/Index'], resolve)

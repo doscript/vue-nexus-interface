@@ -140,14 +140,13 @@ export default{
   .page-index {
     height: 100%;
     width: 100%;
-    display: flex;
-    /*display: block;*/
-    flex-direction: column;
+    @include flex();
+    @include flex-direction(column);
   }
 
   .frame-content {
     flex: 1;
-    display: flex;
+    @include flex();
     width: 100%;
     /*margin-top: $header-height;*/
   }
@@ -213,8 +212,8 @@ export default{
       margin: 0 auto;
 
       .page-body {
-        display: flex;
-        flex-direction: column;
+        @include flex();
+        @include flex-direction(column);
 
         .card-part {
           position: relative;
@@ -233,7 +232,7 @@ export default{
               margin: 0 auto;
               height: 100%;
               border: 1px solid #555;
-              transition: all 0.25s ease-in-out;
+              @include transition-common();
             }
 
             figure:hover {
@@ -274,7 +273,7 @@ export default{
         section.main-card {
 
           .page-body {
-            flex-direction: row;
+            @include flex-direction(row);
 
             .card-part {
               width: 33.3%;
