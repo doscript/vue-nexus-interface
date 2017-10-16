@@ -1,14 +1,14 @@
-<h1 align="center"><strong>vue-nexus-interface</strong></h1>
+<h1 align="center"><strong>基于Vue.js的懒人开发框架</strong></h1>
 
-## Goal and Philosophy
+## 项目简介
 
-For how to build medium-sized (+) VUE projects, provide some reference based on past experience.
+这是一个在编写Vue项目的过程中总结出来的小框架Demo，使用sass的mixin属性，整合各种实用工具，了解这个框架可以让你在开发基于Vue.js的响应式Web项目时事半功倍。
 
-## Prerequisites
+## 运行环境
 
 [Node.js](https://nodejs.org/en/) (>=4.x, 6.x preferred), npm version 3+ and [Git](https://git-scm.com/).
 
-## Usage
+## 使用方法
 
 ```
 git clone https://github.com/musheng66/vue-nexus-interface.git your-project-name
@@ -17,7 +17,7 @@ npm install
 npm run dev
 ```
 
-## Dependent plugin list
+## 部分依赖
 
 - vue2
 - vue-router
@@ -25,13 +25,10 @@ npm run dev
 - vue-i18n
 - element-ui
 - bootstrap
-- lodash
 - moment
-- superagent
-- js-cookie
-- vuex-persistedstate
-- ... ...
+- echarts
+- ...
 
-## Writing
+## 写在最后
 
-See the example in the template.
+持续优化中...
