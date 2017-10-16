@@ -75,6 +75,7 @@
 
 <style type="text/css" lang="scss">
   @import './../../assets/scss/variables.scss';
+  @import './../../assets/scss/mixins.scss';
 
   #app .history-devices {
 
@@ -85,9 +86,10 @@
 
       .history-devices-content {
         margin: 0;
-        display: flex;
         max-width: 320px;
-        justify-content: space-between;
+        @include flex();
+        @include flex-direction();
+        @include justify-content(space-between);
 
         .history-device {
 

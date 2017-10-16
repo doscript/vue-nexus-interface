@@ -154,6 +154,7 @@
 
 <style type="text/css" lang="scss">
   @import "../../assets/scss/variables.scss";
+  @import "../../assets/scss/mixins.scss";
 
   #app .solution {
 
@@ -173,9 +174,8 @@
           min-height: 140px;
 
           figure {
-            background: center no-repeat;
-            background-size: cover;
-            transition: all 0.25s linear;
+            @include background-image-common("", cover);
+            @include transition-common(all, 0.25s, linear);
             opacity: 0.9;
             border: 1px solid #555;
           }
@@ -198,8 +198,7 @@
       .page-body {
 
         .content {
-          display: flex;
-          flex-wrap: wrap;
+          @include flex(wrap);
 
           .eben-card {
             width: 100%;
@@ -208,12 +207,11 @@
             height: 200px;
             cursor: pointer;
             opacity: 0.9;
-            transition: opacity 0.25s linear;
+            @include transition-common(opacity, 0.25s, linear);
             padding: 5px 0;
 
             figure {
-              background: center no-repeat;
-              background-size: cover;
+              @include background-image-common("", cover);
             }
 
             .title {
@@ -244,15 +242,14 @@
         .content {
           height: inherit;
           padding: 10px 5px;
-          display: flex;
-          justify-content: flex-end;
+          @include flex();
+          @include justify-content(flex-end);
 
           figure {
             width: 180px;
             opacity: 0.9;
-            background: center no-repeat;
-            background-size: contain;
-            transition: opacity 0.25s ease-in-out;
+            @include background-image-common("", contain);
+            @include transition-common(opacity);
           }
 
           figure:hover {

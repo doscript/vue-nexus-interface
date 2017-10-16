@@ -54,8 +54,8 @@ export default {
 
       .copyright {
         padding-top: 15px;
-        display: flex;
-        flex-direction: column;
+        @include flex();
+        @include flex-direction(column);
 
         p {
           margin: 0;
@@ -63,7 +63,7 @@ export default {
           span {
             color: $unimportant-char-color;
             font-size: 12px;
-            transition: all 0.25s ease-in-out;
+            @include transition-common();
             line-height: $common-line-height;
           }
 
@@ -82,8 +82,8 @@ export default {
       .footer-content {
 
         .copyright {
-          flex-direction: row;
-          flex-wrap: wrap;
+          @include flex(wrap);
+          @include flex-direction(row);
 
           p {
             text-align: center;

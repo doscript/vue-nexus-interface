@@ -165,6 +165,7 @@
 
 <style type="text/css" lang="scss">
   @import "../../assets/scss/variables.scss";
+  @import "../../assets/scss/mixins.scss";
 
   #app .mdm {
 
@@ -237,8 +238,8 @@
             .content {
 
               .command {
-                display: flex;
-                align-items: center;
+                @include flex();
+                @include align-items(center);
 
                 .notice-area {
                   padding: 0 0 0 10px;

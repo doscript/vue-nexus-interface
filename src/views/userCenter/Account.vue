@@ -103,6 +103,7 @@
 
 <style type="text/css" lang="scss">
   @import "../../assets/scss/variables.scss";
+  @import "../../assets/scss/mixins.scss";
 
   #app .account {
 
@@ -152,8 +153,8 @@
 
             .first,
             .second {
-              display: flex;
-              flex-direction: column;
+              @include flex();
+              @include flex-direction(column);
 
               .buttons {
                 text-align: center;

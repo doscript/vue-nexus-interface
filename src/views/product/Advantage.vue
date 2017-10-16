@@ -129,6 +129,7 @@
 
 <style type="text/css" lang="scss">
   @import "../../assets/scss/variables.scss";
+  @import "../../assets/scss/mixins.scss";
 
   #app .advantage {
 
@@ -148,9 +149,8 @@
           min-height: 140px;
 
           figure {
-            background: center no-repeat;
-            background-size: cover;
-            transition: all 0.25s linear;
+            @include background-image-common("", cover);
+            @include transition-common(all, 0.25s, linear);
             opacity: 0.9;
             border: 1px solid #555;
           }
@@ -183,12 +183,11 @@
             height: 200px;
             cursor: pointer;
             opacity: 0.9;
-            transition: opacity 0.25s linear;
+            @include transition-common(opacity, 0.25s, linear);
             padding: 5px 0;
 
             figure {
-              background: center no-repeat;
-              background-size: cover;
+              @include background-image-common("", cover);
             }
 
             .title {

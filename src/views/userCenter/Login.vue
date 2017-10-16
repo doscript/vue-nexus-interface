@@ -152,6 +152,7 @@
 
 <style type="text/css" lang="scss">
   @import "../../assets/scss/variables.scss";
+  @import "../../assets/scss/mixins.scss";
 
   #app .login {
 
@@ -175,9 +176,9 @@
         height: 240px;
         max-width: 400px;
         margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        @include flex();
+        @include flex-direction(column);
+        @include justify-content();
 
         h4 {
           padding: 20px 0;
@@ -190,9 +191,9 @@
         max-width: 400px;
         text-align: center;
         margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        @include flex();
+        @include flex-direction(column);
+        @include justify-content();
 
         h4 {
           padding: 20px 0;
@@ -202,8 +203,9 @@
         .form-content {
 
           .function-button {
-            display: flex;
-            justify-content: space-between;
+            @include flex();
+            @include flex-direction();
+            @include justify-content(space-between);
 
             .submit-btn {
               height: 36px;
@@ -220,9 +222,9 @@
 
       .login-info {
         height: 200px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        @include flex();
+        @include flex-direction(column);
+        @include justify-content();
         max-width: 400px;
         margin: 0 auto;
 
@@ -244,13 +246,13 @@
 
   @media (min-width: #{$responsive-width-xs}) {
     #app .login {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      @include flex();
+      @include flex-direction(column);
+      @include justify-content();
       height: 100%;
 
       section.page {
-        display: flex;
+        @include flex();
 
         .logout-form {
           padding: 0 20px 0 0;

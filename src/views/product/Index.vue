@@ -217,6 +217,7 @@
 
 <style type="text/css" lang="scss">
   @import "../../assets/scss/variables.scss";
+  @import "../../assets/scss/mixins.scss";
 
   #app .product {
 
@@ -232,8 +233,7 @@
         figure {
           width: 100%;
           min-height: inherit;
-          background: center no-repeat;
-          background-size: cover;
+          @include background-image-common("", cover);
         }
       }
     }

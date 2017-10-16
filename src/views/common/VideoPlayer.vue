@@ -60,16 +60,16 @@ export default {
     width: 0;
     height: 0;
     overflow: hidden;
-    transition: all 0.5s ease-in-out;
+    @include transition-common(all, 0.5s, ease-in-out);
     background: $main-color;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include flex();
+    @include flex-direction(column);
+    @include justify-content();
 
     .content {
       padding: 0;
@@ -92,15 +92,12 @@ export default {
       button:hover {
         opacity: 0.8;
       }
-
     }
   }
 
   @media (min-width: #{$responsive-width-small}) {
-    #video-player {
-
+    #app #video-player {
 
     }
-
   }
 </style>

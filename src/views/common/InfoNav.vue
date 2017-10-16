@@ -96,6 +96,7 @@ export default {
 
 <style type="text/css" lang="scss">
   @import './../../assets/scss/variables.scss';
+  @import './../../assets/scss/mixins.scss';
 
   #app .info-nav {
     min-height: 100px;
@@ -103,10 +104,9 @@ export default {
     margin: 0 auto;
 
     .info-nav-content {
-      display: -webkit-flex;
-      display: flex;
-      justify-content: space-between;
-      flex-flow: column;
+      @include flex();
+      @include flex-direction(column);
+      @include justify-content(space-between);
       padding: 15px 15px 0;
 
       .info-nav-single {
@@ -122,7 +122,7 @@ export default {
           text-align: center;
           display: block;
           float: left;
-          transition: all 0.25s ease-in-out;
+          @include transition-common();
 
           .eben-icon {
             display: none;
@@ -155,7 +155,8 @@ export default {
 
       .info-nav-content {
         padding: 30px 15px;
-        flex-flow: row nowrap;
+        @include flex(nowrap);
+        @include flex-direction(row);
 
         .info-nav-single {
 
@@ -165,7 +166,7 @@ export default {
 
             .eben-icon {
               display: block;
-              background: url("#{$eben-resource-domain}/new_images/icon.png") 0 -40px no-repeat;
+              @include background-image-common("#{$eben-resource-domain}/new_images/icon.png", contain, 0 -40px);
               margin: 0 auto 12px;
               width: 51px;
               height: 51px;

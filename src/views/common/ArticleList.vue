@@ -105,6 +105,7 @@
 
 <style type="text/css" lang="scss">
   @import "../../assets/scss/variables.scss";
+  @import "../../assets/scss/mixins.scss";
 
   #app .article-list {
 
@@ -131,7 +132,7 @@
                 color: $title-color;
                 font-size: $font-large;
                 font-weight: 600;
-                transition: all 0.25s ease-in-out;
+                @include transition-common();
               }
 
               span:hover {
@@ -152,8 +153,8 @@
         }
 
         .list-pages {
-          display: flex;
-          justify-content: center;
+          @include flex();
+          @include justify-content();
           padding: 15px 0;
 
           .el-pagination.el-pagination--small {
@@ -176,7 +177,7 @@
                 background: $main-color;
                 border: 1px solid #{$main-color};
                 color: $char-color;
-                transition: all 0.25s ease-in-out;
+                @include transition-common();
               }
 
               li:hover {

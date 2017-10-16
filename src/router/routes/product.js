@@ -26,7 +26,7 @@ export default [
         path: 'product/advantage',
         meta: {
           ignoreAuth: true,
-          title: $utils.titleLang('E本行业优势', 'Advantage'),
+          title: $utils.titleLang('E本应用优势', 'Advantage'),
         },
         component: resolve => require(['../../views/product/Advantage'], resolve)
       }

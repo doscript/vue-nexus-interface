@@ -281,6 +281,7 @@
 
 <style type="text/css" lang="scss">
   @import "../../assets/scss/variables.scss";
+  @import "../../assets/scss/mixins.scss";
 
   #app .user-info {
 
@@ -329,19 +330,18 @@
           .el-tabs__content {
 
             .first {
-              display: flex;
-              flex-direction: column;
-              align-items: center;
+              @include flex();
+              @include flex-direction(column);
+              @include justify-content();
+              @include align-items();
               min-height: 360px;
-              justify-content: center;
 
               .avatar {
                 height: 200px;
                 padding: 20px;
 
                 figure {
-                  background: url("#{$eben-user-domain}/avatar/index/248653/b") no-repeat center;
-                  background-size: contain;
+                  @include background-image-common("#{$eben-user-domain}/avatar/index/248653/b", contain);
                   border: 5px solid #{$divider-color};
                   border-radius: 5px;
                   width: 160px;
@@ -353,9 +353,9 @@
                 height: 200px;
                 max-width: 320px;
                 margin: 0 auto;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
+                @include flex();
+                @include flex-direction(column);
+                @include justify-content();
 
                 p {
                   strong {
@@ -409,7 +409,7 @@
             .el-tabs__content {
 
               .first {
-                flex-direction: row;
+                @include flex-direction(row);
 
                 .login-info {
                   margin: 0;

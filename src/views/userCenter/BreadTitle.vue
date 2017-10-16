@@ -63,14 +63,15 @@
 
 <style type="text/css" lang="scss">
   @import "../../assets/scss/variables.scss";
+  @import "../../assets/scss/mixins.scss";
 
   #app .bread-title {
 
     .page-body {
       border-bottom: 1px solid #{$divider-color};
       padding: 15px 0;
-      display: flex;
-      justify-content: space-between;
+      @include flex();
+      @include justify-content(space-between);
 
       .nickname {
         max-width: 50%;

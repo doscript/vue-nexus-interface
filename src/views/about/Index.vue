@@ -336,6 +336,7 @@
 
 <style type="text/css" lang="scss">
   @import "../../assets/scss/variables.scss";
+  @import "../../assets/scss/mixins.scss";
 
   #app .about-index {
 
@@ -362,15 +363,14 @@
     }
 
     section.page:nth-of-type(1) {
-      background: url("#{$eben-resource-domain}/new_images/about/about_bg_1.jpg") no-repeat center;
-      background-size: cover;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
+      @include background-image-common("#{$eben-resource-domain}/new_images/about/about_bg_1.jpg", cover);
+      @include flex();
+      @include justify-content();
+      @include flex-direction(column);
 
       .page-body {
-        display: flex;
-        justify-content: center;
+        @include flex();
+        @include justify-content();
 
         .content {
           background: $opacity-white-bg-color;
@@ -403,9 +403,8 @@
       .page-body {
 
         .top-device {
-          display: flex;
-          justify-content: center;
-          flex-wrap: wrap;
+          @include flex(wrap);
+          @include justify-content();
           padding: $common-padding;
 
           .top-pic {
@@ -414,15 +413,14 @@
             padding: 0;
 
             figure {
-              background: no-repeat center;
-              background-size: contain;
+              @include background-image-common("");
             }
           }
 
           .content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            @include flex();
+            @include flex-direction(column);
+            @include justify-content();
             padding: $common-padding;
 
             .title {
@@ -448,9 +446,8 @@
         }
 
         .products {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
+          @include flex(wrap);
+          @include justify-content();
 
           li {
             padding: 5px;
@@ -460,7 +457,7 @@
               height: 68px;
 
               figure {
-                background-repeat: no-repeat;
+                @include background-image-common();
               }
             }
 
@@ -475,8 +472,7 @@
     }
 
     section.page:nth-of-type(3) {
-      background: url("#{$eben-resource-domain}/new_images/about/about_bg_3.jpg") no-repeat center;
-      background-size: cover;
+      @include background-image-common("#{$eben-resource-domain}/new_images/about/about_bg_3.jpg", cover);
 
       .page-body {
         height: $common-section-height;
@@ -487,9 +483,9 @@
           width: 100%;
           height: 100%;
           max-width: none;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
+          @include flex();
+          @include flex-direction(column);
+          @include justify-content(center);
           padding: 25px 10%;
           background: $opacity-white-bg-color;
           color: $char-color-dark;
@@ -533,8 +529,8 @@
 
         .product-lines,
         .core-tech {
-          display: flex;
-          flex-direction: column;
+          @include flex();
+          @include flex-direction(column);
 
           .content {
             max-width: 400px;
@@ -546,8 +542,8 @@
 
               figure {
                 min-height: 200px;
-                background: #000 no-repeat center;
-                background-size: contain;
+                @include background-image-common();
+                background-color: #000;
               }
             }
 
@@ -589,8 +585,7 @@
         .e {
 
           figure {
-            background: url("#{$eben-resource-domain}/new_images/page6_e.png") no-repeat center;
-            background-size: contain;
+            @include background-image-common("#{$eben-resource-domain}/new_images/page6_e.png");
             min-height: 200px;
             padding: $common-padding;
           }
@@ -617,8 +612,7 @@
             padding: 5px;
 
             figure {
-              background: no-repeat center;
-              background-size: cover;
+              @include background-image-common("", cover);
               height: 190px;
               width: 255px;
               margin: 0 auto;
@@ -637,13 +631,12 @@
     }
 
     section.page:nth-of-type(7) {
-      background: url("#{$eben-resource-domain}/new_images/page7_bg.jpg") no-repeat center;
-      background-size: cover;
+      @include background-image-common("#{$eben-resource-domain}/new_images/page7_bg.jpg", cover);
 
       .page-body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        @include flex();
+        @include flex-direction(column);
+        @include justify-content();
         min-height: $common-section-height;
 
         .t1 {
@@ -661,10 +654,9 @@
         }
 
         .content {
-          display: flex;
-          justify-content: center;
-          flex-wrap: wrap;
-          flex-direction: column;
+          @include flex(wrap);
+          @include flex-direction(column);
+          @include justify-content();
 
           .description {
             padding: 15px 10px;
@@ -704,7 +696,7 @@
           .core-tech {
 
             .content {
-              display: flex;
+              @include flex();
               max-width: 100%;
 
               .pic {
@@ -712,9 +704,9 @@
               }
 
               .description {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-around;
+                @include flex(wrap);
+                @include flex-direction(column);
+                @include justify-content(space-around);
                 padding: $common-padding;
 
                 .name {
@@ -735,7 +727,7 @@
         .page-body {
 
           .content {
-            flex-direction: row;
+            @include flex-direction(row);
 
             .description {
               min-width: 34%;
@@ -761,14 +753,14 @@
       section.page:nth-of-type(1) {
 
         .page-body {
-          justify-content: flex-end;
+          @include justify-content(flex-end);
         }
       }
 
       section.page:nth-of-type(2) {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+        @include flex();
+        @include flex-direction(column);
+        @include justify-content();
 
         .page-body {
 
@@ -788,9 +780,9 @@
       section.page:nth-of-type(3) {
 
         .page-body {
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
+          @include flex();
+          @include flex-direction(column);
+          @include justify-content();
 
           .content {
             max-width: 520px;
@@ -808,10 +800,10 @@
 
           .product-lines,
           .core-tech {
-            flex-direction: row;
+            @include flex-direction(row);
 
             .content {
-              flex-direction: column;
+              @include flex-direction(column);
               min-width: 33%;
 
               .pic {
@@ -838,7 +830,7 @@
         .page-body {
 
           .content {
-            flex-direction: row;
+            @include flex-direction(row);
 
             .description {
               max-width: 25%;
@@ -852,7 +844,7 @@
         .page-body {
 
           .e {
-            display: flex;
+            @include flex();
 
             figure {
               min-height: 300px;
@@ -871,8 +863,8 @@
           }
 
           .eben-cards {
-            display: flex;
-            justify-content: flex-end;
+            @include flex();
+            @include justify-content(flex-end);
 
             .eben-card {
 

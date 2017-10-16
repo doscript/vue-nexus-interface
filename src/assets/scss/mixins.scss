@@ -76,12 +76,13 @@
 }
 
 // flex布局兼容性写法
-@mixin flex() {
+@mixin flex($wrap: nowrap) {
   display: -webkit-box;  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
   display: -moz-box;     /* 老版本语法: Firefox (buggy) */
   display: -ms-flexbox;  /* 混合版本语法: IE 10 */
   display: -webkit-flex; /* 新版本语法: Chrome 21+ */
   display: flex;         /* 新版本语法: Opera 12.1, Firefox 22+ */
+  flex-wrap: $wrap;
 }
 
 // justify-content，主轴对齐方式
@@ -161,9 +162,14 @@
 }
 
 // 图片背景设置
-@mixin bg-img-common($img, $b-size: contain) {
-  background: url($img) no-repeat center;
-  background-size: $b-size;
+@mixin background-image-common($img: "", $background-size: contain, $background-position: center) {
+  @if $img == "" {
+    background: no-repeat $background-position;
+  }
+  @if $img != "" {
+    background: url($img) no-repeat $background-position;
+  }
+  background-size: $background-size;
 }
 
 // 动画效果设置

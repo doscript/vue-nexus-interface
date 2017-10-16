@@ -92,6 +92,7 @@
 
 <style type="text/css" lang="scss">
   @import "../../assets/scss/variables.scss";
+  @import "../../assets/scss/mixins.scss";
 
   #app .article {
 
@@ -135,8 +136,8 @@
               border: 3px solid #fafafa;
               border-radius: 3px;
               margin: #{$common-margin} auto;
-              display: flex;
-              justify-content: center;
+              @include flex();
+              @include justify-content();
             }
           }
         }

@@ -23,19 +23,20 @@ export default{
 </script>
 <style lang="scss">
   @import "../../assets/scss/variables.scss";
+  @import "../../assets/scss/mixins.scss";
+
   #app .page-error {
     color: $unimportant-char-color;
     text-align: center;
     height: calc(100vh - #{$header-height});
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    @include flex();
+    @include flex-direction(column);
+    @include justify-content();
 
     .box {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      flex-wrap: wrap;
+      @include flex(wrap);
+      @include flex-direction();
+      @include justify-content();
 
       .pic {
         padding: $common-padding;

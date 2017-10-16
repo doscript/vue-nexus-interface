@@ -45,6 +45,7 @@
 
 <style lang="scss">
   @import './../../assets/scss/variables.scss';
+  @import './../../assets/scss/mixins.scss';
 
   #app .sidenav {
     height: 0;
@@ -52,7 +53,7 @@
     background-color: $side-nav-color;
     padding: 0 20px;
     overflow: hidden;
-    transition: all 0.75s ease;
+    @include transition-common(all, 0.75s, ease);
     z-index: 11;
 
     .el-menu--dark {

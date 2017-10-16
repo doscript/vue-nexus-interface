@@ -45,11 +45,12 @@
 
 <style lang="scss">
   @import './../../assets/scss/variables.scss';
+  @import './../../assets/scss/mixins.scss';
 
   #app .topnav {
     display: none;
     background-color: $side-nav-color;
-    transition: all 0.75s ease;
+    @include transition-common(all, 0.75s, ease);
 
     .el-menu--dark .el-menu-item, .el-menu--dark .el-submenu__title {
       color: $char-color;
@@ -68,9 +69,9 @@
 
     .el-menu {
       background-color: $header-color;
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-around;
+      @include flex();
+      @include flex-direction();
+      @include justify-content(space-around);
 
       .el-menu-item.single-menu-item {
         display: block;

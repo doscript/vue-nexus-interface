@@ -166,9 +166,7 @@ export default{
         height: 100%;
 
         figure {
-          background-size: auto 100%;
-          background-repeat: no-repeat;
-          background-position-x: center;
+          @include background-image-common("", auto 100%);
           width: 100%;
           height: 100%;
           /*left: 0;*/
@@ -225,8 +223,7 @@ export default{
             max-height: 200px;
 
             figure {
-              background: center no-repeat;
-              background-size: cover;
+              @include background-image-common("", cover);
               width: 100%;
               max-width: 500px;
               margin: 0 auto;

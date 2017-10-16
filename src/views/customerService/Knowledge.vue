@@ -256,6 +256,7 @@
 
 <style type="text/css" lang="scss">
   @import "../../assets/scss/variables.scss";
+  @import "../../assets/scss/mixins.scss";
 
   #app .knowledge {
 
@@ -300,7 +301,7 @@
         .list-area {
 
           .list-content {
-            display: flex;
+            @include flex();
             padding: 10px 0 0;
 
             .choose-title {
@@ -310,8 +311,7 @@
             }
 
             .choose-ul {
-              display: flex;
-              flex-wrap: wrap;
+              @include flex(wrap);
               margin: 0;
 
               .choose-item-outer {
@@ -320,7 +320,7 @@
                 span {
                   line-height: 24px;
                   display: block;
-                  transition: all 0.25s ease-in-out;
+                  @include transition-common();
                   padding: 5px;
                   border: 1px solid #{$main-color};
                   border-radius: 3px;
@@ -353,8 +353,7 @@
           .list-content {
 
             .question-ul {
-              display: flex;
-              flex-wrap: wrap;
+              @include flex(wrap);
               margin: 0;
               padding: 15px;
 
@@ -364,7 +363,7 @@
 
                 span {
                   line-height: 24px;
-                  transition: all 0.25s ease-in-out;
+                  @include transition-common();
                 }
 
                 span:hover {
@@ -375,8 +374,8 @@
             }
 
             .question-pages {
-              display: flex;
-              justify-content: center;
+              @include flex();
+              @include justify-content();
 
               .el-pagination.el-pagination--small {
                 color: $char-color;
@@ -398,7 +397,7 @@
                     background: $main-color;
                     border: 1px solid #{$main-color};
                     color: $char-color;
-                    transition: all 0.25s ease-in-out;
+                    @include transition-common();
                   }
 
                   li:hover {
@@ -424,13 +423,13 @@
         .list-area {
 
           .title {
-            display: flex;
-            justify-content: space-between;
+            @include flex();
+            @include justify-content(space-between);
 
             .return {
               color: $char-color;
               font-size: 14px;
-              transition: all 0.25s ease-in-out;
+              @include transition-common();
             }
 
             .return:hover {
@@ -440,7 +439,7 @@
           }
 
           .list-content {
-            display: flex;
+            @include flex();
             padding: 10px 0 0;
 
             .choose-title {

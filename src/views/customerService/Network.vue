@@ -358,6 +358,7 @@
 
 <style type="text/css" lang="scss">
   @import "../../assets/scss/variables.scss";
+  @import "../../assets/scss/mixins.scss";
 
   #app .network {
 
@@ -377,8 +378,7 @@
           max-height: 400px;
 
           figure {
-            background: top center no-repeat;
-            background-size: contain;
+            @include background-image-common("", contain, top center);
           }
         }
       }
@@ -392,8 +392,8 @@
           padding: 15px 0;
 
           .content {
-            display: flex;
-            align-items: center;
+            @include flex();
+            @include align-items(center);
 
             .recent-title {
               padding: 5px 15px 5px 0;
@@ -412,14 +412,13 @@
           border-bottom: 1px solid #{$char-color};
 
           .content {
-            display: flex;
-            flex-wrap: wrap;
+            @include flex(wrap);
 
             .address {
               padding: 10px;
 
               span {
-                transition: color 0.25s ease-in-out;
+                @include transition-common(color);
               }
 
               span:hover {
@@ -434,14 +433,13 @@
           padding: 15px 0;
 
           .content {
-            display: flex;
-            flex-wrap: wrap;
+            @include flex(wrap);
 
             .address-item {
               padding: 10px;
 
               figure {
-                background: url("#{$eben-resource-domain}/new_images/icon.png") -120px 0 no-repeat;
+                @include background-image-common("#{$eben-resource-domain}/new_images/icon.png", auto, -120px 0);
                 width: 30px;
                 height: 40px;
                 margin: 5px 0;
@@ -454,8 +452,8 @@
           }
 
           .null-content {
-            display: flex;
-            justify-content: center;
+            @include flex();
+            @include justify-content();
             height: 100px;
             padding: 50px 0;
           }
@@ -501,7 +499,7 @@
           .address-list {
 
             .content {
-              justify-content: space-between;
+              @include justify-content(space-between);
 
               .address-item {
                 padding: 15px 50px;

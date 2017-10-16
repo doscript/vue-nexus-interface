@@ -69,6 +69,7 @@ export default {
 
 <style type="text/css" lang="scss">
   @import './../../assets/scss/variables.scss';
+  @import './../../assets/scss/mixins.scss';
 
   #app .header {
     /*position: fixed;*/
@@ -84,9 +85,9 @@ export default {
       height: 100%;
       margin: 0 auto;
       text-align: center;
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
+      @include flex();
+      @include flex-direction();
+      @include justify-content();
     }
 
     a {
@@ -124,11 +125,11 @@ export default {
       }
 
       .logo-img {
-        background: url("../../assets/images/logo.png");
+        @include background-image-common("../../assets/images/logo.png");
         display: inline-block;
         height: 21px;
         width: 140px;
-        transition: all 0.75s ease;
+        @include transition-common(all, 0.75s, ease);
       }
 
       .logo-img:hover{
@@ -163,8 +164,8 @@ export default {
     width: 100%;
     height: 3px;
     background-color: #fff;
-    -webkit-transition: all 0.3s;
     backface-visibility: hidden;
+    @include transition-common(all, 0.3s, ease);
   }
   .menu-expand .menu span {
     background-color: transparent;

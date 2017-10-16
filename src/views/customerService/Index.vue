@@ -288,6 +288,7 @@
 
 <style type="text/css" lang="scss">
   @import "../../assets/scss/variables.scss";
+  @import "../../assets/scss/mixins.scss";
 
   #app .customer-service {
 
@@ -307,8 +308,7 @@
           max-height: 500px;
 
           figure {
-            background: top center no-repeat;
-            background-size: contain;
+            @include background-image-common("", contain, top center);
           }
         }
       }
@@ -321,17 +321,16 @@
 
         .content {
           color: $char-color;
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-          justify-content: space-around;
+          @include flex(wrap);
+          @include flex-direction();
+          @include justify-content(space-around);
 
           .link-service {
             padding: 10px 0;
             min-width: 105px;
             width: auto;
             text-align: center;
-            transition: all 0.25s ease-in-out;
+            @include transition-common();
 
             div {
               padding: 10px;
@@ -346,7 +345,7 @@
 
             figure {
               display: block;
-              background: url("#{$eben-resource-domain}/new_images/service_nav_icon.png") no-repeat center;
+              @include background-image-common("#{$eben-resource-domain}/new_images/service_nav_icon.png", auto);
               width: 63px;
               height: 63px;
               margin: 0 auto;
@@ -393,8 +392,7 @@
             text-align: center;
 
             figure {
-              background: url("#{$eben-resource-domain}/new_images/ercode.jpg") no-repeat center;
-              background-size: contain;
+              @include background-image-common("#{$eben-resource-domain}/new_images/ercode.jpg");
               height: 63px;
             }
 
@@ -412,8 +410,7 @@
       .page-body {
 
         .content {
-          display: flex;
-          flex-wrap: wrap;
+          @include flex(wrap);
 
           .el-select:nth-of-type(1) {
             width: 50%;
@@ -433,9 +430,9 @@
       padding-top: $section-padding-top;
 
       .page-body {
-        display: flex;
-        justify-content: space-around;
-        flex-direction: column;
+        @include flex();
+        @include flex-direction(column);
+        @include justify-content(space-around);
 
         .list-area {
           padding-bottom: $common-padding;
@@ -473,8 +470,8 @@
                   text-overflow: ellipsis;
                   line-height: 28px;
                   color: $char-color;
-                  transition: color 0.25s ease-in-out;
                   display: inline-block;
+                  @include transition-common(color);
                 }
 
                 span:hover {
@@ -491,7 +488,7 @@
 
             span {
               color: $char-color;
-              transition: color 0.25s ease-in-out;
+              @include transition-common(color);
               display: inline-block;
               line-height: 1em;
             }
@@ -528,8 +525,7 @@
                 figure {
                   width: 266px;
                   height: 144px;
-                  background-repeat: no-repeat;
-                  background-size: cover;
+                  @include background-image-common("", cover);
                   border-radius: 5px;
                 }
 
@@ -542,7 +538,7 @@
                   position: absolute;
                   top: 30px;
                   z-index: 2;
-                  transition: all 0.25s ease-in-out;
+                  @include transition-common();
                   opacity: 0.8;
                 }
 
@@ -557,13 +553,13 @@
           .list-area:nth-of-type(2) {
 
             .title {
-              display: flex;
-              justify-content: space-between;
+              @include flex();
+              @include justify-content(space-between);
 
               .more {
                 color: $char-color;
                 font-size: $font-normal-size;
-                transition: all 0.25s ease-in-out;
+                @include transition-common();
               }
 
               .more::after {
@@ -585,7 +581,7 @@
                 padding: 10px;
                 display: inline-block;
                 border: 1px solid #{$char-color};
-                transition: all 0.25s ease-in-out;
+                @include transition-common();
               }
 
               .download-link:hover {
@@ -623,7 +619,7 @@
         .page-body {
 
           .content {
-            justify-content: space-around;
+            @include justify-content(space-around);
 
             .link-service.hover-action {
 
@@ -653,8 +649,8 @@
       section.info-list {
 
         .page-body {
-          flex-direction: row;
-          flex-wrap: wrap;
+          @include flex(wrap);
+          @include flex-direction(row);
 
           .list-area.list-part {
             width: 50%;
@@ -669,8 +665,8 @@
 
           .list-collection {
             width: 100%;
-            display: flex;
-            flex-direction: row;
+            @include flex();
+            @include flex-direction(row);
 
             .list-area {
               width: 50%;
@@ -702,7 +698,7 @@
         .page-body {
 
           .content {
-            justify-content: space-around;
+            @include justify-content(space-around);
 
             .link-service {
               width: auto;
@@ -747,7 +743,7 @@
       section.info-list {
 
         .page-body {
-          justify-content: space-around;
+          @include justify-content(space-around);
 
           .list-area.list-part {
             width: 33.3%;
@@ -765,7 +761,7 @@
           .list-collection {
             width: 33.3%;
             padding-left: 20px;
-            flex-direction: column;
+            @include flex-direction(column);
 
             .list-area {
               width: 100%;
