@@ -37,8 +37,9 @@ export default {
         {
           icon: 'telephone',
           title: '联系我们',
-          path: 'http://www.eben.cn/abouts/contact/37',
-          pathType: '_blank',
+          path: '/customer-service/article',
+          pathType: '',
+          query: { id: '37', type: 'contact' },
           style: {
             background: 'url("' + EbenResourceDomain + '/new_images/icon.png") no-repeat',
             backgroundPosition: '0 -220px'
@@ -47,8 +48,9 @@ export default {
         {
           icon: 'keys',
           title: '渠道招商',
-          path: 'http://www.eben.cn/abouts/business/607',
-          pathType: '_blank',
+          path: '/customer-service/article',
+          pathType: '',
+          query: { id: '607', type: 'business' },
           style: {
             background: 'url("' + EbenResourceDomain + '/new_images/icon-business.png") no-repeat',
           }
@@ -56,8 +58,9 @@ export default {
         {
           icon: 'email',
           title: '加入我们',
-          path: 'http://www.eben.cn/abouts/joinus/36',
-          pathType: '_blank',
+          path: '/customer-service/article',
+          pathType: '',
+          query: { id: '36', type: 'joinus' },
           style: {
             background: 'url("' + EbenResourceDomain + '/new_images/icon.png") no-repeat',
             backgroundPosition: '0 -280px'
@@ -65,9 +68,10 @@ export default {
         },
         {
           icon: 'message',
-          title: '隐私声明',
-          path: 'http://www.eben.cn/abouts/statement/61',
-          pathType: '_blank',
+          title: '隐私申明',
+          path: '/customer-service/article',
+          pathType: '',
+          query: { id: '61', type: 'statement' },
           style: {
             background: 'url("' + EbenResourceDomain + '/new_images/icon.png") no-repeat',
             backgroundPosition: '0 -340px'
@@ -90,6 +94,10 @@ export default {
       console.log(item);
       if (item.pathType === '_blank') {
         window.location.href = item.path;
+        return;
+      }
+      if (item.query) {
+        this.$router.push({ path: item.path, query: item.query});
         return;
       }
       this.$router.push(item.path);
