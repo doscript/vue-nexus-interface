@@ -2,7 +2,11 @@
   <section class="info-nav">
     <div class="info-nav-content">
       <div class="info-nav-single" v-for="item in infoList" :key="item">
-        <a class="icon-pointer" @click="onClickItem(item)">
+        <a class="icon-pointer" @click="onClickItem(item)" v-if="item.pathType != '_blank'">
+          <div class="eben-icon eben-icon-statement" :style="item.style"></div>
+          <p><icon class="icons" :name="item.icon"></icon><span>{{ item.title }}</span></p>
+        </a>
+        <a class="icon-pointer" :href="item.path" target="_blank" v-else>
           <div class="eben-icon eben-icon-statement" :style="item.style"></div>
           <p><icon class="icons" :name="item.icon"></icon><span>{{ item.title }}</span></p>
         </a>
@@ -33,8 +37,8 @@ export default {
         {
           icon: 'telephone',
           title: '联系我们',
-          path: '',
-          pathType: '',
+          path: 'http://www.eben.cn/abouts/contact/37',
+          pathType: '_blank',
           style: {
             background: 'url("' + EbenResourceDomain + '/new_images/icon.png") no-repeat',
             backgroundPosition: '0 -220px'
@@ -43,8 +47,8 @@ export default {
         {
           icon: 'keys',
           title: '渠道招商',
-          path: '',
-          pathType: '',
+          path: 'http://www.eben.cn/abouts/business/607',
+          pathType: '_blank',
           style: {
             background: 'url("' + EbenResourceDomain + '/new_images/icon-business.png") no-repeat',
           }
@@ -52,8 +56,8 @@ export default {
         {
           icon: 'email',
           title: '加入我们',
-          path: '',
-          pathType: '',
+          path: 'http://www.eben.cn/abouts/joinus/36',
+          pathType: '_blank',
           style: {
             background: 'url("' + EbenResourceDomain + '/new_images/icon.png") no-repeat',
             backgroundPosition: '0 -280px'
@@ -62,8 +66,8 @@ export default {
         {
           icon: 'message',
           title: '隐私声明',
-          path: '',
-          pathType: '',
+          path: 'http://www.eben.cn/abouts/statement/61',
+          pathType: '_blank',
           style: {
             background: 'url("' + EbenResourceDomain + '/new_images/icon.png") no-repeat',
             backgroundPosition: '0 -340px'

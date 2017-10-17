@@ -36,6 +36,7 @@
 
       // 组件创建完后获取数据，
       // 此时 data 已经被 observed 了
+      document.title = this.$route.query.mark + ' - 壹人壹本';
       this.initSections();
     },
 

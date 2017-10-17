@@ -7,7 +7,7 @@
           <p>E人E本的品牌起点，源于创始人杜国楹先生对汉字书写的热爱。</p>
           <p>从学生时代开始，拥有“书写情结”的他就习惯于把每日所见、所想都记在本子上。随着时间的增长，记事的本子越来越多，无法整理也不舍得丢弃。于是，杜国楹萌生了这样的一个念头——能不能做一款“电子记事本”，一人只需一本，永远也写不完，随时能查看。</p>
           <p>2005年，E人E本开始启航，也因此得名。</p>
-          <a href="javascript:void(0);" class="more">大事记 >></a>
+          <a href="http://www.eben.cn/abouts/event" target="_blank" class="more">大事记 >></a>
         </div>
       </div>
     </section>
@@ -47,7 +47,7 @@
           <br>
           <p>公司成立于2009年，是清华同方股份（600100）旗下的全资子公司，是北京市科委和中关村管委会颁发认证的高新技术企业、北京市专利示范单位、移动电子政务安全本示范单位。</p>
           <p class="last-child">我们凭借强大的技术和产品实力，致力于为中国高端政商用户、政企及各行业用户提供安全、高效的移动办公解决方案。</p>
-          <a href="javascript:void(0);" class="more">企业荣誉 >></a>
+          <a href="http://www.eben.cn/abouts/honor" target="_blank" class="more">企业荣誉 >></a>
         </div>
       </div>
     </section>
@@ -105,7 +105,7 @@
             <figure :style="item.style"></figure>
           </div>
         </div>
-        <a href="javascript:void(0);" class="more" >了解更多 >></a>
+        <a href="http://www.eben.cn/abouts/eart/eshu" target="_blank" class="more" >了解更多 >></a>
       </div>
     </section>
 
