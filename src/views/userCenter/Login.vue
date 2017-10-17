@@ -46,7 +46,7 @@
         isLogin: $auth.checkLogin(),
         loginInfo: $auth.getLoginInfo(),
         form: {
-          username: '',
+          username: 'test',
           password: '',
         },
         rules: {
@@ -96,6 +96,14 @@
             console.log('login!');
             this.buttonSubmit.loading = true;
             setTimeout(function() {
+              if (othis.form.password !== '123qwe') {
+                othis.$alert('用户名或密码错误，示例：123qwe', '壹人壹本提示信息', {
+                  confirmButtonText: '确定',
+                });
+                othis.resetForm(formName);
+                othis.buttonSubmit.loading = false;
+                return false;
+              }
               // 向远程服务器发送登录请求，服务器返回用户基本信息
               let loginInfo = {
                 loginSN: 'cfbb50130344e9564e6a415f64be9054',
@@ -136,6 +144,7 @@
         $utils.removeStorage('login-sn');
         $utils.removeStorage('login-info');
         this.isLogin = false;
+
       },
 
       resetPassword() {

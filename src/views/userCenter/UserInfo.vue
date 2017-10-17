@@ -51,8 +51,8 @@
                 <el-input v-model="ruleForm.phone" placeholder="请输入您的手机号" required></el-input>
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" @click="submitForm('ruleForm')">立即创建</el-button>
-                <el-button @click="resetForm('ruleForm')">重置</el-button>
+                <el-button type="primary" @click="submitForm('ruleForm')">保 存</el-button>
+                <el-button @click="resetForm('ruleForm')">重 置</el-button>
               </el-form-item>
             </el-form>
           </el-tab-pane>
@@ -61,15 +61,18 @@
           </el-tab-pane>
           <el-tab-pane label="修改密码" name="fourth" class="fourth">
             <el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
-              <el-form-item label="密码" prop="pass">
+              <el-form-item label="旧密码" prop="oldPass">
+                <el-input type="password" v-model="ruleForm2.oldPass" auto-complete="off"></el-input>
+              </el-form-item>
+              <el-form-item label="新密码" prop="pass">
                 <el-input type="password" v-model="ruleForm2.pass" auto-complete="off"></el-input>
               </el-form-item>
               <el-form-item label="确认密码" prop="checkPass">
                 <el-input type="password" v-model="ruleForm2.checkPass" auto-complete="off"></el-input>
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
-                <el-button @click="resetForm('ruleForm2')">重置</el-button>
+                <el-button type="primary" @click="submitForm('ruleForm2')">提 交</el-button>
+                <el-button @click="resetForm('ruleForm2')">重 置</el-button>
               </el-form-item>
             </el-form>
           </el-tab-pane>
@@ -88,22 +91,24 @@
     name: 'UserInfo',
 
     data () {
+      // 旧密码验证
+      let validateOldPass = (rule, value, callback) => {
+        if (this.ruleForm2.oldPass !== '123qwe') {
+          callback(new Error('旧密码输入错误，示例：123qwe'));
+        }
+        callback();
+      };
       // 密码输入验证
       let validatePass = (rule, value, callback) => {
-        if (value === '') {
-          callback(new Error('请输入密码'));
+        if (this.ruleForm2.checkPass !== '' && value !== this.ruleForm2.checkPass) {
+          callback(new Error('两次输入密码不一致!'));
         } else {
-          if (this.ruleForm2.checkPass !== '') {
-            this.$refs.ruleForm2.validateField('checkPass');
-          }
           callback();
         }
       };
       // 再次输入密码验证
       let validatePass2 = (rule, value, callback) => {
-        if (value === '') {
-          callback(new Error('请再次输入密码'));
-        } else if (value !== this.ruleForm2.pass) {
+        if (value !== this.ruleForm2.pass) {
           callback(new Error('两次输入密码不一致!'));
         } else {
           callback();
@@ -153,16 +158,22 @@
           ],
         },
         ruleForm2: {
+          oldPass: '',
           pass: '',
           checkPass: '',
-          age: ''
         },
         rules2: {
+          oldPass: [
+            { required: true, message: '请输入旧密码', trigger: 'blur' },
+            { validator: validateOldPass, trigger: 'blur' },
+          ],
           pass: [
-            { validator: validatePass, trigger: 'blur' }
+            { required: true, message: '请输入新密码', trigger: 'blur' },
+            { validator: validatePass, trigger: 'change' },
           ],
           checkPass: [
-            { validator: validatePass2, trigger: 'blur' }
+            { required: true, message: '请输入确认密码', trigger: 'blur' },
+            { validator: validatePass2, trigger: 'change' },
           ],
         },
         identities: [
@@ -272,7 +283,7 @@
         $utils.setStorage('is-login', 'false');
         $utils.removeStorage('login-sn');
         $utils.removeStorage('login-info');
-        this.$router.push('user-center/login');
+        this.$router.push('/user-center/login');
       },
     },
 
@@ -380,7 +391,12 @@
             }
 
             .fourth {
+              padding-top: 30px;
 
+              form {
+                max-width: 400px;
+                margin: 0 auto;
+              }
             }
           }
         }
