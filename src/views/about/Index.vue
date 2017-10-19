@@ -575,7 +575,8 @@
               }
 
               a {
-                width: 80px;
+                width: 100px;
+                overflow: hidden;
               }
             }
           }
