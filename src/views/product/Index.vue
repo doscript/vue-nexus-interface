@@ -224,16 +224,18 @@
 
     section.page {
       width: 100%;
-      min-height: 60vw;
+      height: 60vw;
       max-height: 650px;
       overflow: hidden;
 
       .page-body {
-        min-height: inherit;
+        height: inherit;
+        max-height: inherit;
 
         figure {
           width: 100%;
-          min-height: inherit;
+          height: inherit;
+          max-height: inherit;
           @include background-image-common("", cover);
         }
       }
@@ -260,7 +262,7 @@
     #app .product {
 
       section.page {
-        min-height: $product-section-height;
+        height: $product-section-height;
 
         .page-body {
 
