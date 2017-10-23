@@ -241,17 +241,17 @@ export default{
 
         }
 
-        div:nth-of-type(1) .card-inner figure {
-          background-image: url("https://images.apple.com/cn/home/images/row-promos/apple_pay_small_2x.jpg");
-        }
+        /*div:nth-of-type(1) .card-inner figure {*/
+          /*background-image: url("https://images.apple.com/cn/home/images/row-promos/apple_pay_small_2x.jpg");*/
+        /*}*/
 
-        div:nth-of-type(2) .card-inner figure {
-          background-image: url("https://images.apple.com/v/home/dj/images/row-promos/imac_small_2x.jpg");
-        }
+        /*div:nth-of-type(2) .card-inner figure {*/
+          /*background-image: url("https://images.apple.com/v/home/dj/images/row-promos/imac_small_2x.jpg");*/
+        /*}*/
 
-        div:nth-of-type(3) .card-inner figure {
-          background-image: url("https://images.apple.com/v/home/dj/images/row-promos/summer_casual_small_2x.jpg");
-        }
+        /*div:nth-of-type(3) .card-inner figure {*/
+          /*background-image: url("https://images.apple.com/v/home/dj/images/row-promos/summer_casual_small_2x.jpg");*/
+        /*}*/
 
       }
     }
