@@ -12,27 +12,27 @@ export default {
       pageTitle: $utils.titleLang('T9S - E人E本', 'EBEN T9S'),
       type: ''
     },
-    {
-      title: $utils.titleLang('T9标准版', 'T9 Standard'),
-      path: '/product/eben',
-      query: { mark: 'T9' },
-      pageTitle: $utils.titleLang('T9标准版 - E人E本', 'EBEN T9 Standard'),
-      type: ''
-    },
-    {
-      title: $utils.titleLang('T9尊享版', 'T9 Honor'),
-      path: '/product/eben',
-      query: { mark: 'T9honor' },
-      pageTitle: $utils.titleLang('T9尊享版 - E人E本', 'EBEN T9 Honor'),
-      type: ''
-    },
-    {
-      title: $utils.titleLang('T9尊享版 学习中国', 'T9 Study China'),
-      path: '/product/eben',
-      query: { mark: 'T9Study' },
-      pageTitle: $utils.titleLang('T9尊享版（学习中国） - E人E本', 'EBEN T9 Honor Study'),
-      type: ''
-    },
+    // {
+    //   title: $utils.titleLang('T9标准版', 'T9 Standard'),
+    //   path: '/product/eben',
+    //   query: { mark: 'T9' },
+    //   pageTitle: $utils.titleLang('T9标准版 - E人E本', 'EBEN T9 Standard'),
+    //   type: ''
+    // },
+    // {
+    //   title: $utils.titleLang('T9尊享版', 'T9 Honor'),
+    //   path: '/product/eben',
+    //   query: { mark: 'T9honor' },
+    //   pageTitle: $utils.titleLang('T9尊享版 - E人E本', 'EBEN T9 Honor'),
+    //   type: ''
+    // },
+    // {
+    //   title: $utils.titleLang('T9尊享版 学习中国', 'T9 Study China'),
+    //   path: '/product/eben',
+    //   query: { mark: 'T9Study' },
+    //   pageTitle: $utils.titleLang('T9尊享版（学习中国） - E人E本', 'EBEN T9 Honor Study'),
+    //   type: ''
+    // },
     {
       title: $utils.titleLang('T8S标准版', 'T8S'),
       path: '/product/eben',

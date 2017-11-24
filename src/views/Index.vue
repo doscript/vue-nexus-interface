@@ -89,7 +89,7 @@ export default{
           figureStyle: {
             backgroundImage: 'url("http://img1.ereneben.com/new_images/p2.jpg")'
           },
-          path: '/product/eben?mark=L2',
+          path: '/product/eben?mark=T10',
         },
         {
           titleSmall: '',
