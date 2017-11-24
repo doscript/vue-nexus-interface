@@ -63,6 +63,21 @@
       initSections() {
         console.log('The mark of this page is: ' + this.$route.query.mark);
         switch (this.$route.query.mark) {
+          case 'T10':
+            this.sections = [
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t10/t10_bg_01.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t10/t10_bg_02.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t10/t10_bg_03.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t10/t10_bg_04.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t10/t10_bg_05.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t10/t10_bg_06.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t10/t10_bg_07.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t10/t10_bg_08.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t10/t10_bg_09.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t10/t10_bg_10.png")', } },
+              { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t10/t10_bg_11.png")', } },
+            ];
+            break;
           case 'T9S':
             this.sections = [
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9s/t9s_bg_01.png")', } },

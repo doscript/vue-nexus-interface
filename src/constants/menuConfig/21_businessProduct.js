@@ -6,17 +6,17 @@ export default {
   icon: 'ADM_Manage',
   children: [
     {
-      title: $utils.titleLang('K9 (EBEN 81002)', 'K9'),
+      title: $utils.titleLang('K9', 'K9'),
       path: '/product/eben',
       query: { mark: 'K9' },
-      pageTitle: $utils.titleLang('K9 (EBEN 81002) - E人E本', 'K9'),
+      pageTitle: $utils.titleLang('K9 - E人E本', 'K9'),
       type: ''
     },
     {
-      title: $utils.titleLang('L2 (EBEN 82004)', 'L2'),
+      title: $utils.titleLang('L2', 'L2'),
       path: '/product/eben',
       query: { mark: 'L2' },
-      pageTitle: $utils.titleLang('L2 (EBEN 82004) - E人E本', 'L2'),
+      pageTitle: $utils.titleLang('L2 - E人E本', 'L2'),
       type: ''
     },
     {

@@ -4,7 +4,8 @@
       <div class="history-devices-content">
         <span class="history-title">历史型号</span>
         <div class="history-device" v-for="item in historyDevices" :key="item">
-          <a :href="item.path" target="_blank" class="device-link">{{ item.title }}</a>
+          <a v-if="item.pathType == '_blank'" :href="item.path" :target="item.pathType" class="device-link">{{ item.title }}</a>
+          <a v-else href="javascript:void(0);" @click="onClickItem(item)" class="device-link">{{ item.title }}</a>
         </div>
       </div>
     </div>
@@ -21,40 +22,54 @@
       return {
         historyDevices: [
           {
+            title: 'T9',
+            path: '/product/eben?mark=T9',
+            pathType: '',
+          },
+          {
             title: 'T8',
-            path: 'http://www.eben.cn/product/t8'
+            path: 'http://www.eben.cn/product/t8',
+            pathType: '_blank',
           },
           {
             title: 'A2',
-            path: 'http://www.eben.cn/product/seriesa'
+            path: 'http://www.eben.cn/product/seriesa',
+            pathType: '_blank',
           },
           {
             title: 'T7',
-            path: 'http://www.eben.cn/productt7'
+            path: 'http://www.eben.cn/productt7',
+            pathType: '_blank',
           },
           {
             title: 'T6',
-            path: 'http://www.eben.cn/productt6'
+            path: 'http://www.eben.cn/productt6',
+            pathType: '_blank',
           },
           {
             title: 'T5',
-            path: 'http://www.eben.cn/productt5'
+            path: 'http://www.eben.cn/productt5',
+            pathType: '_blank',
           },
           {
             title: 'T4',
-            path: 'http://www1.eben.cn/product'
+            path: 'http://www1.eben.cn/product',
+            pathType: '_blank',
           },
           {
             title: 'T3',
-            path: 'http://www1.eben.cn/product/t3'
+            path: 'http://www1.eben.cn/product/t3',
+            pathType: '_blank',
           },
           {
             title: 'T2',
-            path: 'http://www1.eben.cn/product/t2'
+            path: 'http://www1.eben.cn/product/t2',
+            pathType: '_blank',
           },
           {
             title: 'T1',
-            path: 'http://www1.eben.cn/product/t1'
+            path: 'http://www1.eben.cn/product/t1',
+            pathType: '_blank',
           },
         ]
       }
@@ -69,6 +84,14 @@
 
     methods: {
 
+      onClickItem(item) {
+        console.log(item);
+        if (item.pathType === '_blank') {
+          window.location.href = item.path;
+          return;
+        }
+        this.$router.push(item.path);
+      },
     }
   }
 </script>

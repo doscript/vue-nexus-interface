@@ -55,7 +55,7 @@ export default{
           figureStyle: {
             backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_1.jpg")'
           },
-          path: '/product/eben?mark=T9S',
+          path: '/product/eben?mark=T10',
         },
         {
           titleSmall: '',
@@ -63,7 +63,7 @@ export default{
           figureStyle: {
             backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_2.jpg")'
           },
-          path: '/product/eben?mark=K9',
+          path: '/product/eben?mark=T9S',
         },
         {
           titleSmall: '',
@@ -71,7 +71,7 @@ export default{
           figureStyle: {
             backgroundImage: 'url("http://img1.ereneben.com/new_images/focus_3.jpg")'
           },
-          path: '/product/eben?mark=L2',
+          path: '/product/eben?mark=K9',
         },
       ],
       cardArray: [
