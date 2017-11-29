@@ -85,7 +85,6 @@
     methods: {
 
       onClickItem(item) {
-        console.log(item);
         if (item.pathType === '_blank') {
           window.location.href = item.path;
           return;

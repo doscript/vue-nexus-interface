@@ -96,7 +96,6 @@
         this.$utils.scrollTop();
 
         // console.log('The mark of this page is: ' + this.$route.query.mark);
-        document.title = this.$route.query.mark + ' - 壹人壹本';
 
         let t9series = [
           { name: 'T9', pathType: '', path: '/product/eben?mark=T9' },
@@ -106,6 +105,7 @@
 
         switch (this.$route.query.mark) {
           case 'T10':
+            document.title = 'T10 - 壹人壹本';
             this.sections = [
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t10/t10_bg_01.png")', } },
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t10/t10_bg_02.png")', } },
@@ -121,6 +121,7 @@
             ];
             break;
           case 'T9S':
+            document.title = 'T9S - 壹人壹本';
             this.sections = [
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9s/t9s_bg_01.png")', } },
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9s/t9s_bg_02.png")', } },
@@ -134,6 +135,7 @@
             ];
             break;
           case 'T9':
+            document.title = 'T9 - 壹人壹本';
             this.sections = [
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_01.jpg")', } },
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_02.jpg")', } },
@@ -157,6 +159,7 @@
             this.seriesDevices = t9series;
             break;
           case 'T9honor':
+            document.title = 'T9尊享版 - 壹人壹本';
             this.sections = [
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_01.jpg")', } },
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_02.jpg")', } },
@@ -180,6 +183,7 @@
             this.seriesDevices = t9series;
             break;
           case 'T9Study':
+            document.title = 'T9学习中国 - 壹人壹本';
             this.sections = [
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9study/t9study_bg_01.jpg")', } },
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9study/t9study_bg_02.jpg")', } },
@@ -196,6 +200,7 @@
             this.seriesDevices = t9series;
             break;
           case 'T8S':
+            document.title = 'T8S - 壹人壹本';
             this.sections = [
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_01.jpg")', } },
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_02.jpg")', } },
@@ -213,6 +218,7 @@
             ];
             break;
           case 'T7S':
+            document.title = 'T7S - 壹人壹本';
             this.sections = [
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_01.jpg")', } },
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t8s/t8s_bg_02.jpg")', } },
@@ -230,6 +236,7 @@
             ];
             break;
           case 'K9':
+            document.title = 'K9 - 壹人壹本';
             this.sections = [
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k9/k9_bg_01.png")', } },
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k9/k9_bg_02.png")', } },
@@ -241,6 +248,7 @@
             ];
             break;
           case 'L2':
+            document.title = 'L2 - 壹人壹本';
             this.sections = [
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/l2/l2_bg_01.png")', } },
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/l2/l2_bg_02.png")', } },
@@ -252,6 +260,7 @@
             ];
             break;
           case 'K8S':
+            document.title = 'K8S - 壹人壹本';
             this.sections = [
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k8s/k8s_bg_01.jpg")', } },
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/k8s/k8s_bg_02.jpg")', } },
@@ -267,6 +276,7 @@
             ];
             break;
           default:
+            document.title = '壹本产品 - 壹人壹本';
             this.sections = [];
             break;
         }
