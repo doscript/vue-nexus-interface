@@ -1,5 +1,11 @@
 <template>
   <div class="product">
+    <section class="series-devices" v-if="seriesDevices.length > 0" id="series-devices">
+      <div class="series-devices-body">
+        <span>系列产品：</span>
+        <a href="javascript:void(0);" v-for="item in seriesDevices" :key="item" @click="onClickItem(item)">{{ item.name }}</a>
+      </div>
+    </section>
     <section class="page" v-for="item in sections" :key="item">
       <div class="page-body">
         <figure :style="item.style"></figure>
@@ -25,22 +31,22 @@
     data () {
       return {
         sections: [],
+        seriesDevices: [],
       }
     },
 
     computed: {},
 
     created () {
-
-      this.$utils.scrollTop();
-
       // 组件创建完后获取数据，
       // 此时 data 已经被 observed 了
-      // document.title = this.$route.query.mark + ' - 壹人壹本';
       this.initSections();
     },
 
     mounted () {
+      this.$nextTick(function () {
+        window.addEventListener('scroll', this.onScroll)
+      })
 
     },
 
@@ -60,9 +66,44 @@
 
     methods: {
 
+      onScroll() {
+
+        let scrolled = document.documentElement.scrollTop || document.body.scrollTop;
+        let sdItem = document.getElementById('series-devices');
+
+        if (!sdItem || sdItem == null) return;
+
+        if (scrolled > 0) {
+          this.$utils.addClass(sdItem, 'fixed-top');
+        } else {
+          this.$utils.removeClass(sdItem, 'fixed-top');
+        }
+      },
+
+      onClickItem(item) {
+
+        if (item.pathType === '_blank') {
+          window.location.href = item.path;
+          return;
+        }
+        this.$router.push(item.path);
+      },
+
       initSections() {
+
+        this.seriesDevices = [];
+
+        this.$utils.scrollTop();
+
         // console.log('The mark of this page is: ' + this.$route.query.mark);
         document.title = this.$route.query.mark + ' - 壹人壹本';
+
+        let t9series = [
+          { name: 'T9', pathType: '', path: '/product/eben?mark=T9' },
+          { name: 'T9+', pathType: '', path: '/product/eben?mark=T9honor' },
+          { name: 'T9学习中国', pathType: '', path: '/product/eben?mark=T9Study' },
+        ];
+
         switch (this.$route.query.mark) {
           case 'T10':
             this.sections = [
@@ -113,6 +154,7 @@
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_17.jpg")', } },
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9/t9_bg_18.jpg")', } },
             ];
+            this.seriesDevices = t9series;
             break;
           case 'T9honor':
             this.sections = [
@@ -135,6 +177,7 @@
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_17.jpg")', } },
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9honor/t9_honor_bg_18.jpg")', } },
             ];
+            this.seriesDevices = t9series;
             break;
           case 'T9Study':
             this.sections = [
@@ -150,6 +193,7 @@
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9study/t9study_bg_10.jpg")', } },
               { style: { backgroundImage: 'url("' + EbenResourceDomain + '/new_images/products/t9study/t9study_bg_11.jpg")', } },
             ];
+            this.seriesDevices = t9series;
             break;
           case 'T8S':
             this.sections = [
@@ -238,6 +282,38 @@
 
   #app .product {
 
+    section.series-devices {
+      width: 100%;
+      height: 50px;
+      line-height: 50px;
+      background: rgba(56, 56, 56, 0.7);
+      @include transition-common(top, 0.5s);
+      position: fixed;
+      top: $header-height;
+
+      .series-devices-body {
+        padding: 0 $common-padding;
+        margin: 0 auto;
+
+        span {
+
+        }
+
+        a {
+          color: $char-color;
+          margin: 0 8px;
+        }
+
+        a:hover {
+          color: $char-hover-color;
+        }
+      }
+    }
+
+    section.series-devices.fixed-top {
+      top: 0;
+    }
+
     section.page {
       width: 100%;
       height: 60vw;
@@ -261,6 +337,13 @@
 
   @media (min-width: #{$responsive-width-xs}) {
     #app .product {
+
+      section.series-devices {
+
+        .series-devices-body {
+          width: $common-content-width-small;
+        }
+      }
 
       section.page {
 
