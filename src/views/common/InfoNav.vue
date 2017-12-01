@@ -91,7 +91,6 @@ export default {
   methods: {
 
     onClickItem(item) {
-      console.log(item);
       if (item.pathType === '_blank') {
         window.location.href = item.path;
         return;
@@ -130,7 +129,7 @@ export default {
           width: 100%;
           font-size: 15px;
           line-height: 1.5em;
-          color: $char-hover-color;
+          color: $char-color;
           text-align: center;
           display: block;
           float: left;
@@ -154,7 +153,8 @@ export default {
         }
 
         a:hover {
-          color: $char-color;
+          /*color: $char-hover-color;*/
+          opacity: 0.7;
           cursor: pointer;
         }
       }

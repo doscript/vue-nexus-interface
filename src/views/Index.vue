@@ -205,7 +205,7 @@ export default{
     }
 
     section.main-card {
-      width: $common-content-width-xxs;
+      width: 100vw;
       padding-top: $section-padding-top;
       margin: 0 auto;
 
@@ -215,25 +215,27 @@ export default{
 
         .card-part {
           position: relative;
-          padding: 10px 0;
+          padding: 5px 0;
 
           .card-inner {
             width: 100%;
-            height: 35vw;
-            max-height: 200px;
+            height: 55vw;
+            max-height: 300px;
 
             figure {
               @include background-image-common("", cover);
               width: 100%;
-              max-width: 500px;
+              /*max-width: 500px;*/
               margin: 0 auto;
               height: 100%;
-              border: 1px solid #555;
+              /*border: 1px solid #555;*/
+              opacity: 1;
               @include transition-common();
             }
 
             figure:hover {
-              border-color: $opacity-white-bg-color;
+              /*border-color: $opacity-white-bg-color;*/
+              opacity: 0.7;
               cursor: pointer;
             }
 
@@ -278,6 +280,11 @@ export default{
 
               .card-inner {
                 height: 20vw;
+                max-height: 200px;
+
+                figure {
+                  max-width: 500px;
+                }
               }
             }
           }
