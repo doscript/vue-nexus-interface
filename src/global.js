@@ -12,7 +12,9 @@ Vue.use(ElementUI)
 
 /* inject i18n */
 const browserLanguage = (window.navigator.language || window.navigator.browserLanguage).split('-')[0]
-const lang = $utils.getStorage('lang') || (browserLanguage in locales ? browserLanguage : 'en')
+// const lang = $utils.getStorage('lang') || (browserLanguage in locales ? browserLanguage : 'zh')
+const lang = $utils.getStorage('lang') || 'zh';
+console.log(lang);
 Vue.config.lang = lang
 
 Object.keys(locales).forEach(lang => {

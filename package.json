@@ -15,10 +15,10 @@
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e"
   },
-  "pre-commit": [
-    "precommit-msg",
-    "lint-staged"
-  ],
+//  "pre-commit": [
+//    "precommit-msg",
+//    "lint-staged"
+//  ],
   "dependencies": {
     "babel-polyfill": "^6.20.0",
     "bootstrap": "^4.0.0-alpha.6",
